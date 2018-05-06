@@ -698,17 +698,17 @@
 	</resourceList>
 	<playerList>
 		<!-- In turn order -->
-		<player name="Mazdak" optional="false"/>
-		<player name="China" optional="false"/>
-		<player name="EuroForce" optional="false"/>
-		<player name="Russia" optional="false"/>
-		<player name="India" optional="false"/>
-		<player name="Arcadia" optional="false"/>
-		<player name="Korea" optional="false"/>
-		<player name="Hoshida" optional="false"/>
-		<player name="Meijou" optional="false"/>
-		<player name="Grands" optional="false"/>
-		<player name="NonAligned" optional="false"/>
+		<player name="Mazdak" optional="true"/>
+		<player name="China" optional="true"/>
+		<player name="EuroForce" optional="true"/>
+		<player name="Russia" optional="true"/>
+		<player name="India" optional="true"/>
+		<player name="Arcadia" optional="true"/>
+		<player name="Korea" optional="true"/>
+		<player name="Hoshida" optional="true"/>
+		<player name="Meijou" optional="true"/>
+		<player name="Grands" optional="true"/>
+		<player name="NonAligned" optional="true"/>
 		<player name="Neutral" optional="true" defaultType="DoesNothing" isHidden="true"/>
 	</playerList>
 	<unitList>
@@ -729,10 +729,6 @@
 		<unit name="katyusha"/>
 		<unit name="conscript"/>
 		<unit name="motorPool"/>
-		<unit name="colony"/>
-		<unit name="settlement"/>
-		<unit name="village"/>
-		<unit name="town"/>
 		<unit name="garrison"/>
 		<unit name="marine"/>
 		<unit name="tankHunter"/>
@@ -767,8 +763,10 @@
 		<delegate name="tech_activation" javaClass="games.strategy.triplea.delegate.TechActivationDelegate" display="Activate Technology"/>
 		<delegate name="endTurn" javaClass="games.strategy.triplea.delegate.EndTurnDelegate" display="Turn Complete"/>
 		<delegate name="endRound" javaClass="games.strategy.triplea.delegate.EndRoundDelegate" display="Round Complete"/>
+		<delegate name="randomStartDelegate" javaClass="games.strategy.triplea.delegate.RandomStartDelegate" display="Assign Territories"/>
 		<sequence>
 			<step name="gameInitDelegate" delegate="initDelegate" maxRunCount="1"/>
+			<step name="setupRandomStartDelegate" delegate="randomStartDelegate" maxRunCount="1"/>
 			<step name="mazdakTech" delegate="tech" player="Mazdak"/>
 			<step name="mazdakTechActivation" delegate="tech_activation" player="Mazdak"/>
 			<step name="mazdakPurchase" delegate="purchase" player="Mazdak"/>
@@ -893,9 +891,9 @@
 			<cost resource="oil" quantity="1"/>
 			<result resourceOrUnit="motorPool" quantity="1"/>
 		</productionRule>
-		<productionRule name="buycolony">
-			<cost resource="PUs" quantity="5"/>
-			<result resourceOrUnit="colony" quantity="1"/>
+		<productionRule name="buygarrison">
+			<cost resource="PUs" quantity="4"/>
+			<result resourceOrUnit="garrison" quantity="1"/>
 		</productionRule>
 		<productionRule name="buymarine">
 			<cost resource="PUs" quantity="4"/>
@@ -1114,7 +1112,7 @@
 		</productionFrontier>
 		<productionFrontier name="KoreaFrontier">
 			<frontierRules name="buyinfantry"/>
-			<frontierRules name="buycolony"/>
+			<frontierRules name="buygarrison"/>
 			<frontierRules name="buyartillery"/>
 			<frontierRules name="buytank"/>
 			<frontierRules name="buyfighter"/>
@@ -1605,372 +1603,83 @@
 		</attachment>
 <!-- /ALWAYS TRUE CONDITION -->
 
-<!-- KOREAN COLONIES -->
-	<!-- ANY PRESENCE NEAR CONDITIONS -->
-		<attachment name="conditionAttachmentKoreanAny1NearKarafuto" attachTo="Korea" javaClass="games.strategy.triplea.attachments.RulesAttachment" type="player">
-			<option name="directPresenceTerritories" value="Niverhotsk" count="1"/>
-			<option name="unitPresence" value="colony:settlement:village:town" count="1"/>
-		</attachment>
-		<attachment name="conditionAttachmentKoreanAny1NearNiverhotsk" attachTo="Korea" javaClass="games.strategy.triplea.attachments.RulesAttachment" type="player">
-			<option name="directPresenceTerritories" value="Karafuto:North Bloc:Manchuria" count="1"/>
-			<option name="unitPresence" value="colony:settlement:village:town" count="1"/>
-		</attachment>
-		<attachment name="conditionAttachmentKoreanAny2NearNiverhotsk" attachTo="Korea" javaClass="games.strategy.triplea.attachments.RulesAttachment" type="player">
-			<option name="directPresenceTerritories" value="Karafuto:North Bloc:Manchuria" count="2"/>
-			<option name="unitPresence" value="colony:settlement:village:town" count="1"/>
-		</attachment>
-		<attachment name="conditionAttachmentKoreanAny3NearNiverhotsk" attachTo="Korea" javaClass="games.strategy.triplea.attachments.RulesAttachment" type="player">
-			<option name="directPresenceTerritories" value="Karafuto:North Bloc:Manchuria" count="3"/>
-			<option name="unitPresence" value="colony:settlement:village:town" count="1"/>
-		</attachment>
-		<attachment name="conditionAttachmentKoreanAny1NearNorthBloc" attachTo="Korea" javaClass="games.strategy.triplea.attachments.RulesAttachment" type="player">
-			<option name="directPresenceTerritories" value="Niverhotsk:Manchuria:Shandong" count="1"/>
-			<option name="unitPresence" value="colony:settlement:village:town" count="1"/>
-		</attachment>
-		<attachment name="conditionAttachmentKoreanAny2NearNorthBloc" attachTo="Korea" javaClass="games.strategy.triplea.attachments.RulesAttachment" type="player">
-			<option name="directPresenceTerritories" value="Niverhotsk:Manchuria:Shandong" count="2"/>
-			<option name="unitPresence" value="colony:settlement:village:town" count="1"/>
-		</attachment>
-		<attachment name="conditionAttachmentKoreanAny3NearNorthBloc" attachTo="Korea" javaClass="games.strategy.triplea.attachments.RulesAttachment" type="player">
-			<option name="directPresenceTerritories" value="Niverhotsk:Manchuria:Shandong" count="3"/>
-			<option name="unitPresence" value="colony:settlement:village:town" count="1"/>
-		</attachment>
-		<attachment name="conditionAttachmentKoreanAny1NearManchuria" attachTo="Korea" javaClass="games.strategy.triplea.attachments.RulesAttachment" type="player">
-			<option name="directPresenceTerritories" value="Niverhotsk:North Bloc:Shandong:Yuyuan" count="1"/>
-			<option name="unitPresence" value="colony:settlement:village:town" count="1"/>
-		</attachment>
-		<attachment name="conditionAttachmentKoreanAny2NearManchuria" attachTo="Korea" javaClass="games.strategy.triplea.attachments.RulesAttachment" type="player">
-			<option name="directPresenceTerritories" value="Niverhotsk:North Bloc:Shandong:Yuyuan" count="2"/>
-			<option name="unitPresence" value="colony:settlement:village:town" count="1"/>
-		</attachment>
-		<attachment name="conditionAttachmentKoreanAny3NearManchuria" attachTo="Korea" javaClass="games.strategy.triplea.attachments.RulesAttachment" type="player">
-			<option name="directPresenceTerritories" value="Niverhotsk:North Bloc:Shandong:Yuyuan" count="3"/>
-			<option name="unitPresence" value="colony:settlement:village:town" count="1"/>
-		</attachment>
-		<attachment name="conditionAttachmentKoreanAny1NearTulra" attachTo="Korea" javaClass="games.strategy.triplea.attachments.RulesAttachment" type="player">
-			<option name="directPresenceTerritories" value="Yuyuan" count="1"/>
-			<option name="unitPresence" value="colony:settlement:village:town" count="1"/>
-		</attachment>
-		<attachment name="conditionAttachmentKoreanAny1NearYuyuan" attachTo="Korea" javaClass="games.strategy.triplea.attachments.RulesAttachment" type="player">
-			<option name="directPresenceTerritories" value="Tulra:Manchuria:Shandong:Canton" count="1"/>
-			<option name="unitPresence" value="colony:settlement:village:town" count="1"/>
-		</attachment>
-		<attachment name="conditionAttachmentKoreanAny2NearYuyuan" attachTo="Korea" javaClass="games.strategy.triplea.attachments.RulesAttachment" type="player">
-			<option name="directPresenceTerritories" value="Tulra:Manchuria:Shandong:Canton" count="2"/>
-			<option name="unitPresence" value="colony:settlement:village:town" count="1"/>
-		</attachment>
-		<attachment name="conditionAttachmentKoreanAny3NearYuyuan" attachTo="Korea" javaClass="games.strategy.triplea.attachments.RulesAttachment" type="player">
-			<option name="directPresenceTerritories" value="Tulra:Manchuria:Shandong:Canton" count="3"/>
-			<option name="unitPresence" value="colony:settlement:village:town" count="1"/>
-		</attachment>
-		<attachment name="conditionAttachmentKoreanAny1NearShandong" attachTo="Korea" javaClass="games.strategy.triplea.attachments.RulesAttachment" type="player">
-			<option name="directPresenceTerritories" value="North Bloc:Manchuria:Yuyuan:Canton:Gungzi" count="1"/>
-			<option name="unitPresence" value="colony:settlement:village:town" count="1"/>
-		</attachment>
-		<attachment name="conditionAttachmentKoreanAny2NearShandong" attachTo="Korea" javaClass="games.strategy.triplea.attachments.RulesAttachment" type="player">
-			<option name="directPresenceTerritories" value="North Bloc:Manchuria:Yuyuan:Canton:Gungzi" count="2"/>
-			<option name="unitPresence" value="colony:settlement:village:town" count="1"/>
-		</attachment>
-		<attachment name="conditionAttachmentKoreanAny3NearShandong" attachTo="Korea" javaClass="games.strategy.triplea.attachments.RulesAttachment" type="player">
-			<option name="directPresenceTerritories" value="North Bloc:Manchuria:Yuyuan:Canton:Gungzi" count="3"/>
-			<option name="unitPresence" value="colony:settlement:village:town" count="1"/>
-		</attachment>
-		<attachment name="conditionAttachmentKoreanAny1NearGungzi" attachTo="Korea" javaClass="games.strategy.triplea.attachments.RulesAttachment" type="player">
-			<option name="directPresenceTerritories" value="Shandong:Canton" count="1"/>
-			<option name="unitPresence" value="colony:settlement:village:town" count="1"/>
-		</attachment>
-		<attachment name="conditionAttachmentKoreanAny2NearGungzi" attachTo="Korea" javaClass="games.strategy.triplea.attachments.RulesAttachment" type="player">
-			<option name="directPresenceTerritories" value="Shandong:Canton" count="2"/>
-			<option name="unitPresence" value="colony:settlement:village:town" count="1"/>
-		</attachment>
-		<attachment name="conditionAttachmentKoreanAny1NearCanton" attachTo="Korea" javaClass="games.strategy.triplea.attachments.RulesAttachment" type="player">
-			<option name="directPresenceTerritories" value="Yuyuan:Shandong:Gungzi:Siam" count="1"/>
-			<option name="unitPresence" value="colony:settlement:village:town" count="1"/>
-		</attachment>
-		<attachment name="conditionAttachmentKoreanAny2NearCanton" attachTo="Korea" javaClass="games.strategy.triplea.attachments.RulesAttachment" type="player">
-			<option name="directPresenceTerritories" value="Yuyuan:Shandong:Gungzi:Siam" count="2"/>
-			<option name="unitPresence" value="colony:settlement:village:town" count="1"/>
-		</attachment>
-		<attachment name="conditionAttachmentKoreanAny3NearCanton" attachTo="Korea" javaClass="games.strategy.triplea.attachments.RulesAttachment" type="player">
-			<option name="directPresenceTerritories" value="Yuyuan:Shandong:Gungzi:Siam" count="3"/>
-			<option name="unitPresence" value="colony:settlement:village:town" count="1"/>
-		</attachment>
-		<attachment name="conditionAttachmentKoreanAny1NearSiam" attachTo="Korea" javaClass="games.strategy.triplea.attachments.RulesAttachment" type="player">
-			<option name="directPresenceTerritories" value="Canton:Sumatra" count="1"/>
-			<option name="unitPresence" value="colony:settlement:village:town" count="1"/>
-		</attachment>
-		<attachment name="conditionAttachmentKoreanAny2NearSiam" attachTo="Korea" javaClass="games.strategy.triplea.attachments.RulesAttachment" type="player">
-			<option name="directPresenceTerritories" value="Canton:Sumatra" count="2"/>
-			<option name="unitPresence" value="colony:settlement:village:town" count="1"/>
-		</attachment>
-		<attachment name="conditionAttachmentKoreanAny1NearSumatra" attachTo="Korea" javaClass="games.strategy.triplea.attachments.RulesAttachment" type="player">
-			<option name="directPresenceTerritories" value="Siam" count="1"/>
-			<option name="unitPresence" value="colony:settlement:village:town" count="1"/>
-		</attachment>
-	<!-- /ANY PRESENCE NEAR CONDITIONS -->
-	<!-- SPECIFIC PRESENCE CONDITIONS -->
-		<attachment name="conditionAttachmentKoreanColonyInKarafuto" attachTo="Korea" javaClass="games.strategy.triplea.attachments.RulesAttachment" type="player">
-			<option name="directPresenceTerritories" value="Karafuto" count="1"/>
-			<option name="unitPresence" value="colony" count="1"/>
-		</attachment>
-		<attachment name="conditionAttachmentKoreanColonyInNiverhotsk" attachTo="Korea" javaClass="games.strategy.triplea.attachments.RulesAttachment" type="player">
-			<option name="directPresenceTerritories" value="Niverhotsk" count="1"/>
-			<option name="unitPresence" value="colony" count="1"/>
-		</attachment>
-		<attachment name="conditionAttachmentKoreanSettlementInNiverhotsk" attachTo="Korea" javaClass="games.strategy.triplea.attachments.RulesAttachment" type="player">
-			<option name="directPresenceTerritories" value="Niverhotsk" count="1"/>
-			<option name="unitPresence" value="settlement" count="1"/>
-		</attachment>
-		<attachment name="conditionAttachmentKoreanVillageInNiverhotsk" attachTo="Korea" javaClass="games.strategy.triplea.attachments.RulesAttachment" type="player">
-			<option name="directPresenceTerritories" value="Niverhotsk" count="1"/>
-			<option name="unitPresence" value="village" count="1"/>
-		</attachment>
-		<attachment name="conditionAttachmentKoreanColonyInNorthBloc" attachTo="Korea" javaClass="games.strategy.triplea.attachments.RulesAttachment" type="player">
-			<option name="directPresenceTerritories" value="North Bloc" count="1"/>
-			<option name="unitPresence" value="colony" count="1"/>
-		</attachment>
-		<attachment name="conditionAttachmentKoreanSettlementInNorthBloc" attachTo="Korea" javaClass="games.strategy.triplea.attachments.RulesAttachment" type="player">
-			<option name="directPresenceTerritories" value="North Bloc" count="1"/>
-			<option name="unitPresence" value="settlement" count="1"/>
-		</attachment>
-		<attachment name="conditionAttachmentKoreanVillageInNorthBloc" attachTo="Korea" javaClass="games.strategy.triplea.attachments.RulesAttachment" type="player">
-			<option name="directPresenceTerritories" value="North Bloc" count="1"/>
-			<option name="unitPresence" value="village" count="1"/>
-		</attachment>
-		<attachment name="conditionAttachmentKoreanColonyInManchuria" attachTo="Korea" javaClass="games.strategy.triplea.attachments.RulesAttachment" type="player">
-			<option name="directPresenceTerritories" value="Manchuria" count="1"/>
-			<option name="unitPresence" value="colony" count="1"/>
-		</attachment>
-		<attachment name="conditionAttachmentKoreanSettlementInManchuria" attachTo="Korea" javaClass="games.strategy.triplea.attachments.RulesAttachment" type="player">
-			<option name="directPresenceTerritories" value="Manchuria" count="1"/>
-			<option name="unitPresence" value="settlement" count="1"/>
-		</attachment>
-		<attachment name="conditionAttachmentKoreanVillageInManchuria" attachTo="Korea" javaClass="games.strategy.triplea.attachments.RulesAttachment" type="player">
-			<option name="directPresenceTerritories" value="Manchuria" count="1"/>
-			<option name="unitPresence" value="village" count="1"/>
-		</attachment>
-		<attachment name="conditionAttachmentKoreanColonyInTulra" attachTo="Korea" javaClass="games.strategy.triplea.attachments.RulesAttachment" type="player">
-			<option name="directPresenceTerritories" value="Tulra" count="1"/>
-			<option name="unitPresence" value="colony" count="1"/>
-		</attachment>
-		<attachment name="conditionAttachmentKoreanColonyInYuyuan" attachTo="Korea" javaClass="games.strategy.triplea.attachments.RulesAttachment" type="player">
-			<option name="directPresenceTerritories" value="Yuyuan" count="1"/>
-			<option name="unitPresence" value="colony" count="1"/>
-		</attachment>
-		<attachment name="conditionAttachmentKoreanSettlementInYuyuan" attachTo="Korea" javaClass="games.strategy.triplea.attachments.RulesAttachment" type="player">
-			<option name="directPresenceTerritories" value="Yuyuan" count="1"/>
-			<option name="unitPresence" value="settlement" count="1"/>
-		</attachment>
-		<attachment name="conditionAttachmentKoreanVillageInYuyuan" attachTo="Korea" javaClass="games.strategy.triplea.attachments.RulesAttachment" type="player">
-			<option name="directPresenceTerritories" value="Yuyuan" count="1"/>
-			<option name="unitPresence" value="village" count="1"/>
-		</attachment>
-		<attachment name="conditionAttachmentKoreanColonyInShandong" attachTo="Korea" javaClass="games.strategy.triplea.attachments.RulesAttachment" type="player">
-			<option name="directPresenceTerritories" value="Shandong" count="1"/>
-			<option name="unitPresence" value="colony" count="1"/>
-		</attachment>
-		<attachment name="conditionAttachmentKoreanSettlementInShandong" attachTo="Korea" javaClass="games.strategy.triplea.attachments.RulesAttachment" type="player">
-			<option name="directPresenceTerritories" value="Shandong" count="1"/>
-			<option name="unitPresence" value="settlement" count="1"/>
-		</attachment>
-		<attachment name="conditionAttachmentKoreanVillageInShandong" attachTo="Korea" javaClass="games.strategy.triplea.attachments.RulesAttachment" type="player">
-			<option name="directPresenceTerritories" value="Shandong" count="1"/>
-			<option name="unitPresence" value="village" count="1"/>
-		</attachment>
-		<attachment name="conditionAttachmentKoreanColonyInGungzi" attachTo="Korea" javaClass="games.strategy.triplea.attachments.RulesAttachment" type="player">
-			<option name="directPresenceTerritories" value="Gungzi" count="1"/>
-			<option name="unitPresence" value="colony" count="1"/>
-		</attachment>
-		<attachment name="conditionAttachmentKoreanSettlementInGungzi" attachTo="Korea" javaClass="games.strategy.triplea.attachments.RulesAttachment" type="player">
-			<option name="directPresenceTerritories" value="Gungzi" count="1"/>
-			<option name="unitPresence" value="settlement" count="1"/>
-		</attachment>
-		<attachment name="conditionAttachmentKoreanColonyInCanton" attachTo="Korea" javaClass="games.strategy.triplea.attachments.RulesAttachment" type="player">
-			<option name="directPresenceTerritories" value="Canton" count="1"/>
-			<option name="unitPresence" value="colony" count="1"/>
-		</attachment>
-		<attachment name="conditionAttachmentKoreanSettlementInCanton" attachTo="Korea" javaClass="games.strategy.triplea.attachments.RulesAttachment" type="player">
-			<option name="directPresenceTerritories" value="Canton" count="1"/>
-			<option name="unitPresence" value="settlement" count="1"/>
-		</attachment>
-		<attachment name="conditionAttachmentKoreanVillageInCanton" attachTo="Korea" javaClass="games.strategy.triplea.attachments.RulesAttachment" type="player">
-			<option name="directPresenceTerritories" value="Canton" count="1"/>
-			<option name="unitPresence" value="village" count="1"/>
-		</attachment>
-		<attachment name="conditionAttachmentKoreanColonyInSiam" attachTo="Korea" javaClass="games.strategy.triplea.attachments.RulesAttachment" type="player">
-			<option name="directPresenceTerritories" value="Siam" count="1"/>
-			<option name="unitPresence" value="colony" count="1"/>
-		</attachment>
-		<attachment name="conditionAttachmentKoreanSettlementInSiam" attachTo="Korea" javaClass="games.strategy.triplea.attachments.RulesAttachment" type="player">
-			<option name="directPresenceTerritories" value="Siam" count="1"/>
-			<option name="unitPresence" value="settlement" count="1"/>
-		</attachment>
-		<attachment name="conditionAttachmentKoreanColonyInSumatra" attachTo="Korea" javaClass="games.strategy.triplea.attachments.RulesAttachment" type="player">
-			<option name="directPresenceTerritories" value="Sumatra" count="1"/>
-			<option name="unitPresence" value="colony" count="1"/>
-		</attachment>
-	<!-- /SPECIFIC PRESENCE CONDITIONS -->
-	<!-- UPGRADE TRIGGERS -->
-		<attachment name="triggerAttachmentSumatraColonizationUpgrade1" attachTo="Korea" javaClass="games.strategy.triplea.attachments.TriggerAttachment" type="player">
-			<option name="conditions" value="conditionAttachmentKoreanColonyInSumatra:conditionAttachmentKoreanAny1NearSumatra"/>
-			<option name="when" value="before:koreaPlace"/>
-			<option name="removeUnits" value="Sumatra:colony" count="1"/>
-			<option name="placement" value="Sumatra:settlement" count="1"/>
-		</attachment>
-		<attachment name="triggerAttachmentSiamColonizationUpgrade1" attachTo="Korea" javaClass="games.strategy.triplea.attachments.TriggerAttachment" type="player">
-			<option name="conditions" value="conditionAttachmentKoreanColonyInSiam:conditionAttachmentKoreanAny1NearSiam"/>
-			<option name="when" value="before:koreaPlace"/>
-			<option name="removeUnits" value="Siam:colony" count="1"/>
-			<option name="placement" value="Siam:settlement" count="1"/>
-		</attachment>
-		<attachment name="triggerAttachmentSiamColonizationUpgrade2" attachTo="Korea" javaClass="games.strategy.triplea.attachments.TriggerAttachment" type="player">
-			<option name="conditions" value="conditionAttachmentKoreanSettlementInSiam:conditionAttachmentKoreanAny2NearSiam"/>
-			<option name="when" value="before:koreaPlace"/>
-			<option name="removeUnits" value="Siam:settlement" count="1"/>
-			<option name="placement" value="Siam:village" count="1"/>
-		</attachment>
-		<attachment name="triggerAttachmentCantonColonizationUpgrade1" attachTo="Korea" javaClass="games.strategy.triplea.attachments.TriggerAttachment" type="player">
-			<option name="conditions" value="conditionAttachmentKoreanColonyInCanton:conditionAttachmentKoreanAny1NearCanton"/>
-			<option name="when" value="before:koreaPlace"/>
-			<option name="removeUnits" value="Canton:colony" count="1"/>
-			<option name="placement" value="Canton:settlement" count="1"/>
-		</attachment>
-		<attachment name="triggerAttachmentCantonColonizationUpgrade2" attachTo="Korea" javaClass="games.strategy.triplea.attachments.TriggerAttachment" type="player">
-			<option name="conditions" value="conditionAttachmentKoreanSettlementInCanton:conditionAttachmentKoreanAny2NearCanton"/>
-			<option name="when" value="before:koreaPlace"/>
-			<option name="removeUnits" value="Canton:settlement" count="1"/>
-			<option name="placement" value="Canton:village" count="1"/>
-		</attachment>
-		<attachment name="triggerAttachmentCantonColonizationUpgrade3" attachTo="Korea" javaClass="games.strategy.triplea.attachments.TriggerAttachment" type="player">
-			<option name="conditions" value="conditionAttachmentKoreanVillageInCanton:conditionAttachmentKoreanAny3NearCanton"/>
-			<option name="when" value="before:koreaPlace"/>
-			<option name="removeUnits" value="Canton:village" count="1"/>
-			<option name="placement" value="Canton:town" count="1"/>
-		</attachment>
-		<attachment name="triggerAttachmentTulraColonizationUpgrade1" attachTo="Korea" javaClass="games.strategy.triplea.attachments.TriggerAttachment" type="player">
-			<option name="conditions" value="conditionAttachmentKoreanColonyInTulra:conditionAttachmentKoreanAny1NearTulra"/>
-			<option name="when" value="before:koreaPlace"/>
-			<option name="removeUnits" value="Tulra:colony" count="1"/>
-			<option name="placement" value="Tulra:settlement" count="1"/>
-		</attachment>
-		<attachment name="triggerAttachmentYuyuanColonizationUpgrade1" attachTo="Korea" javaClass="games.strategy.triplea.attachments.TriggerAttachment" type="player">
-			<option name="conditions" value="conditionAttachmentKoreanColonyInYuyuan:conditionAttachmentKoreanAny1NearYuyuan"/>
-			<option name="when" value="before:koreaPlace"/>
-			<option name="removeUnits" value="Yuyuan:colony" count="1"/>
-			<option name="placement" value="Yuyuan:settlement" count="1"/>
-		</attachment>
-		<attachment name="triggerAttachmentYuyuanColonizationUpgrade2" attachTo="Korea" javaClass="games.strategy.triplea.attachments.TriggerAttachment" type="player">
-			<option name="conditions" value="conditionAttachmentKoreanSettlementInYuyuan:conditionAttachmentKoreanAny2NearYuyuan"/>
-			<option name="when" value="before:koreaPlace"/>
-			<option name="removeUnits" value="Yuyuan:settlement" count="1"/>
-			<option name="placement" value="Yuyuan:village" count="1"/>
-		</attachment>
-		<attachment name="triggerAttachmentYuyuanColonizationUpgrade3" attachTo="Korea" javaClass="games.strategy.triplea.attachments.TriggerAttachment" type="player">
-			<option name="conditions" value="conditionAttachmentKoreanVillageInYuyuan:conditionAttachmentKoreanAny3NearYuyuan"/>
-			<option name="when" value="before:koreaPlace"/>
-			<option name="removeUnits" value="Yuyuan:village" count="1"/>
-			<option name="placement" value="Yuyuan:town" count="1"/>
-		</attachment>
-		<attachment name="triggerAttachmentGungziColonizationUpgrade1" attachTo="Korea" javaClass="games.strategy.triplea.attachments.TriggerAttachment" type="player">
-			<option name="conditions" value="conditionAttachmentKoreanColonyInGungzi:conditionAttachmentKoreanAny1NearGungzi"/>
-			<option name="when" value="before:koreaPlace"/>
-			<option name="removeUnits" value="Gungzi:colony" count="1"/>
-			<option name="placement" value="Gungzi:settlement" count="1"/>
-		</attachment>
-		<attachment name="triggerAttachmentGungziColonizationUpgrade2" attachTo="Korea" javaClass="games.strategy.triplea.attachments.TriggerAttachment" type="player">
-			<option name="conditions" value="conditionAttachmentKoreanSettlementInGungzi:conditionAttachmentKoreanAny2NearGungzi"/>
-			<option name="when" value="before:koreaPlace"/>
-			<option name="removeUnits" value="Gungzi:settlement" count="1"/>
-			<option name="placement" value="Gungzi:village" count="1"/>
-		</attachment>
-		<attachment name="triggerAttachmentShandongColonizationUpgrade1" attachTo="Korea" javaClass="games.strategy.triplea.attachments.TriggerAttachment" type="player">
-			<option name="conditions" value="conditionAttachmentKoreanColonyInShandong:conditionAttachmentKoreanAny1NearShandong"/>
-			<option name="when" value="before:koreaPlace"/>
-			<option name="removeUnits" value="Shandong:colony" count="1"/>
-			<option name="placement" value="Shandong:settlement" count="1"/>
-		</attachment>
-		<attachment name="triggerAttachmentShandongColonizationUpgrade2" attachTo="Korea" javaClass="games.strategy.triplea.attachments.TriggerAttachment" type="player">
-			<option name="conditions" value="conditionAttachmentKoreanSettlementInShandong:conditionAttachmentKoreanAny2NearShandong"/>
-			<option name="when" value="before:koreaPlace"/>
-			<option name="removeUnits" value="Shandong:settlement" count="1"/>
-			<option name="placement" value="Shandong:village" count="1"/>
-		</attachment>
-		<attachment name="triggerAttachmentShandongColonizationUpgrade3" attachTo="Korea" javaClass="games.strategy.triplea.attachments.TriggerAttachment" type="player">
-			<option name="conditions" value="conditionAttachmentKoreanVillageInShandong:conditionAttachmentKoreanAny3NearShandong"/>
-			<option name="when" value="before:koreaPlace"/>
-			<option name="removeUnits" value="Shandong:village" count="1"/>
-			<option name="placement" value="Shandong:town" count="1"/>
-		</attachment>
-		<attachment name="triggerAttachmentManchuriaColonizationUpgrade1" attachTo="Korea" javaClass="games.strategy.triplea.attachments.TriggerAttachment" type="player">
-			<option name="conditions" value="conditionAttachmentKoreanColonyInManchuria:conditionAttachmentKoreanAny1NearManchuria"/>
-			<option name="when" value="before:koreaPlace"/>
-			<option name="removeUnits" value="Manchuria:colony" count="1"/>
-			<option name="placement" value="Manchuria:settlement" count="1"/>
-		</attachment>
-		<attachment name="triggerAttachmentManchuriaColonizationUpgrade2" attachTo="Korea" javaClass="games.strategy.triplea.attachments.TriggerAttachment" type="player">
-			<option name="conditions" value="conditionAttachmentKoreanSettlementInManchuria:conditionAttachmentKoreanAny2NearManchuria"/>
-			<option name="when" value="before:koreaPlace"/>
-			<option name="removeUnits" value="Manchuria:settlement" count="1"/>
-			<option name="placement" value="Manchuria:village" count="1"/>
-		</attachment>
-		<attachment name="triggerAttachmentManchuriaColonizationUpgrade3" attachTo="Korea" javaClass="games.strategy.triplea.attachments.TriggerAttachment" type="player">
-			<option name="conditions" value="conditionAttachmentKoreanVillageInManchuria:conditionAttachmentKoreanAny3NearManchuria"/>
-			<option name="when" value="before:koreaPlace"/>
-			<option name="removeUnits" value="Manchuria:village" count="1"/>
-			<option name="placement" value="Manchuria:town" count="1"/>
-		</attachment>
-		<attachment name="triggerAttachmentNorthBlocColonizationUpgrade1" attachTo="Korea" javaClass="games.strategy.triplea.attachments.TriggerAttachment" type="player">
-			<option name="conditions" value="conditionAttachmentKoreanColonyInNorthBloc:conditionAttachmentKoreanAny1NearNorthBloc"/>
-			<option name="when" value="before:koreaPlace"/>
-			<option name="removeUnits" value="North Bloc:colony" count="1"/>
-			<option name="placement" value="North Bloc:settlement" count="1"/>
-		</attachment>
-		<attachment name="triggerAttachmentNorthBlocColonizationUpgrade2" attachTo="Korea" javaClass="games.strategy.triplea.attachments.TriggerAttachment" type="player">
-			<option name="conditions" value="conditionAttachmentKoreanSettlementInNorthBloc:conditionAttachmentKoreanAny2NearNorthBloc"/>
-			<option name="when" value="before:koreaPlace"/>
-			<option name="removeUnits" value="North Bloc:settlement" count="1"/>
-			<option name="placement" value="North Bloc:village" count="1"/>
-		</attachment>
-		<attachment name="triggerAttachmentNorthBlocColonizationUpgrade3" attachTo="Korea" javaClass="games.strategy.triplea.attachments.TriggerAttachment" type="player">
-			<option name="conditions" value="conditionAttachmentKoreanVillageInNorthBloc:conditionAttachmentKoreanAny3NearNorthBloc"/>
-			<option name="when" value="before:koreaPlace"/>
-			<option name="removeUnits" value="North Bloc:village" count="1"/>
-			<option name="placement" value="North Bloc:town" count="1"/>
-		</attachment>
-		<attachment name="triggerAttachmentNiverhotskColonizationUpgrade1" attachTo="Korea" javaClass="games.strategy.triplea.attachments.TriggerAttachment" type="player">
-			<option name="conditions" value="conditionAttachmentKoreanColonyInNiverhotsk:conditionAttachmentKoreanAny1NearNiverhotsk"/>
-			<option name="when" value="before:koreaPlace"/>
-			<option name="removeUnits" value="Niverhotsk:colony" count="1"/>
-			<option name="placement" value="Niverhotsk:settlement" count="1"/>
-		</attachment>
-		<attachment name="triggerAttachmentNiverhotskColonizationUpgrade2" attachTo="Korea" javaClass="games.strategy.triplea.attachments.TriggerAttachment" type="player">
-			<option name="conditions" value="conditionAttachmentKoreanSettlementInNiverhotsk:conditionAttachmentKoreanAny2NearNiverhotsk"/>
-			<option name="when" value="before:koreaPlace"/>
-			<option name="removeUnits" value="Niverhotsk:settlement" count="1"/>
-			<option name="placement" value="Niverhotsk:village" count="1"/>
-		</attachment>
-		<attachment name="triggerAttachmentNiverhotskColonizationUpgrade3" attachTo="Korea" javaClass="games.strategy.triplea.attachments.TriggerAttachment" type="player">
-			<option name="conditions" value="conditionAttachmentKoreanVillageInNiverhotsk:conditionAttachmentKoreanAny3NearNiverhotsk"/>
-			<option name="when" value="before:koreaPlace"/>
-			<option name="removeUnits" value="Niverhotsk:village" count="1"/>
-			<option name="placement" value="Niverhotsk:town" count="1"/>
-		</attachment>
-		<attachment name="triggerAttachmentKarafutoColonizationUpgrade1" attachTo="Korea" javaClass="games.strategy.triplea.attachments.TriggerAttachment" type="player">
-			<option name="conditions" value="conditionAttachmentKoreanColonyInKarafuto:conditionAttachmentKoreanAny1NearKarafuto"/>
-			<option name="when" value="before:koreaPlace"/>
-			<option name="removeUnits" value="Karafuto:colony" count="1"/>
-			<option name="placement" value="Karafuto:settlement" count="1"/>
-		</attachment>
-	<!-- /UPGRADE TRIGGERS -->
-<!-- /KOREAN COLONIES -->
+<!-- GIVE INFANTRY MOVEMENT GAME START -->
+		<attachment name="triggerAttachmentGiveInfantryMovementGameStart" attachTo="NonAligned" javaClass="games.strategy.triplea.attachments.TriggerAttachment" type="player">
+			<option name="conditions" value="conditionAttachmentSwitchAlwaysTrue"/>
+			<option name="when" value="after:nonAlignedPlace"/>
+			<option name="unitType" value="infantry"/>
+			<option name="unitProperty" value="movement" count="1"/>
+		</attachment>
+<!-- /GIVE INFANTRY MOVEMENT GAME START -->
 
-<!-- KOREAN GARRISON RESET -->
-		<attachment name="triggerAttachmentGarrisonResetKorea" attachTo="Korea" javaClass="games.strategy.triplea.attachments.TriggerAttachment" type="player">
+<!-- TECH TOKEN -->
+		<attachment name="triggerAttachmentTechTokensMazdak" attachTo="Mazdak" javaClass="games.strategy.triplea.attachments.TriggerAttachment" type="player">
+			<option name="conditions" value="conditionAttachmentSwitchAlwaysTrue"/>
+			<option name="when" value="after:mazdakPlace"/>
+			<option name="resource" value="techTokens"/>
+			<option name="resourceCount" value="2"/>
+		</attachment>
+		<attachment name="triggerAttachmentTechTokensChina" attachTo="China" javaClass="games.strategy.triplea.attachments.TriggerAttachment" type="player">
+			<option name="conditions" value="conditionAttachmentSwitchAlwaysTrue"/>
+			<option name="when" value="after:chinaPlace"/>
+			<option name="resource" value="techTokens"/>
+			<option name="resourceCount" value="2"/>
+		</attachment>
+		<attachment name="triggerAttachmentTechTokensEuroForce" attachTo="EuroForce" javaClass="games.strategy.triplea.attachments.TriggerAttachment" type="player">
+			<option name="conditions" value="conditionAttachmentSwitchAlwaysTrue"/>
+			<option name="when" value="after:euroforcePlace"/>
+			<option name="resource" value="techTokens"/>
+			<option name="resourceCount" value="2"/>
+		</attachment>
+		<attachment name="triggerAttachmentTechTokensRussia" attachTo="Russia" javaClass="games.strategy.triplea.attachments.TriggerAttachment" type="player">
+			<option name="conditions" value="conditionAttachmentSwitchAlwaysTrue"/>
+			<option name="when" value="after:russiaPlace"/>
+			<option name="resource" value="techTokens"/>
+			<option name="resourceCount" value="2"/>
+		</attachment>
+		<attachment name="triggerAttachmentTechTokensIndia" attachTo="India" javaClass="games.strategy.triplea.attachments.TriggerAttachment" type="player">
+			<option name="conditions" value="conditionAttachmentSwitchAlwaysTrue"/>
+			<option name="when" value="after:indiaPlace"/>
+			<option name="resource" value="techTokens"/>
+			<option name="resourceCount" value="2"/>
+		</attachment>
+		<attachment name="triggerAttachmentTechTokensArcadia" attachTo="Arcadia" javaClass="games.strategy.triplea.attachments.TriggerAttachment" type="player">
+			<option name="conditions" value="conditionAttachmentSwitchAlwaysTrue"/>
+			<option name="when" value="after:arcadiaPlace"/>
+			<option name="resource" value="techTokens"/>
+			<option name="resourceCount" value="2"/>
+		</attachment>
+		<attachment name="triggerAttachmentTechTokensKorea" attachTo="Korea" javaClass="games.strategy.triplea.attachments.TriggerAttachment" type="player">
 			<option name="conditions" value="conditionAttachmentSwitchAlwaysTrue"/>
 			<option name="when" value="after:koreaPlace"/>
-			<option name="removeUnits" value="all:garrison" count="1"/>
+			<option name="resource" value="techTokens"/>
+			<option name="resourceCount" value="2"/>
 		</attachment>
-<!-- /KOREAN GARRISON RESET -->
+		<attachment name="triggerAttachmentTechTokensHoshida" attachTo="Hoshida" javaClass="games.strategy.triplea.attachments.TriggerAttachment" type="player">
+			<option name="conditions" value="conditionAttachmentSwitchAlwaysTrue"/>
+			<option name="when" value="after:hoshidaPlace"/>
+			<option name="resource" value="techTokens"/>
+			<option name="resourceCount" value="2"/>
+		</attachment>
+		<attachment name="triggerAttachmentTechTokensMeijou" attachTo="Meijou" javaClass="games.strategy.triplea.attachments.TriggerAttachment" type="player">
+			<option name="conditions" value="conditionAttachmentSwitchAlwaysTrue"/>
+			<option name="when" value="after:meijouPlace"/>
+			<option name="resource" value="techTokens"/>
+			<option name="resourceCount" value="2"/>
+		</attachment>
+		<attachment name="triggerAttachmentTechTokensGrands" attachTo="Grands" javaClass="games.strategy.triplea.attachments.TriggerAttachment" type="player">
+			<option name="conditions" value="conditionAttachmentSwitchAlwaysTrue"/>
+			<option name="when" value="after:grandsPlace"/>
+			<option name="resource" value="techTokens"/>
+			<option name="resourceCount" value="2"/>
+		</attachment>
+		<attachment name="triggerAttachmentTechTokensNonAligned" attachTo="NonAligned" javaClass="games.strategy.triplea.attachments.TriggerAttachment" type="player">
+			<option name="conditions" value="conditionAttachmentSwitchAlwaysTrue"/>
+			<option name="when" value="after:nonAlignedPlace"/>
+			<option name="resource" value="techTokens"/>
+			<option name="resourceCount" value="2"/>
+		</attachment>
+<!-- /TECH TOKEN -->
 
 <!-- RADAR UNLOCK -->
 		<attachment name="conditionAttachmentHasRadarMazdak" attachTo="Mazdak" javaClass="games.strategy.triplea.attachments.RulesAttachment" type="player">
@@ -4516,7 +4225,17 @@
 			<option name="bonus" value="1"/>
 			<option name="number" value="1"/>
 			<option name="bonusType" value="artilleryArty"/>
-			<option name="players" value="Mazdak:China:EuroForce:Russia:India:Arcadia:Korea:Meijou:Grands"/>
+			<option name="players" value="Mazdak:China:EuroForce:Russia:India:Arcadia:Meijou:Grands"/>
+		</attachment>
+		<attachment name="supportAttachmentArtyKorea" attachTo="artillery" javaClass="games.strategy.triplea.attachments.UnitSupportAttachment" type="unitType">
+			<option name="unitType" value="infantry:garrison"/>
+			<option name="faction" value="allied"/>
+			<option name="side" value="offence"/>
+			<option name="dice" value="strength"/>
+			<option name="bonus" value="1"/>
+			<option name="number" value="1"/>
+			<option name="bonusType" value="artilleryArty"/>
+			<option name="players" value="Korea"/>
 		</attachment>
 		<attachment name="supportAttachmentArtyNonAligned" attachTo="artillery" javaClass="games.strategy.triplea.attachments.UnitSupportAttachment" type="unitType">
 			<option name="unitType" value="infantry:mercenary"/>
@@ -4586,7 +4305,17 @@
 			<option name="bonus" value="1"/>
 			<option name="number" value="3"/>
 			<option name="bonusType" value="rocketArty"/>
-			<option name="players" value="Mazdak:China:EuroForce:Russia:India:Arcadia:Korea:Meijou:Grands"/>
+			<option name="players" value="Mazdak:China:EuroForce:Russia:India:Arcadia:Meijou:Grands"/>
+		</attachment>
+		<attachment name="supportAttachmentRocketArtilleryKorea" attachTo="r.Artillery" javaClass="games.strategy.triplea.attachments.UnitSupportAttachment" type="unitType">
+			<option name="unitType" value="infantry:garrison"/>
+			<option name="faction" value="allied"/>
+			<option name="side" value="offence"/>
+			<option name="dice" value="strength"/>
+			<option name="bonus" value="1"/>
+			<option name="number" value="3"/>
+			<option name="bonusType" value="rocketArty"/>
+			<option name="players" value="Korea"/>
 		</attachment>
 		<attachment name="supportAttachmentRocketArtilleryHoshida" attachTo="r.Artillery" javaClass="games.strategy.triplea.attachments.UnitSupportAttachment" type="unitType">
 			<option name="unitType" value="infantry:marine"/>
@@ -4648,7 +4377,7 @@
 
 <!-- UNIT ATTACHMENTS -->
 		<attachment name="unitAttachment" attachTo="infantry" javaClass="games.strategy.triplea.attachments.UnitAttachment" type="unitType">
-		 	<option name="movement" value="1"/>
+		 	<option name="movement" value="0"/>
 		 	<option name="attack" value="1"/>
 		 	<option name="defense" value="2"/>
 		 	<option name="transportCost" value="2"/>
@@ -4776,7 +4505,7 @@
 			<option name="maxAAattacks" value="1"/>
 			<option name="isAAforCombatOnly" value="true"/>
 			<option name="typeAA" value="zealotCharge"/>
-			<option name="targetsAA" value="infantry:artillery:tank:zealot:holdout:heavyTank:katyusha:conscript:marine:tankHunter:nuke:rocket:r.Artillery:flakHalftrack"/>
+			<option name="targetsAA" value="infantry:artillery:tank:zealot:holdout:heavyTank:katyusha:conscript:garrison:marine:tankHunter:nuke:rocket:r.Artillery:flakHalftrack"/>
 		 	<option name="transportCost" value="3"/>
 		 	<option name="canBlitz" value="true"/>
 		 	<option name="createsResourcesList" value="-1:PUs"/>
@@ -4829,86 +4558,14 @@
 			<option name="constructionsPerTerrPerTypePerTurn" value="1"/>
 		 	<option name="destroyedWhenCapturedFrom" value="Arcadia:Grands:Hoshida:Russia:China"/>
 		</attachment>
-		<attachment name="unitAttachment" attachTo="colony" javaClass="games.strategy.triplea.attachments.UnitAttachment" type="unitType">
-		 	<option name="movement" value="0"/>
-		 	<option name="attack" value="0"/>
-		 	<option name="defense" value="0"/>
-		 	<option name="isInfrastructure" value="true"/>
-			<option name="canBeDamaged" value="true"/>
-			<option name="maxDamage" value="6"/>
-			<option name="canDieFromReachingMaxDamage" value="true"/>
-		 	<option name="destroyedWhenCapturedFrom" value="Korea"/>
-		 	<option name="createsResourcesList" value="1:PUs"/>
-			<option name="isConstruction" value="true"/>
-			<option name="constructionType" value="koreanColonies"/>
-			<option name="maxConstructionsPerTypePerTerr" value="1"/>
-			<option name="constructionsPerTerrPerTypePerTurn" value="1"/>
-			<option name="unitPlacementOnlyAllowedIn" value="Karafuto:Niverhotsk:North Bloc:Manchuria:Gungzi:Shandong:Canton:Yuyuan:Tulra:Siam:Sumatra"/>
-		</attachment>
-		<attachment name="unitAttachment" attachTo="settlement" javaClass="games.strategy.triplea.attachments.UnitAttachment" type="unitType">
-		 	<option name="movement" value="0"/>
-		 	<option name="attack" value="0"/>
-		 	<option name="defense" value="0"/>
-		 	<option name="isInfrastructure" value="true"/>
-			<option name="isConstruction" value="true"/>
-			<option name="constructionType" value="koreanColonies"/>
-			<option name="maxConstructionsPerTypePerTerr" value="1"/>
-			<option name="constructionsPerTerrPerTypePerTurn" value="1"/>
-			<option name="canBeDamaged" value="true"/>
-			<option name="maxDamage" value="8"/>
-			<option name="canDieFromReachingMaxDamage" value="true"/>
-		 	<option name="destroyedWhenCapturedFrom" value="Korea"/>
-		 	<option name="createsResourcesList" value="1:PUs"/>
-		 	<option name="createsUnitsList" value="1:garrison"/>
-		 	<option name="tuv" value="5"/>
-		</attachment>
-		<attachment name="unitAttachment" attachTo="village" javaClass="games.strategy.triplea.attachments.UnitAttachment" type="unitType">
-		 	<option name="movement" value="0"/>
-		 	<option name="attack" value="0"/>
-		 	<option name="defense" value="0"/>
-		 	<option name="isInfrastructure" value="true"/>
-			<option name="isConstruction" value="true"/>
-			<option name="constructionType" value="koreanColonies"/>
-			<option name="maxConstructionsPerTypePerTerr" value="1"/>
-			<option name="constructionsPerTerrPerTypePerTurn" value="1"/>
-			<option name="canBeDamaged" value="true"/>
-			<option name="maxDamage" value="10"/>
-			<option name="canDieFromReachingMaxDamage" value="true"/>
-		 	<option name="isAAforBombingThisUnitOnly" value="true"/>
-			<option name="targetsAA" value="bomber"/>
-		 	<option name="destroyedWhenCapturedFrom" value="Korea"/>
-		 	<option name="createsResourcesList" value="1:PUs"/>
-		 	<option name="createsUnitsList" value="1:garrison"/>
-			<option name="canProduceUnits" value="true"/>
-			<option name="canProduceXUnits" value="1"/>
-		 	<option name="tuv" value="5"/>
-		</attachment>
-		<attachment name="unitAttachment" attachTo="town" javaClass="games.strategy.triplea.attachments.UnitAttachment" type="unitType">
-		 	<option name="movement" value="0"/>
-		 	<option name="attack" value="0"/>
-		 	<option name="defense" value="0"/>
-		 	<option name="isInfrastructure" value="true"/>
-			<option name="isConstruction" value="true"/>
-			<option name="constructionType" value="koreanColonies"/>
-			<option name="maxConstructionsPerTypePerTerr" value="1"/>
-			<option name="constructionsPerTerrPerTypePerTurn" value="1"/>
-			<option name="canBeDamaged" value="true"/>
-			<option name="maxDamage" value="12"/>
-			<option name="canDieFromReachingMaxDamage" value="true"/>
-		 	<option name="isAAforBombingThisUnitOnly" value="true"/>
-			<option name="targetsAA" value="bomber"/>
-		 	<option name="destroyedWhenCapturedFrom" value="Korea"/>
-		 	<option name="createsResourcesList" value="2:PUs"/>
-		 	<option name="createsUnitsList" value="1:garrison"/>
-			<option name="canProduceUnits" value="true"/>
-			<option name="canProduceXUnits" value="2"/>
-		 	<option name="tuv" value="5"/>
-		</attachment>
 		<attachment name="unitAttachment" attachTo="garrison" javaClass="games.strategy.triplea.attachments.UnitAttachment" type="unitType">
-		 	<option name="movement" value="0"/>
-		 	<option name="attack" value="0"/>
-		 	<option name="defense" value="2"/>
-		 	<option name="tuv" value="2"/>
+		 	<option name="movement" value="1"/>
+		 	<option name="attack" value="1"/>
+		 	<option name="defense" value="3"/>
+		 	<option name="transportCost" value="2"/>
+		 	<option name="isInfantry" value="true"/>
+		 	<option name="isAirTransportable" value="true"/> 
+		 	<option name="createsResourcesList" value="-1:PUs"/>
 		</attachment>
 		<attachment name="unitAttachment" attachTo="marine" javaClass="games.strategy.triplea.attachments.UnitAttachment" type="unitType">
 		 	<option name="movement" value="1"/>
@@ -5046,29 +4703,25 @@
 
 <!-- TERRITORY ATTACHMENTS -->
 		<attachment name="territoryAttachment" attachTo="Yuyuan" javaClass="games.strategy.triplea.attachments.TerritoryAttachment" type="territory">
-			<option name="production" value="15"/>
+			<option name="production" value="3"/>
 			<option name="resources" value="1:oil"/>
-			<option name="resources" value="2:techTokens"/>
-			<option name="capital" value="China"/>
+			
 	 	</attachment>
 		<attachment name="territoryAttachment" attachTo="Outer Rebels" javaClass="games.strategy.triplea.attachments.TerritoryAttachment" type="territory">
-			<option name="production" value="0"/>
-			<option name="isImpassable" value="true"/>
+			<option name="production" value="3"/>
 	 	</attachment>
 		<attachment name="territoryAttachment" attachTo="Inner Rebels" javaClass="games.strategy.triplea.attachments.TerritoryAttachment" type="territory">
-			<option name="production" value="0"/>
-			<option name="isImpassable" value="true"/>
+			<option name="production" value="3"/>
 	 	</attachment>
 		<attachment name="territoryAttachment" attachTo="Chinese Underground" javaClass="games.strategy.triplea.attachments.TerritoryAttachment" type="territory">
-			<option name="production" value="0"/>
-			<option name="isImpassable" value="true"/>
+			<option name="production" value="3"/>
 	 	</attachment>
 		<attachment name="territoryAttachment" attachTo="Canton" javaClass="games.strategy.triplea.attachments.TerritoryAttachment" type="territory">
-			<option name="production" value="4"/>
+			<option name="production" value="3"/>
 
 	 	</attachment>
 		<attachment name="territoryAttachment" attachTo="Tulra" javaClass="games.strategy.triplea.attachments.TerritoryAttachment" type="territory">
-			<option name="production" value="2"/>
+			<option name="production" value="3"/>
 			<option name="resources" value="1:oil"/>
 			<option name="victoryCity" value="1"/>
 			<option name="territoryEffect" value="Mountains"/>
@@ -5078,7 +4731,7 @@
 			<option name="resources" value="1:oil"/>
 	 	</attachment>
 		<attachment name="territoryAttachment" attachTo="Sudan" javaClass="games.strategy.triplea.attachments.TerritoryAttachment" type="territory">
-			<option name="production" value="2"/>
+			<option name="production" value="3"/>
 			<option name="resources" value="1:oil"/>
 
 			<option name="territoryEffect" value="Desert"/>
@@ -5099,10 +4752,9 @@
 
 	 	</attachment>
 		<attachment name="territoryAttachment" attachTo="Ulug Aal" javaClass="games.strategy.triplea.attachments.TerritoryAttachment" type="territory">
-			<option name="production" value="15"/>
+			<option name="production" value="3"/>
 
-			<option name="resources" value="2:techTokens"/>
-			<option name="capital" value="EuroForce"/>
+			
 			<option name="victoryCity" value="1"/>
 	 	</attachment>
 		<attachment name="territoryAttachment" attachTo="Poland" javaClass="games.strategy.triplea.attachments.TerritoryAttachment" type="territory">
@@ -5115,12 +4767,12 @@
 
 	 	</attachment>
 		<attachment name="territoryAttachment" attachTo="Majid W. Africa" javaClass="games.strategy.triplea.attachments.TerritoryAttachment" type="territory">
-			<option name="production" value="10"/>
+			<option name="production" value="3"/>
 			<option name="resources" value="1:oil"/>
 
 	 	</attachment>
 		<attachment name="territoryAttachment" attachTo="E. Canaan" javaClass="games.strategy.triplea.attachments.TerritoryAttachment" type="territory">
-			<option name="production" value="2"/>
+			<option name="production" value="3"/>
 			<option name="resources" value="1:oil"/>
 
 			<option name="territoryEffect" value="Desert"/>
@@ -5131,12 +4783,12 @@
 			<option name="territoryEffect" value="Desert"/>
 	 	</attachment>
 		<attachment name="territoryAttachment" attachTo="W. Siberia" javaClass="games.strategy.triplea.attachments.TerritoryAttachment" type="territory">
-			<option name="production" value="2"/>
+			<option name="production" value="3"/>
 			<option name="resources" value="1:oil"/>
 			<option name="territoryEffect" value="Tundra"/>
 	 	</attachment>
 		<attachment name="territoryAttachment" attachTo="Ukraine" javaClass="games.strategy.triplea.attachments.TerritoryAttachment" type="territory">
-			<option name="production" value="5"/>
+			<option name="production" value="3"/>
 			<option name="resources" value="1:oil"/>
 
 	 	</attachment>
@@ -5146,24 +4798,24 @@
 			<option name="territoryEffect" value="Tundra"/>
 	 	</attachment>
 		<attachment name="territoryAttachment" attachTo="Tatarea" javaClass="games.strategy.triplea.attachments.TerritoryAttachment" type="territory">
-			<option name="production" value="4"/>
+			<option name="production" value="3"/>
 			<option name="resources" value="5:oil"/>
 
 			<option name="victoryCity" value="1"/>
 	 	</attachment>
 		<attachment name="territoryAttachment" attachTo="E. Siberia" javaClass="games.strategy.triplea.attachments.TerritoryAttachment" type="territory">
-			<option name="production" value="1"/>
+			<option name="production" value="3"/>
 			<option name="resources" value="2:oil"/>
 
 			<option name="territoryEffect" value="Tundra"/>
 	 	</attachment>
 		<attachment name="territoryAttachment" attachTo="C. Siberia" javaClass="games.strategy.triplea.attachments.TerritoryAttachment" type="territory">
-			<option name="production" value="1"/>
+			<option name="production" value="3"/>
 			<option name="resources" value="1:oil"/>
 			<option name="territoryEffect" value="Tundra"/>
 	 	</attachment>
 		<attachment name="territoryAttachment" attachTo="Scandoslavia" javaClass="games.strategy.triplea.attachments.TerritoryAttachment" type="territory">
-			<option name="production" value="2"/>
+			<option name="production" value="3"/>
 
 			<option name="territoryEffect" value="Tundra"/>
 	 	</attachment>
@@ -5174,10 +4826,9 @@
 			<option name="production" value="3"/>
 	 	</attachment>
 		<attachment name="territoryAttachment" attachTo="Russia" javaClass="games.strategy.triplea.attachments.TerritoryAttachment" type="territory">
-			<option name="production" value="15"/>
+			<option name="production" value="3"/>
 
-			<option name="resources" value="2:techTokens"/>
-			<option name="capital" value="Russia"/>
+			
 			<option name="victoryCity" value="1"/>
 			<option name="territoryEffect" value="Tundra"/>
 	 	</attachment>
@@ -5212,11 +4863,10 @@
 			<option name="victoryCity" value="1"/>
 	 	</attachment>
 		<attachment name="territoryAttachment" attachTo="Mazdak S.R." javaClass="games.strategy.triplea.attachments.TerritoryAttachment" type="territory">
-			<option name="production" value="15"/>
+			<option name="production" value="3"/>
 
-			<option name="resources" value="2:techTokens"/>
+			
 			<option name="victoryCity" value="1"/>
-			<option name="capital" value="Mazdak"/>
 	 	</attachment>
 		<attachment name="territoryAttachment" attachTo="Gujarat" javaClass="games.strategy.triplea.attachments.TerritoryAttachment" type="territory">
 			<option name="production" value="3"/>
@@ -5224,18 +4874,17 @@
 
 	 	</attachment>
 		<attachment name="territoryAttachment" attachTo="Hindustan" javaClass="games.strategy.triplea.attachments.TerritoryAttachment" type="territory">
-			<option name="production" value="15"/>
-			<option name="resources" value="2:techTokens"/>
-			<option name="capital" value="India"/>
+			<option name="production" value="3"/>
+			
 			<option name="victoryCity" value="1"/>
 	 	</attachment>
 		<attachment name="territoryAttachment" attachTo="Bengal" javaClass="games.strategy.triplea.attachments.TerritoryAttachment" type="territory">
-			<option name="production" value="4"/>
+			<option name="production" value="3"/>
 
 			<option name="territoryEffect" value="Jungle"/>
 	 	</attachment>
 		<attachment name="territoryAttachment" attachTo="Burma" javaClass="games.strategy.triplea.attachments.TerritoryAttachment" type="territory">
-			<option name="production" value="5"/>
+			<option name="production" value="3"/>
 			<option name="resources" value="1:oil"/>
 
 			<option name="territoryEffect" value="Jungle"/>
@@ -5250,16 +4899,15 @@
 
 	 	</attachment>
 		<attachment name="territoryAttachment" attachTo="Arcadia" javaClass="games.strategy.triplea.attachments.TerritoryAttachment" type="territory">
-			<option name="production" value="15"/>
+			<option name="production" value="3"/>
 			<option name="resources" value="4:oil"/>
 
-			<option name="resources" value="2:techTokens"/>
-			<option name="capital" value="Arcadia"/>
+			
 			<option name="victoryCity" value="1"/>
 			<option name="territoryEffect" value="Desert"/>
 	 	</attachment>
 		<attachment name="territoryAttachment" attachTo="Namibia" javaClass="games.strategy.triplea.attachments.TerritoryAttachment" type="territory">
-			<option name="production" value="1"/>
+			<option name="production" value="3"/>
 
 			<option name="territoryEffect" value="Desert"/>
 	 	</attachment>
@@ -5268,13 +4916,13 @@
 
 	 	</attachment>
 		<attachment name="territoryAttachment" attachTo="Hedjaz" javaClass="games.strategy.triplea.attachments.TerritoryAttachment" type="territory">
-			<option name="production" value="2"/>
+			<option name="production" value="3"/>
 			<option name="resources" value="1:oil"/>
 
 			<option name="territoryEffect" value="Desert"/>
 	 	</attachment>
 		<attachment name="territoryAttachment" attachTo="Madagascar" javaClass="games.strategy.triplea.attachments.TerritoryAttachment" type="territory">
-			<option name="production" value="2"/>
+			<option name="production" value="3"/>
 
 			<option name="territoryEffect" value="Jungle"/>
 	 	</attachment>
@@ -5285,7 +4933,7 @@
 			<option name="territoryEffect" value="Desert"/>
 	 	</attachment>
 		<attachment name="territoryAttachment" attachTo="Sri Lanka" javaClass="games.strategy.triplea.attachments.TerritoryAttachment" type="territory">
-			<option name="production" value="2"/>
+			<option name="production" value="3"/>
 
 	 	</attachment>
 		<attachment name="territoryAttachment" attachTo="Eredat" javaClass="games.strategy.triplea.attachments.TerritoryAttachment" type="territory">
@@ -5295,17 +4943,17 @@
 			<option name="territoryEffect" value="Mountains"/>
 	 	</attachment>
 		<attachment name="territoryAttachment" attachTo="Jandor" javaClass="games.strategy.triplea.attachments.TerritoryAttachment" type="territory">
-			<option name="production" value="2"/>
+			<option name="production" value="3"/>
 			<option name="territoryEffect" value="Mountains"/>
 	 	</attachment>
 		<attachment name="territoryAttachment" attachTo="Palestine" javaClass="games.strategy.triplea.attachments.TerritoryAttachment" type="territory">
-			<option name="production" value="4"/>
+			<option name="production" value="3"/>
 			<option name="resources" value="2:oil"/>
 
 			<option name="territoryEffect" value="Desert"/>
 	 	</attachment>
 		<attachment name="territoryAttachment" attachTo="Australia" javaClass="games.strategy.triplea.attachments.TerritoryAttachment" type="territory">
-			<option name="production" value="2"/>
+			<option name="production" value="3"/>
 
 			<option name="territoryEffect" value="Desert"/>
 	 	</attachment>
@@ -5320,87 +4968,87 @@
 			<option name="territoryEffect" value="Mountains"/>
 	 	</attachment>
 		<attachment name="territoryAttachment" attachTo="Armenia" javaClass="games.strategy.triplea.attachments.TerritoryAttachment" type="territory">
-			<option name="production" value="5"/>
+			<option name="production" value="3"/>
 
 			<option name="territoryEffect" value="Mountains"/>
 	 	</attachment>
 		<attachment name="territoryAttachment" attachTo="Turkestan" javaClass="games.strategy.triplea.attachments.TerritoryAttachment" type="territory">
-			<option name="production" value="2"/>
+			<option name="production" value="3"/>
 			<option name="resources" value="1:oil"/>
 			<option name="territoryEffect" value="Desert"/>
 	 	</attachment>
 		<attachment name="territoryAttachment" attachTo="Makan" javaClass="games.strategy.triplea.attachments.TerritoryAttachment" type="territory">
-			<option name="production" value="1"/>
+			<option name="production" value="3"/>
 			<option name="resources" value="1:oil"/>
 
 			<option name="territoryEffect" value="Desert"/>
 	 	</attachment>
 		<attachment name="territoryAttachment" attachTo="Arcadian Congo" javaClass="games.strategy.triplea.attachments.TerritoryAttachment" type="territory">
-			<option name="production" value="1"/>
+			<option name="production" value="3"/>
 			<option name="territoryEffect" value="Jungle"/>
 	 	</attachment>
 		<attachment name="territoryAttachment" attachTo="Baluchistan" javaClass="games.strategy.triplea.attachments.TerritoryAttachment" type="territory">
-			<option name="production" value="2"/>
+			<option name="production" value="3"/>
 
 			<option name="territoryEffect" value="Desert"/>
 	 	</attachment>
 		<attachment name="territoryAttachment" attachTo="Persia" javaClass="games.strategy.triplea.attachments.TerritoryAttachment" type="territory">
-			<option name="production" value="7"/>
+			<option name="production" value="3"/>
 			<option name="resources" value="3:oil"/>
 
 			<option name="victoryCity" value="1"/>
 			<option name="territoryEffect" value="Mountains"/>
 	 	</attachment>
 		<attachment name="territoryAttachment" attachTo="Zimbabwe" javaClass="games.strategy.triplea.attachments.TerritoryAttachment" type="territory">
-			<option name="production" value="2"/>
+			<option name="production" value="3"/>
 
 	 	</attachment>
 		<attachment name="territoryAttachment" attachTo="North Bloc" javaClass="games.strategy.triplea.attachments.TerritoryAttachment" type="territory">
-			<option name="production" value="10"/>
+			<option name="production" value="3"/>
 			<option name="resources" value="1:oil"/>
 
 			<option name="victoryCity" value="1"/>
 	 	</attachment>
 		<attachment name="territoryAttachment" attachTo="Kamchatka" javaClass="games.strategy.triplea.attachments.TerritoryAttachment" type="territory">
-			<option name="production" value="1"/>
+			<option name="production" value="3"/>
 			<option name="resources" value="1:oil"/>
 
 			<option name="territoryEffect" value="Tundra"/>
 	 	</attachment>
 		<attachment name="territoryAttachment" attachTo="California" javaClass="games.strategy.triplea.attachments.TerritoryAttachment" type="territory">
-			<option name="production" value="4"/>
+			<option name="production" value="3"/>
 			<option name="resources" value="1:oil"/>
 
 	 	</attachment>
 		<attachment name="territoryAttachment" attachTo="Hawaii" javaClass="games.strategy.triplea.attachments.TerritoryAttachment" type="territory">
-			<option name="production" value="2"/>
+			<option name="production" value="3"/>
 
 	 	</attachment>
 		<attachment name="territoryAttachment" attachTo="Korean Congo" javaClass="games.strategy.triplea.attachments.TerritoryAttachment" type="territory">
-			<option name="production" value="1"/>
+			<option name="production" value="3"/>
 			<option name="resources" value="2:oil"/>
 
 			<option name="territoryEffect" value="Jungle"/>
 	 	</attachment>
 		<attachment name="territoryAttachment" attachTo="Karafuto" javaClass="games.strategy.triplea.attachments.TerritoryAttachment" type="territory">
-			<option name="production" value="2"/>
+			<option name="production" value="3"/>
 
 			<option name="territoryEffect" value="Tundra"/>
 	 	</attachment>
 		<attachment name="territoryAttachment" attachTo="Gungzi" javaClass="games.strategy.triplea.attachments.TerritoryAttachment" type="territory">
-			<option name="production" value="4"/>
+			<option name="production" value="3"/>
 
 	 	</attachment>
 		<attachment name="territoryAttachment" attachTo="Guam" javaClass="games.strategy.triplea.attachments.TerritoryAttachment" type="territory">
-			<option name="production" value="1"/>
+			<option name="production" value="3"/>
 
 	 	</attachment>
 		<attachment name="territoryAttachment" attachTo="Midway" javaClass="games.strategy.triplea.attachments.TerritoryAttachment" type="territory">
-			<option name="production" value="1"/>
+			<option name="production" value="3"/>
 
 	 	</attachment>
 		<attachment name="territoryAttachment" attachTo="Japan" javaClass="games.strategy.triplea.attachments.TerritoryAttachment" type="territory">
-			<option name="production" value="5"/>
+			<option name="production" value="3"/>
 
 			<option name="territoryEffect" value="Mountains"/>
 	 	</attachment>
@@ -5409,46 +5057,44 @@
 
 	 	</attachment>
 		<attachment name="territoryAttachment" attachTo="Chagos" javaClass="games.strategy.triplea.attachments.TerritoryAttachment" type="territory">
-			<option name="production" value="1"/>
+			<option name="production" value="3"/>
 
 	 	</attachment>
 		<attachment name="territoryAttachment" attachTo="Alaska" javaClass="games.strategy.triplea.attachments.TerritoryAttachment" type="territory">
-			<option name="production" value="1"/>
+			<option name="production" value="3"/>
 			<option name="resources" value="1:oil"/>
 
 			<option name="territoryEffect" value="Tundra"/>
 	 	</attachment>
 		<attachment name="territoryAttachment" attachTo="Korea" javaClass="games.strategy.triplea.attachments.TerritoryAttachment" type="territory">
-			<option name="production" value="15"/>
+			<option name="production" value="3"/>
 
-			<option name="resources" value="2:techTokens"/>
-			<option name="capital" value="Korea"/>
+			
 			<option name="victoryCity" value="1"/>
 	 	</attachment>
 		<attachment name="territoryAttachment" attachTo="Carolines" javaClass="games.strategy.triplea.attachments.TerritoryAttachment" type="territory">
-			<option name="production" value="1"/>
+			<option name="production" value="3"/>
 
 	 	</attachment>
 		<attachment name="territoryAttachment" attachTo="Wake" javaClass="games.strategy.triplea.attachments.TerritoryAttachment" type="territory">
-			<option name="production" value="1"/>
+			<option name="production" value="3"/>
 
 	 	</attachment>
 		<attachment name="territoryAttachment" attachTo="Niverhotsk" javaClass="games.strategy.triplea.attachments.TerritoryAttachment" type="territory">
-			<option name="production" value="4"/>
+			<option name="production" value="3"/>
 			<option name="resources" value="2:oil"/>
 
 			<option name="territoryEffect" value="Tundra"/>
 	 	</attachment>
 		<attachment name="territoryAttachment" attachTo="Siam" javaClass="games.strategy.triplea.attachments.TerritoryAttachment" type="territory">
-			<option name="production" value="15"/>
+			<option name="production" value="3"/>
 			<option name="resources" value="2:oil"/>
 
-			<option name="resources" value="2:techTokens"/>
+			
 			<option name="territoryEffect" value="Jungle"/>
-			<option name="capital" value="Hoshida"/>
 	 	</attachment>
 		<attachment name="territoryAttachment" attachTo="Solomons" javaClass="games.strategy.triplea.attachments.TerritoryAttachment" type="territory">
-			<option name="production" value="1"/>
+			<option name="production" value="3"/>
 
 	 	</attachment>
 		<attachment name="territoryAttachment" attachTo="Panama" javaClass="games.strategy.triplea.attachments.TerritoryAttachment" type="territory">
@@ -5457,7 +5103,7 @@
 			<option name="territoryEffect" value="Jungle"/>
 	 	</attachment>
 		<attachment name="territoryAttachment" attachTo="Rapa Nui" javaClass="games.strategy.triplea.attachments.TerritoryAttachment" type="territory">
-			<option name="production" value="1"/>
+			<option name="production" value="3"/>
 
 	 	</attachment>
 		<attachment name="territoryAttachment" attachTo="Borneo" javaClass="games.strategy.triplea.attachments.TerritoryAttachment" type="territory">
@@ -5467,23 +5113,23 @@
 			<option name="territoryEffect" value="Jungle"/>
 	 	</attachment>
 		<attachment name="territoryAttachment" attachTo="Sumatra" javaClass="games.strategy.triplea.attachments.TerritoryAttachment" type="territory">
-			<option name="production" value="7"/>
+			<option name="production" value="3"/>
 			<option name="resources" value="1:oil"/>
 
 			<option name="territoryEffect" value="Jungle"/>
 	 	</attachment>
 		<attachment name="territoryAttachment" attachTo="Nyujirando" javaClass="games.strategy.triplea.attachments.TerritoryAttachment" type="territory">
-			<option name="production" value="2"/>
+			<option name="production" value="3"/>
 
 	 	</attachment>
 		<attachment name="territoryAttachment" attachTo="Hoshida" javaClass="games.strategy.triplea.attachments.TerritoryAttachment" type="territory">
-			<option name="production" value="5"/>
+			<option name="production" value="3"/>
 
 			<option name="victoryCity" value="1"/>
 			<option name="territoryEffect" value="Jungle"/>
 	 	</attachment>
 		<attachment name="territoryAttachment" attachTo="Papua" javaClass="games.strategy.triplea.attachments.TerritoryAttachment" type="territory">
-			<option name="production" value="2"/>
+			<option name="production" value="3"/>
 			<option name="resources" value="1:oil"/>
 
 			<option name="territoryEffect" value="Jungle"/>
@@ -5500,18 +5146,18 @@
 			<option name="territoryEffect" value="Mountains"/>
 	 	</attachment>
 		<attachment name="territoryAttachment" attachTo="Dixie" javaClass="games.strategy.triplea.attachments.TerritoryAttachment" type="territory">
-			<option name="production" value="4"/>
+			<option name="production" value="3"/>
 			<option name="resources" value="4:oil"/>
 
 	 	</attachment>
 		<attachment name="territoryAttachment" attachTo="Peru" javaClass="games.strategy.triplea.attachments.TerritoryAttachment" type="territory">
-			<option name="production" value="4"/>
+			<option name="production" value="3"/>
 			<option name="resources" value="1:oil"/>
 
 			<option name="territoryEffect" value="Mountains"/>
 	 	</attachment>
 		<attachment name="territoryAttachment" attachTo="Meijou" javaClass="games.strategy.triplea.attachments.TerritoryAttachment" type="territory">
-			<option name="production" value="4"/>
+			<option name="production" value="3"/>
 			<option name="victoryCity" value="1"/>
 	 	</attachment>
 		<attachment name="territoryAttachment" attachTo="Cuba" javaClass="games.strategy.triplea.attachments.TerritoryAttachment" type="territory">
@@ -5525,36 +5171,35 @@
 			<option name="territoryEffect" value="Jungle"/>
 	 	</attachment>
 		<attachment name="territoryAttachment" attachTo="Barbarossia" javaClass="games.strategy.triplea.attachments.TerritoryAttachment" type="territory">
-			<option name="production" value="5"/>
+			<option name="production" value="3"/>
 			<option name="resources" value="3:oil"/>
 
 	 	</attachment>
 		<attachment name="territoryAttachment" attachTo="Mawshigu" javaClass="games.strategy.triplea.attachments.TerritoryAttachment" type="territory">
-			<option name="production" value="5"/>
+			<option name="production" value="3"/>
 			<option name="resources" value="5:oil"/>
 
 			<option name="victoryCity" value="1"/>
 			<option name="territoryEffect" value="Desert"/>
 	 	</attachment>
 		<attachment name="territoryAttachment" attachTo="Midwest" javaClass="games.strategy.triplea.attachments.TerritoryAttachment" type="territory">
-			<option name="production" value="15"/>
+			<option name="production" value="3"/>
 			<option name="resources" value="1:oil"/>
-			<option name="resources" value="2:techTokens"/>
-			<option name="capital" value="Meijou"/>
+			
 	 	</attachment>
 		<attachment name="territoryAttachment" attachTo="Spanish Ghana" javaClass="games.strategy.triplea.attachments.TerritoryAttachment" type="territory">
-			<option name="production" value="8"/>
+			<option name="production" value="3"/>
 			<option name="resources" value="1:oil"/>
 
 			<option name="territoryEffect" value="Jungle"/>
 	 	</attachment>
 		<attachment name="territoryAttachment" attachTo="Albion" javaClass="games.strategy.triplea.attachments.TerritoryAttachment" type="territory">
-			<option name="production" value="4"/>
+			<option name="production" value="3"/>
 			<option name="resources" value="1:oil"/>
 
 	 	</attachment>
 		<attachment name="territoryAttachment" attachTo="Aergedina" javaClass="games.strategy.triplea.attachments.TerritoryAttachment" type="territory">
-			<option name="production" value="4"/>
+			<option name="production" value="3"/>
 			<option name="resources" value="2:oil"/>
 
 			<option name="victoryCity" value="1"/>
@@ -5566,14 +5211,13 @@
 			<option name="territoryEffect" value="Mountains"/>
 	 	</attachment>
 		<attachment name="territoryAttachment" attachTo="Songhai" javaClass="games.strategy.triplea.attachments.TerritoryAttachment" type="territory">
-			<option name="production" value="15"/>
+			<option name="production" value="3"/>
 			<option name="resources" value="1:oil"/>
 
-			<option name="resources" value="2:techTokens"/>
-			<option name="capital" value="Grands"/>
+			
 	 	</attachment>
 		<attachment name="territoryAttachment" attachTo="W. Canaan" javaClass="games.strategy.triplea.attachments.TerritoryAttachment" type="territory">
-			<option name="production" value="5"/>
+			<option name="production" value="3"/>
 			<option name="resources" value="2:oil"/>
 
 			<option name="territoryEffect" value="Desert"/>
@@ -5583,7 +5227,7 @@
 			<option name="isImpassable" value="true"/>
 	 	</attachment>
 		<attachment name="territoryAttachment" attachTo="Iceland" javaClass="games.strategy.triplea.attachments.TerritoryAttachment" type="territory">
-			<option name="production" value="1"/>
+			<option name="production" value="3"/>
 			<option name="resources" value="1:oil"/>
 
 			<option name="territoryEffect" value="Tundra"/>
@@ -5595,7 +5239,7 @@
 			<option name="territoryEffect" value="Mountains"/>
 	 	</attachment>
 		<attachment name="territoryAttachment" attachTo="Brasarike" javaClass="games.strategy.triplea.attachments.TerritoryAttachment" type="territory">
-			<option name="production" value="4"/>
+			<option name="production" value="3"/>
 			<option name="resources" value="1:oil"/>
 
 			<option name="territoryEffect" value="Jungle"/>
@@ -5607,27 +5251,27 @@
 			<option name="territoryEffect" value="Tundra"/>
 	 	</attachment>
 		<attachment name="territoryAttachment" attachTo="W. Vinland" javaClass="games.strategy.triplea.attachments.TerritoryAttachment" type="territory">
-			<option name="production" value="2"/>
+			<option name="production" value="3"/>
 			<option name="resources" value="1:oil"/>
 
 			<option name="territoryEffect" value="Tundra"/>
 	 	</attachment>
 		<attachment name="territoryAttachment" attachTo="Spanish Congo" javaClass="games.strategy.triplea.attachments.TerritoryAttachment" type="territory">
-			<option name="production" value="2"/>
+			<option name="production" value="3"/>
 
 			<option name="territoryEffect" value="Jungle"/>
 	 	</attachment>
 		<attachment name="territoryAttachment" attachTo="Spanish Angola" javaClass="games.strategy.triplea.attachments.TerritoryAttachment" type="territory">
-			<option name="production" value="1"/>
+			<option name="production" value="3"/>
 			<option name="resources" value="1:oil"/>
 
 	 	</attachment>
 		<attachment name="territoryAttachment" attachTo="Denmark" javaClass="games.strategy.triplea.attachments.TerritoryAttachment" type="territory">
-			<option name="production" value="2"/>
+			<option name="production" value="3"/>
 
 	 	</attachment>
 		<attachment name="territoryAttachment" attachTo="Greenland" javaClass="games.strategy.triplea.attachments.TerritoryAttachment" type="territory">
-			<option name="production" value="1"/>
+			<option name="production" value="3"/>
 
 			<option name="territoryEffect" value="Tundra"/>
 	 	</attachment>
@@ -5660,10 +5304,9 @@
 			<option name="isImpassable" value="true"/>
 	 	</attachment>
 		<attachment name="territoryAttachment" attachTo="Bolivia" javaClass="games.strategy.triplea.attachments.TerritoryAttachment" type="territory">
-			<option name="production" value="15"/>
+			<option name="production" value="3"/>
 			<option name="resources" value="1:oil"/>
-			<option name="resources" value="2:techTokens"/>
-			<option name="capital" value="NonAligned"/>
+			
 	 	</attachment>
 <!-- /TERRITORY ATTACHMENTS -->
 
@@ -5743,6 +5386,7 @@
 			<option name="combatOffenseEffect" value="heavyTank" count="-1"/>
 			<option name="combatOffenseEffect" value="katyusha" count="-1"/>
 			<option name="combatOffenseEffect" value="conscript" count="-1"/>
+			<option name="combatOffenseEffect" value="garrison" count="-1"/>
 			<option name="combatOffenseEffect" value="marine" count="-1"/>
 			<option name="combatOffenseEffect" value="tankHunter" count="-1"/>
 			<option name="combatOffenseEffect" value="mercenary" count="-1"/>
@@ -5846,8 +5490,6 @@
 			<option name="radarBonus" value="1:refinery"/>
 			<option name="radarBonus" value="1:nuclearFacility"/>
 			<option name="radarBonus" value="1:coalitionFactory"/>
-			<option name="radarBonus" value="1:village"/>
-			<option name="radarBonus" value="1:town"/>
 		</attachment>
 		<attachment name="techAbilityAttachment" attachTo="ElectricEngine" javaClass="games.strategy.triplea.attachments.TechAbilityAttachment" type="technology">
 			<option name="attackBonus" value="1:submarine"/>
@@ -5867,65 +5509,52 @@
 
 	</attachmentList>
 	<initialize>
-		<ownerInitialize>
-			<territoryOwner territory="Mazdak S.R." owner="Mazdak"/>
-			<territoryOwner territory="Yuyuan" owner="China"/>
-			<territoryOwner territory="Ulug Aal" owner="EuroForce"/>
-			<territoryOwner territory="Russia" owner="Russia"/>
-			<territoryOwner territory="Hindustan" owner="India"/>
-			<territoryOwner territory="Arcadia" owner="Arcadia"/>
-			<territoryOwner territory="Korea" owner="Korea"/>
-			<territoryOwner territory="Siam" owner="Hoshida"/>
-			<territoryOwner territory="Midwest" owner="Meijou"/>
-			<territoryOwner territory="Songhai" owner="Grands"/>
-			<territoryOwner territory="Bolivia" owner="NonAligned"/>
-		</ownerInitialize>
 		<unitInitialize>
-			<unitPlacement quantity="1" owner="Mazdak" territory="Mazdak S.R." unitType="factory"/>
-			<unitPlacement quantity="1" owner="China" territory="Yuyuan" unitType="factory"/>
-			<unitPlacement quantity="1" owner="EuroForce" territory="Ulug Aal" unitType="factory"/>
-			<unitPlacement quantity="1" owner="Russia" territory="Russia" unitType="factory"/>
-			<unitPlacement quantity="1" owner="India" territory="Hindustan" unitType="factory"/>
-			<unitPlacement quantity="1" owner="Arcadia" territory="Arcadia" unitType="factory"/>
-			<unitPlacement quantity="1" owner="Korea" territory="Korea" unitType="factory"/>
-			<unitPlacement quantity="1" owner="Hoshida" territory="Siam" unitType="factory"/>
-			<unitPlacement quantity="1" owner="Meijou" territory="Midwest" unitType="factory"/>
-			<unitPlacement quantity="1" owner="Grands" territory="Songhai" unitType="factory"/>
-			<unitPlacement quantity="1" owner="NonAligned" territory="Bolivia" unitType="factory"/>
-			<unitPlacement quantity="5" owner="Mazdak" territory="Mazdak S.R." unitType="infantry"/>
-			<unitPlacement quantity="5" owner="China" territory="Yuyuan" unitType="infantry"/>
-			<unitPlacement quantity="5" owner="EuroForce" territory="Ulug Aal" unitType="infantry"/>
-			<unitPlacement quantity="5" owner="Russia" territory="Russia" unitType="infantry"/>
-			<unitPlacement quantity="5" owner="India" territory="Hindustan" unitType="infantry"/>
-			<unitPlacement quantity="5" owner="Arcadia" territory="Arcadia" unitType="infantry"/>
-			<unitPlacement quantity="5" owner="Korea" territory="Korea" unitType="infantry"/>
-			<unitPlacement quantity="5" owner="Hoshida" territory="Siam" unitType="infantry"/>
-			<unitPlacement quantity="5" owner="Meijou" territory="Midwest" unitType="infantry"/>
-			<unitPlacement quantity="5" owner="Grands" territory="Songhai" unitType="infantry"/>
-			<unitPlacement quantity="5" owner="NonAligned" territory="Bolivia" unitType="infantry"/>
+			<heldUnits unitType="infantry" quantity="10" player="Mazdak"/>
+			<heldUnits unitType="infantry" quantity="10" player="China"/>
+			<heldUnits unitType="infantry" quantity="10" player="EuroForce"/>
+			<heldUnits unitType="infantry" quantity="10" player="Russia"/>
+			<heldUnits unitType="infantry" quantity="10" player="India"/>
+			<heldUnits unitType="infantry" quantity="10" player="Arcadia"/>
+			<heldUnits unitType="infantry" quantity="10" player="Korea"/>
+			<heldUnits unitType="infantry" quantity="10" player="Hoshida"/>
+			<heldUnits unitType="infantry" quantity="10" player="Meijou"/>
+			<heldUnits unitType="infantry" quantity="10" player="Grands"/>
+			<heldUnits unitType="infantry" quantity="10" player="NonAligned"/>
+			<heldUnits unitType="factory" quantity="2" player="Mazdak"/>
+			<heldUnits unitType="factory" quantity="2" player="China"/>
+			<heldUnits unitType="factory" quantity="2" player="EuroForce"/>
+			<heldUnits unitType="factory" quantity="2" player="Russia"/>
+			<heldUnits unitType="factory" quantity="2" player="India"/>
+			<heldUnits unitType="factory" quantity="2" player="Arcadia"/>
+			<heldUnits unitType="factory" quantity="2" player="Korea"/>
+			<heldUnits unitType="factory" quantity="2" player="Hoshida"/>
+			<heldUnits unitType="factory" quantity="2" player="Meijou"/>
+			<heldUnits unitType="factory" quantity="2" player="Grands"/>
+			<heldUnits unitType="factory" quantity="2" player="NonAligned"/>
 		</unitInitialize>
 		<resourceInitialize>
-			<resourceGiven player="Mazdak" resource="PUs" quantity="15"/>
+			<resourceGiven player="Mazdak" resource="PUs" quantity="20"/>
 
-			<resourceGiven player="China" resource="PUs" quantity="15"/>
+			<resourceGiven player="China" resource="PUs" quantity="20"/>
 
-			<resourceGiven player="EuroForce" resource="PUs" quantity="15"/>
+			<resourceGiven player="EuroForce" resource="PUs" quantity="20"/>
 
-			<resourceGiven player="Russia" resource="PUs" quantity="15"/>
+			<resourceGiven player="Russia" resource="PUs" quantity="20"/>
 
-			<resourceGiven player="India" resource="PUs" quantity="15"/>
+			<resourceGiven player="India" resource="PUs" quantity="20"/>
 
-			<resourceGiven player="Arcadia" resource="PUs" quantity="15"/>
+			<resourceGiven player="Arcadia" resource="PUs" quantity="20"/>
 
-			<resourceGiven player="Korea" resource="PUs" quantity="15"/>
+			<resourceGiven player="Korea" resource="PUs" quantity="20"/>
 
-			<resourceGiven player="Hoshida" resource="PUs" quantity="15"/>
+			<resourceGiven player="Hoshida" resource="PUs" quantity="20"/>
 
-			<resourceGiven player="Meijou" resource="PUs" quantity="15"/>
+			<resourceGiven player="Meijou" resource="PUs" quantity="20"/>
 
-			<resourceGiven player="Grands" resource="PUs" quantity="15"/>
+			<resourceGiven player="Grands" resource="PUs" quantity="20"/>
 
-			<resourceGiven player="NonAligned" resource="PUs" quantity="15"/>
+			<resourceGiven player="NonAligned" resource="PUs" quantity="20"/>
 		</resourceInitialize>
 		<relationshipInitialize>
 			<relationship type="War" player1="NonAligned" player2="Mazdak" roundValue="1"/>
@@ -6058,10 +5687,37 @@
 		<property name="Economic Victory" value="true" editable="false">
 			<boolean/>
 		</property>
-		<property name="The Order Economic Victory" value="300" editable="false">
+		<property name="Mazdak Economic Victory" value="250" editable="false">
 			<number min="0" max="1000"/>
 		</property>
-		<property name="The Union Economic Victory" value="300" editable="false">
+		<property name="China Economic Victory" value="250" editable="false">
+			<number min="0" max="1000"/>
+		</property>
+		<property name="EuroForce Economic Victory" value="250" editable="false">
+			<number min="0" max="1000"/>
+		</property>
+		<property name="Russia Economic Victory" value="250" editable="false">
+			<number min="0" max="1000"/>
+		</property>
+		<property name="India Economic Victory" value="250" editable="false">
+			<number min="0" max="1000"/>
+		</property>
+		<property name="Arcadia Economic Victory" value="250" editable="false">
+			<number min="0" max="1000"/>
+		</property>
+		<property name="Korea Economic Victory" value="250" editable="false">
+			<number min="0" max="1000"/>
+		</property>
+		<property name="Hoshida Economic Victory" value="250" editable="false">
+			<number min="0" max="1000"/>
+		</property>
+		<property name="Meijou Economic Victory" value="250" editable="false">
+			<number min="0" max="1000"/>
+		</property>
+		<property name="Grands Economic Victory" value="250" editable="false">
+			<number min="0" max="1000"/>
+		</property>
+		<property name="NonAligned Economic Victory" value="250" editable="false">
 			<number min="0" max="1000"/>
 		</property>
 		<property name="Triggered Victory" value="true" editable="true">
@@ -6157,7 +5813,7 @@
 		<property name="Use Shipyards" value="false" editable="false">
 			<boolean/>
 		</property>
-		<property name="Territories Are Assigned Randomly" value="false" editable="false">
+		<property name="Territories Are Assigned Randomly" value="true" editable="false">
 			<boolean/>
 		</property>
 		<property name="Disabled Players Assets Deleted" value="false" editable="false">
@@ -6675,23 +6331,13 @@ Naval units are identical without flags to distinguish them, and many land units
 	<td>Provides +1 movement to allied infantry, is destroyed when captured</td>
 	</tr>
 	
-	<tr bgcolor="BDBDBD">
-	<td>Colony</td>
-	<td>Korea</th>
-	<td></td>
-	<td></td>
-	<td></td>
-	<td>5</td>
-	<td>Can upgrade to provide benefits (detailed in chart below), can only be placed in East Asian territories (Karafuto, Niverhotsk, North Bloc, Manchuria, Shandong, Gungzi, Tulra, Yuyuan, Canton, Siam, and Sumatra)</td>
-	</tr>
-
 	<td>Garrison</td>
 	<td>Korea</th>
-	<td>0</td>
-	<td>2</td>
-	<td>0</td>
-	<td></td>
-	<td>Created automatically by Villages and Towns</td>
+	<td>1</td>
+	<td>3</td>
+	<td>1</td>
+	<td>4</td>
+	<td>Receives artillery atk bonus</td>
 	</tr>
 
 	<tr bgcolor="BDBDBD">
@@ -6730,41 +6376,6 @@ Naval units are identical without flags to distinguish them, and many land units
 	<td>1</td>
 	<td>3.5</td>
 	<td>Can be placed without a factory, must be purchased in sets of two</td>
-	</tr>
-	
-</table>
-<br>
-
-<table border="1"bgcolor="ABABAB">
-	<tr>
-	<th style="font-size:120%;000000"bgcolor="FEECE2"colspan="3">Korean Colonies</th>
-	</tr>
-
-	<th>Level</th>
-	<th>Benefits</th>
-	<th>Other Info</th>
-	</tr>
-
-	<tr bgcolor="BDBDBD">
-	<td>Colony</td>
-	<td>Provides +1PU per turn</td>
-	<td>Can be destroyed by 6 strategic bombing damage; will automatically upgrade to a Settlement if a neighboring territory contains a Colony, Settlement, Village, or Town</td>
-	</tr>
-
-	<td>Settlement</td>
-	<td>Provides +1PU per turn and a defensive garrison</td>
-	<td>Can be destroyed by 8 strategic bombing damage; will automatically upgrade to a Village if two neighboring territories contain a Colony, Settlement, Village, or Town</td>
-	</tr>
-
-	<tr bgcolor="BDBDBD">
-	<td>Village</td>
-	<td>Provides +1PU per turn, a defensive garrison, and can produce up to 1 unit per turn</td>
-	<td>Can be destroyed by 10 strategic bombing damage and performs AA fire against strategic bombing; will automatically upgrade to a Town if three neighboring territories contain a Colony, Settlement, Village, or Town</td>
-	</tr>
-
-	<td>Town</td>
-	<td>Provides +2PUs per turn, a defensive garrison, and can produce up to 2 units per turn</td>
-	<td>Can be destroyed by 12 strategic bombing damage and performs AA fire against strategic bombing</td>
 	</tr>
 	
 </table>
@@ -7207,7 +6818,7 @@ Naval units are identical without flags to distinguish them, and many land units
 	<ul>
 	<li>Tech tokens are provided by territories with victory cities. You may also purchase tokens for 10PUs each, or 7PUs if you have the Digital Computer technology. Tech tokens roll on low luck, so six tokens guarantees a tech discovery. Any more than six are a waste, so do not buy more if you already have six.
 	<li>Most units require oil to move. Battleships, Carriers, Halftracks, and Tanks require one oil for each territory they move through. Destroyers, Submarines, Fighters, Bombers, and Interceptors only require one oil per turn for any amount of movement in that turn.
-	<li>All units (not including buildings) require 1PU per turn in upkeep. The following units are an exception, and require no upkeep: Holdout, Garrison, Conscript, Nuke, and Rocket.
+	<li>All units (not including buildings) require 1PU per turn in upkeep. The following units are an exception, and require no upkeep: Holdout, Conscript, Nuke, and Rocket.
 	<li>Grands has a special "Grande Armee" on an off-board territory which can be moved to any territory they controlled at the start of the game.
 	<li>Grands does not have a capital territory, and so their ability to produce units cannot be stopped without removing them from the board entirely. This is done to represent the fact that Grands is a widespread alliance of states and underground movements, which can change over time with the territory they control.
 	<li>China also does not have a capital territory, and furthermore they have an off-board production center and income, meaning that they can continue producing units even if they lose all of their territories on the board. This is done to represent the fact that China is a state in rebellion against Korean occupation.
