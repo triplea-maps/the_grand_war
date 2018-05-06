@@ -1180,6 +1180,7 @@
 			<frontierRules name="buydestroyer"/>
 			<frontierRules name="buybattleship"/>
 			<frontierRules name="buyfactory"/>
+			<frontierRules name="buyrefinery"/>
 		</productionFrontier>
 		<playerProduction player="Mazdak" frontier="MazdakFrontier"/>
 		<playerProduction player="China" frontier="ChinaFrontier"/>
