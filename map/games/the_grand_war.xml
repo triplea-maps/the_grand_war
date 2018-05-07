@@ -3333,6 +3333,8 @@
 			<option name="conditions" value="conditionAttachmentArcadiaCapitalMazdak"/>
 			<option name="when" value="before:mazdakTech"/>
 			<option name="uses" value="1"/>
+			<option name="territories" value="Arcadia"/>
+			<option name="territoryProperty" value="capital" count="Mazdak"/>
 			<option name="placement" value="Mazdak S.R.:infantry" count="4"/>
 			<option name="placement" value="Mazdak S.R.:zealot" count="2"/>
 			<option name="placement" value="Dravidia S.R.:infantry" count="5"/>
@@ -3353,6 +3355,20 @@
 			<option name="relationshipChange" value="Mazdak:EuroForce:any:War"/>
 			<option name="relationshipChange" value="Mazdak:Korea:any:War"/>
 			<option name="notification" value="worldConquestNotification"/>
+		</attachment>
+		<attachment name="triggerAttachmentMoveArcadianCapitalToPersia" attachTo="Mazdak" javaClass="games.strategy.triplea.attachments.TriggerAttachment" type="player">
+			<option name="conditions" value="conditionAttachmentArcadiaCapitalMazdak"/>
+			<option name="when" value="before:mazdakTech"/>
+			<option name="uses" value="1"/>
+			<option name="territories" value="Persia"/>
+			<option name="territoryProperty" value="capital" count="Arcadia"/>
+		</attachment>
+		<attachment name="triggerAttachmentRemoveOldMazdakCapital" attachTo="Mazdak" javaClass="games.strategy.triplea.attachments.TriggerAttachment" type="player">
+			<option name="conditions" value="conditionAttachmentArcadiaCapitalMazdak"/>
+			<option name="when" value="before:mazdakTech"/>
+			<option name="uses" value="1"/>
+			<option name="territories" value="Mazdak S.R."/>
+			<option name="territoryProperty" value="capital" count="Neutral"/>
 		</attachment>
 <!-- /MAZDAK WORLD CONQUEST -->
 
@@ -5305,6 +5321,7 @@
 			<option name="maxConstructionsPerTypePerTerr" value="100"/>
 			<option name="constructionsPerTerrPerTypePerTurn" value="1"/>
 		 	<option name="tuv" value="4"/>
+			<option name="unitPlacementRestrictions" value="Chinese Underground:Outer Rebels:Inner Rebels"/>
 		</attachment>
 		<attachment name="unitAttachment" attachTo="heavyTank" javaClass="games.strategy.triplea.attachments.UnitAttachment" type="unitType">
 		 	<option name="movement" value="2"/>
@@ -5337,6 +5354,7 @@
 			<option name="givesMovement" value="1:marine"/>
 		 	<option name="isInfrastructure" value="true"/>
 			<option name="isConstruction" value="true"/>
+			<option name="canOnlyBePlacedInTerritoryValuedAtX" value="1"/>
 			<option name="constructionType" value="motorPoolBuilding"/>
 			<option name="maxConstructionsPerTypePerTerr" value="1"/>
 			<option name="constructionsPerTerrPerTypePerTurn" value="1"/>
@@ -5444,7 +5462,6 @@
 		<attachment name="unitAttachment" attachTo="coalitionFactory" javaClass="games.strategy.triplea.attachments.UnitAttachment" type="unitType">
 		 	<option name="isInfrastructure" value="true"/>
 			<option name="isConstruction" value="true"/>
-			<option name="canOnlyBePlacedInTerritoryValuedAtX" value="1"/>
 			<option name="constructionType" value="coalition"/>
 			<option name="maxConstructionsPerTypePerTerr" value="1"/>
 			<option name="constructionsPerTerrPerTypePerTurn" value="1"/>
@@ -5466,6 +5483,7 @@
 		 	<option name="isInfantry" value="true"/>
 		 	<option name="isAirTransportable" value="true"/>
 		 	<option name="isConstruction" value="true"/>
+			<option name="canOnlyBePlacedInTerritoryValuedAtX" value="1"/>
 			<option name="constructionType" value="placementMercenary"/>
 			<option name="maxConstructionsPerTypePerTerr" value="100"/>
 			<option name="constructionsPerTerrPerTypePerTurn" value="2"/>
@@ -5492,9 +5510,7 @@
 		</attachment>
 		<attachment name="unitAttachment" attachTo="nuclearFacility" javaClass="games.strategy.triplea.attachments.UnitAttachment" type="unitType">
 			<option name="isInfrastructure" value="true"/>
-			<option name="unitPlacementRestrictions" value="Grand Armee:Volunteers 1:Volunteers 2:Volunteers 3:Volunteers 4:Volunteers 5:Chinese Underground:Outer Rebels:Inner Rebels"/>
 			<option name="isConstruction" value="true"/>
-			<option name="canOnlyBePlacedInTerritoryValuedAtX" value="1"/>
 			<option name="constructionType" value="factory"/>
 			<option name="maxConstructionsPerTypePerTerr" value="1"/>
 			<option name="constructionsPerTerrPerTypePerTurn" value="1"/>
@@ -6264,7 +6280,7 @@
 
 <!-- MOVEMENT RESTRICTIONS (OFFBOARD ZONES) -->
 			<attachment name="rulesAttachment" javaClass="games.strategy.triplea.attachments.RulesAttachment" type="player" attachTo="India">
-				<option name="movementRestrictionTerritories" value="Outer Rebels:Inner Rebels"/>
+				<option name="movementRestrictionTerritories" value="Outer Rebels:Inner Rebels:Chinese Underground"/>
 				<option name="movementRestrictionType" value="disallowed"/>
 			</attachment>
 			<attachment name="rulesAttachment" javaClass="games.strategy.triplea.attachments.RulesAttachment" type="player" attachTo="China">
@@ -6272,39 +6288,39 @@
 				<option name="movementRestrictionType" value="disallowed"/>
 			</attachment>
 			<attachment name="rulesAttachment" javaClass="games.strategy.triplea.attachments.RulesAttachment" type="player" attachTo="Mazdak">
-				<option name="movementRestrictionTerritories" value="Volunteers 1:Outer Rebels:Inner Rebels"/>
+				<option name="movementRestrictionTerritories" value="Volunteers 1:Outer Rebels:Inner Rebels:Chinese Underground"/>
 				<option name="movementRestrictionType" value="disallowed"/>
 			</attachment>
 			<attachment name="rulesAttachment" javaClass="games.strategy.triplea.attachments.RulesAttachment" type="player" attachTo="Grands">
-				<option name="movementRestrictionTerritories" value="Volunteers 1:Outer Rebels:Inner Rebels"/>
+				<option name="movementRestrictionTerritories" value="Volunteers 1:Outer Rebels:Inner Rebels:Chinese Underground"/>
 				<option name="movementRestrictionType" value="disallowed"/>
 			</attachment>
 			<attachment name="rulesAttachment" javaClass="games.strategy.triplea.attachments.RulesAttachment" type="player" attachTo="NonAligned">
-				<option name="movementRestrictionTerritories" value="Volunteers 1:Outer Rebels:Inner Rebels"/>
+				<option name="movementRestrictionTerritories" value="Volunteers 1:Outer Rebels:Inner Rebels:Chinese Underground"/>
 				<option name="movementRestrictionType" value="disallowed"/>
 			</attachment>
 			<attachment name="rulesAttachment" javaClass="games.strategy.triplea.attachments.RulesAttachment" type="player" attachTo="Arcadia">
-				<option name="movementRestrictionTerritories" value="Volunteers 1:Outer Rebels:Inner Rebels"/>
+				<option name="movementRestrictionTerritories" value="Volunteers 1:Outer Rebels:Inner Rebels:Chinese Underground"/>
 				<option name="movementRestrictionType" value="disallowed"/>
 			</attachment>
 			<attachment name="rulesAttachment" javaClass="games.strategy.triplea.attachments.RulesAttachment" type="player" attachTo="Russia">
-				<option name="movementRestrictionTerritories" value="Volunteers 1:Outer Rebels:Inner Rebels"/>
+				<option name="movementRestrictionTerritories" value="Volunteers 1:Outer Rebels:Inner Rebels:Chinese Underground"/>
 				<option name="movementRestrictionType" value="disallowed"/>
 			</attachment>
 			<attachment name="rulesAttachment" javaClass="games.strategy.triplea.attachments.RulesAttachment" type="player" attachTo="EuroForce">
-				<option name="movementRestrictionTerritories" value="Volunteers 1:Outer Rebels:Inner Rebels"/>
+				<option name="movementRestrictionTerritories" value="Volunteers 1:Outer Rebels:Inner Rebels:Chinese Underground"/>
 				<option name="movementRestrictionType" value="disallowed"/>
 			</attachment>
 			<attachment name="rulesAttachment" javaClass="games.strategy.triplea.attachments.RulesAttachment" type="player" attachTo="Meijou">
-				<option name="movementRestrictionTerritories" value="Volunteers 1:Outer Rebels:Inner Rebels"/>
+				<option name="movementRestrictionTerritories" value="Volunteers 1:Outer Rebels:Inner Rebels:Chinese Underground"/>
 				<option name="movementRestrictionType" value="disallowed"/>
 			</attachment>
 			<attachment name="rulesAttachment" javaClass="games.strategy.triplea.attachments.RulesAttachment" type="player" attachTo="Hoshida">
-				<option name="movementRestrictionTerritories" value="Volunteers 1:Outer Rebels:Inner Rebels"/>
+				<option name="movementRestrictionTerritories" value="Volunteers 1:Outer Rebels:Inner Rebels:Chinese Underground"/>
 				<option name="movementRestrictionType" value="disallowed"/>
 			</attachment>
 			<attachment name="rulesAttachment" javaClass="games.strategy.triplea.attachments.RulesAttachment" type="player" attachTo="Korea">
-				<option name="movementRestrictionTerritories" value="Volunteers 1:Outer Rebels:Inner Rebels"/>
+				<option name="movementRestrictionTerritories" value="Volunteers 1:Outer Rebels:Inner Rebels:Chinese Underground"/>
 				<option name="movementRestrictionType" value="disallowed"/>
 			</attachment>
 <!-- /MOVEMENT RESTRICTIONS (OFFBOARD ZONES) -->
