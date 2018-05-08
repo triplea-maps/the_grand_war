@@ -7386,7 +7386,7 @@ Naval units are identical without flags to distinguish them, and many land units
 	<tr bgcolor="BDBDBD">
 	<td>Digital Computer</td>
 	<td>Industrial</td>
-	<td>You may trade PUs for tech tokens and vice versa at a rate of seven to one</td>
+	<td>You may trade PUs for tech tokens and vice versa; pay 5PUs for one techToken, or pay 1techTocken for 7PUs</td>
 	</tr>
 
 	<tr bgcolor="BDBDBD">
