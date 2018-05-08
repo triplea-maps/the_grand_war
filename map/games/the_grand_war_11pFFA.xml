@@ -6285,10 +6285,10 @@
 		<property name="Neutrals Are Impassable" value="false" editable="false">
 			<boolean/>
 		</property>
-		<property name="Neutrals Are Blitzable" value="false" editable="false">
+		<property name="Neutrals Are Blitzable" value="true" editable="false">
 			<boolean/>
 		</property>
-		<property name="Neutral Flyover Allowed" value="false" editable="false">
+		<property name="Neutral Flyover Allowed" value="true" editable="false">
 			<boolean/>
 		</property>
 		<property name="mapName" value="the_grand_war" editable="false">

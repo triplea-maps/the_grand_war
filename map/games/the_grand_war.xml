@@ -6957,7 +6957,7 @@
 		<property name="Neutrals Are Impassable" value="false" editable="false">
 			<boolean/>
 		</property>
-		<property name="Neutrals Are Blitzable" value="false" editable="false">
+		<property name="Neutrals Are Blitzable" value="true" editable="false">
 			<boolean/>
 		</property>
 		<property name="Neutral Flyover Allowed" value="false" editable="false">
