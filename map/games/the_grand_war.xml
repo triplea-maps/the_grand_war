@@ -6591,10 +6591,10 @@
 		<property name="Economic Victory" value="true" editable="true">
 			<boolean/>
 		</property>
-		<property name="The Order Economic Victory" value="300" editable="true">
+		<property name="The Order Economic Victory" value="350" editable="true">
 			<number min="0" max="1000"/>
 		</property>
-		<property name="The Union Economic Victory" value="300" editable="true">
+		<property name="The Union Economic Victory" value="350" editable="true">
 			<number min="0" max="1000"/>
 		</property>
 		<property name="Triggered Victory" value="true" editable="true">
