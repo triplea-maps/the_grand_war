@@ -670,7 +670,7 @@
 		<unit name="factory"/>
 		<unit name="refinery"/>
 		<unit name="zealot"/>
-		<unit name="holdout"/>
+		<unit name="stormtrooper"/>
 		<unit name="heavyTank"/>
 		<unit name="katyusha"/>
 		<unit name="conscript"/>
@@ -698,6 +698,7 @@
 		<territoryEffect name="Mountains"/>
 		<territoryEffect name="Jungle"/>
 		<territoryEffect name="Desert"/>
+		<territoryEffect name="Island"/>
 	</territoryEffectList>
 	<gamePlay>
 		<delegate name="initDelegate" javaClass="games.strategy.triplea.delegate.InitializationDelegate" display="Initializing Delegates"/>
@@ -840,9 +841,9 @@
 			<cost resource="PUs" quantity="4"/>
 			<result resourceOrUnit="zealot" quantity="1"/>
 		</productionRule>
-		<productionRule name="buyholdout">
-			<cost resource="PUs" quantity="1"/>
-			<result resourceOrUnit="holdout" quantity="1"/>
+		<productionRule name="buystormtrooper">
+			<cost resource="PUs" quantity="3"/>
+			<result resourceOrUnit="stormtrooper" quantity="1"/>
 		</productionRule>
 		<productionRule name="buyheavyTank">
 			<cost resource="PUs" quantity="10"/>
@@ -859,7 +860,7 @@
 			<result resourceOrUnit="conscript" quantity="3"/>
 		</productionRule>
 		<productionRule name="buymotorpool">
-			<cost resource="PUs" quantity="8"/>
+			<cost resource="PUs" quantity="5"/>
 			<cost resource="oil" quantity="1"/>
 			<result resourceOrUnit="motorPool" quantity="1"/>
 		</productionRule>
@@ -1014,7 +1015,7 @@
 		</productionFrontier>
 		<productionFrontier name="ChinaFrontier">
 			<frontierRules name="buyinfantry"/>
-			<frontierRules name="buyholdout"/>
+			<frontierRules name="buystormtrooper"/>
 			<frontierRules name="buyartillery"/>
 			<frontierRules name="buytank"/>
 			<frontierRules name="buyfighter"/>
@@ -1550,7 +1551,7 @@
 			<option name="bonusType" value="artySonar"/>
 		</attachment>
 		<attachment name="supportAttachmentProximityFuse1" attachTo="carrier" javaClass="games.strategy.triplea.attachments.UnitSupportAttachment" type="unitType">
-			<option name="unitType" value="fighter:bomber"/>
+			<option name="unitType" value="fighter:bomber:r.Interceptor"/>
 			<option name="faction" value="enemy"/>
 			<option name="side" value="offence:defence"/>
 			<option name="dice" value="strength"/>
@@ -1559,7 +1560,7 @@
 			<option name="bonusType" value="artyProxFuse"/>
 		</attachment>
 		<attachment name="supportAttachmentProximityFuse2" attachTo="battleship" javaClass="games.strategy.triplea.attachments.UnitSupportAttachment" type="unitType">
-			<option name="unitType" value="fighter:bomber"/>
+			<option name="unitType" value="fighter:bomber:r.Interceptor"/>
 			<option name="faction" value="enemy"/>
 			<option name="side" value="offence:defence"/>
 			<option name="dice" value="strength"/>
@@ -1575,74 +1576,74 @@
 		</attachment>
 <!-- /ALWAYS TRUE CONDITION -->
 
-<!-- FACTORY BID PLACEMENT -->
-		<attachment name="triggerAttachmentMandatoryFactoryPurchaseMazdak" attachTo="Mazdak" javaClass="games.strategy.triplea.attachments.TriggerAttachment" type="player">
+<!-- MANDATORY BID -->
+		<attachment name="triggerAttachmentMandatoryBidPurchaseMazdak" attachTo="Mazdak" javaClass="games.strategy.triplea.attachments.TriggerAttachment" type="player">
 			<option name="conditions" value="conditionAttachmentSwitchAlwaysTrue"/>
-			<option name="purchase" value="factory" count="2"/>
+			<option name="purchase" value="infantry" count="20"/>
 			<option name="when" value="before:mazdakBidPlace"/>
 			<option name="uses" value="1"/>
 		</attachment>
-		<attachment name="triggerAttachmentMandatoryFactoryPurchaseChina" attachTo="China" javaClass="games.strategy.triplea.attachments.TriggerAttachment" type="player">
+		<attachment name="triggerAttachmentMandatoryBidPurchaseChina" attachTo="China" javaClass="games.strategy.triplea.attachments.TriggerAttachment" type="player">
 			<option name="conditions" value="conditionAttachmentSwitchAlwaysTrue"/>
-			<option name="purchase" value="factory" count="2"/>
+			<option name="purchase" value="infantry" count="20"/>
 			<option name="when" value="before:chinaBidPlace"/>
 			<option name="uses" value="1"/>
 		</attachment>
-		<attachment name="triggerAttachmentMandatoryFactoryPurchaseEuroForce" attachTo="EuroForce" javaClass="games.strategy.triplea.attachments.TriggerAttachment" type="player">
+		<attachment name="triggerAttachmentMandatoryBidPurchaseEuroForce" attachTo="EuroForce" javaClass="games.strategy.triplea.attachments.TriggerAttachment" type="player">
 			<option name="conditions" value="conditionAttachmentSwitchAlwaysTrue"/>
-			<option name="purchase" value="factory" count="2"/>
+			<option name="purchase" value="infantry" count="20"/>
 			<option name="when" value="before:euroforceBidPlace"/>
 			<option name="uses" value="1"/>
 		</attachment>
-		<attachment name="triggerAttachmentMandatoryFactoryPurchaseRussia" attachTo="Russia" javaClass="games.strategy.triplea.attachments.TriggerAttachment" type="player">
+		<attachment name="triggerAttachmentMandatoryBidPurchaseRussia" attachTo="Russia" javaClass="games.strategy.triplea.attachments.TriggerAttachment" type="player">
 			<option name="conditions" value="conditionAttachmentSwitchAlwaysTrue"/>
-			<option name="purchase" value="factory" count="2"/>
+			<option name="purchase" value="infantry" count="20"/>
 			<option name="when" value="before:russiaBidPlace"/>
 			<option name="uses" value="1"/>
 		</attachment>
-		<attachment name="triggerAttachmentMandatoryFactoryPurchaseIndia" attachTo="India" javaClass="games.strategy.triplea.attachments.TriggerAttachment" type="player">
+		<attachment name="triggerAttachmentMandatoryBidPurchaseIndia" attachTo="India" javaClass="games.strategy.triplea.attachments.TriggerAttachment" type="player">
 			<option name="conditions" value="conditionAttachmentSwitchAlwaysTrue"/>
-			<option name="purchase" value="factory" count="2"/>
+			<option name="purchase" value="infantry" count="20"/>
 			<option name="when" value="before:indiaBidPlace"/>
 			<option name="uses" value="1"/>
 		</attachment>
-		<attachment name="triggerAttachmentMandatoryFactoryPurchaseArcadia" attachTo="Arcadia" javaClass="games.strategy.triplea.attachments.TriggerAttachment" type="player">
+		<attachment name="triggerAttachmentMandatoryBidPurchaseArcadia" attachTo="Arcadia" javaClass="games.strategy.triplea.attachments.TriggerAttachment" type="player">
 			<option name="conditions" value="conditionAttachmentSwitchAlwaysTrue"/>
-			<option name="purchase" value="factory" count="2"/>
+			<option name="purchase" value="infantry" count="20"/>
 			<option name="when" value="before:arcadiaBidPlace"/>
 			<option name="uses" value="1"/>
 		</attachment>
-		<attachment name="triggerAttachmentMandatoryFactoryPurchaseKorea" attachTo="Korea" javaClass="games.strategy.triplea.attachments.TriggerAttachment" type="player">
+		<attachment name="triggerAttachmentMandatoryBidPurchaseKorea" attachTo="Korea" javaClass="games.strategy.triplea.attachments.TriggerAttachment" type="player">
 			<option name="conditions" value="conditionAttachmentSwitchAlwaysTrue"/>
-			<option name="purchase" value="factory" count="2"/>
+			<option name="purchase" value="infantry" count="20"/>
 			<option name="when" value="before:koreaBidPlace"/>
 			<option name="uses" value="1"/>
 		</attachment>
-		<attachment name="triggerAttachmentMandatoryFactoryPurchaseHoshida" attachTo="Hoshida" javaClass="games.strategy.triplea.attachments.TriggerAttachment" type="player">
+		<attachment name="triggerAttachmentMandatoryBidPurchaseHoshida" attachTo="Hoshida" javaClass="games.strategy.triplea.attachments.TriggerAttachment" type="player">
 			<option name="conditions" value="conditionAttachmentSwitchAlwaysTrue"/>
-			<option name="purchase" value="factory" count="2"/>
+			<option name="purchase" value="infantry" count="20"/>
 			<option name="when" value="before:hoshidaBidPlace"/>
 			<option name="uses" value="1"/>
 		</attachment>
-		<attachment name="triggerAttachmentMandatoryFactoryPurchaseMeijou" attachTo="Meijou" javaClass="games.strategy.triplea.attachments.TriggerAttachment" type="player">
+		<attachment name="triggerAttachmentMandatoryBidPurchaseMeijou" attachTo="Meijou" javaClass="games.strategy.triplea.attachments.TriggerAttachment" type="player">
 			<option name="conditions" value="conditionAttachmentSwitchAlwaysTrue"/>
-			<option name="purchase" value="factory" count="2"/>
+			<option name="purchase" value="infantry" count="20"/>
 			<option name="when" value="before:meijouBidPlace"/>
 			<option name="uses" value="1"/>
 		</attachment>
-		<attachment name="triggerAttachmentMandatoryFactoryPurchaseGrands" attachTo="Grands" javaClass="games.strategy.triplea.attachments.TriggerAttachment" type="player">
+		<attachment name="triggerAttachmentMandatoryBidPurchaseGrands" attachTo="Grands" javaClass="games.strategy.triplea.attachments.TriggerAttachment" type="player">
 			<option name="conditions" value="conditionAttachmentSwitchAlwaysTrue"/>
-			<option name="purchase" value="factory" count="2"/>
+			<option name="purchase" value="infantry" count="20"/>
 			<option name="when" value="before:grandsBidPlace"/>
 			<option name="uses" value="1"/>
 		</attachment>
-		<attachment name="triggerAttachmentMandatoryFactoryPurchaseNonAligned" attachTo="NonAligned" javaClass="games.strategy.triplea.attachments.TriggerAttachment" type="player">
+		<attachment name="triggerAttachmentMandatoryBidPurchaseNonAligned" attachTo="NonAligned" javaClass="games.strategy.triplea.attachments.TriggerAttachment" type="player">
 			<option name="conditions" value="conditionAttachmentSwitchAlwaysTrue"/>
-			<option name="purchase" value="factory" count="2"/>
+			<option name="purchase" value="infantry" count="20"/>
 			<option name="when" value="before:nonAlignedBidPlace"/>
 			<option name="uses" value="1"/>
 		</attachment>
-<!-- /FACTORY BID PLACEMENT -->
+<!-- /MANDATORY BID -->
 
 <!-- CAPITAL CAPTURE -->
 		<attachment name="triggerAttachmentCapitalCaptureMazdak" attachTo="Mazdak" javaClass="games.strategy.triplea.attachments.TriggerAttachment" type="player">
@@ -4326,7 +4327,17 @@
 			<option name="bonus" value="1"/>
 			<option name="number" value="1"/>
 			<option name="bonusType" value="artilleryArty"/>
-			<option name="players" value="Mazdak:China:EuroForce:Russia:India:Arcadia:Meijou:Grands"/>
+			<option name="players" value="Mazdak:EuroForce:Russia:India:Arcadia:Meijou:Grands"/>
+		</attachment>
+		<attachment name="supportAttachmentArtyChina" attachTo="artillery" javaClass="games.strategy.triplea.attachments.UnitSupportAttachment" type="unitType">
+			<option name="unitType" value="infantry:stormtrooper"/>
+			<option name="faction" value="allied"/>
+			<option name="side" value="offence"/>
+			<option name="dice" value="strength"/>
+			<option name="bonus" value="1"/>
+			<option name="number" value="1"/>
+			<option name="bonusType" value="artilleryArty"/>
+			<option name="players" value="China"/>
 		</attachment>
 		<attachment name="supportAttachmentArtyKorea" attachTo="artillery" javaClass="games.strategy.triplea.attachments.UnitSupportAttachment" type="unitType">
 			<option name="unitType" value="infantry:garrison"/>
@@ -4407,6 +4418,16 @@
 			<option name="number" value="3"/>
 			<option name="bonusType" value="rocketArty"/>
 			<option name="players" value="Mazdak:China:EuroForce:Russia:India:Arcadia:Meijou:Grands"/>
+		</attachment>
+		<attachment name="supportAttachmentRocketArtilleryChina" attachTo="r.Artillery" javaClass="games.strategy.triplea.attachments.UnitSupportAttachment" type="unitType">
+			<option name="unitType" value="infantry:stormtrooper"/>
+			<option name="faction" value="allied"/>
+			<option name="side" value="offence"/>
+			<option name="dice" value="strength"/>
+			<option name="bonus" value="1"/>
+			<option name="number" value="3"/>
+			<option name="bonusType" value="rocketArty"/>
+			<option name="players" value="China"/>
 		</attachment>
 		<attachment name="supportAttachmentRocketArtilleryKorea" attachTo="r.Artillery" javaClass="games.strategy.triplea.attachments.UnitSupportAttachment" type="unitType">
 			<option name="unitType" value="infantry:garrison"/>
@@ -4591,7 +4612,7 @@
 			<option name="canBeDamaged" value="true"/>
 			<option name="maxDamage" value="6"/>
 			<option name="canDieFromReachingMaxDamage" value="true"/>
-			<option name="whenCapturedSustainsDamage" value="2"/>
+			<option name="whenCapturedSustainsDamage" value="1"/>
 		 	<option name="isAAforBombingThisUnitOnly" value="true"/>
 			<option name="targetsAA" value="bomber"/>
 		 	<option name="createsResourcesList" value="2:oil"/>
@@ -4602,28 +4623,24 @@
 		 	<option name="attack" value="2"/>
 		 	<option name="defense" value="1"/>
 			<option name="attackAA" value="0"/>
-			<option name="offensiveAttackAA" value="3"/>
-			<option name="offensiveAttackAAmaxDieSides" value="6"/>
+			<option name="offensiveAttackAA" value="1"/>
+			<option name="offensiveAttackAAmaxDieSides" value="2"/>
 			<option name="maxAAattacks" value="1"/>
 			<option name="isAAforCombatOnly" value="true"/>
 			<option name="typeAA" value="zealotCharge"/>
-			<option name="targetsAA" value="infantry:artillery:tank:zealot:holdout:heavyTank:katyusha:conscript:garrison:marine:tankHunter:nuke:rocket:r.Artillery:flakHalftrack"/>
+			<option name="targetsAA" value="infantry:artillery:tank:zealot:stormtrooper:heavyTank:katyusha:conscript:garrison:marine:tankHunter:nuke:rocket:r.Artillery:flakHalftrack"/>
 		 	<option name="transportCost" value="3"/>
 		 	<option name="canBlitz" value="true"/>
 		 	<option name="createsResourcesList" value="-1:PUs"/>
 		</attachment>
-		<attachment name="unitAttachment" attachTo="holdout" javaClass="games.strategy.triplea.attachments.UnitAttachment" type="unitType">
-		 	<option name="movement" value="0"/>
-		 	<option name="attack" value="0"/>
-		 	<option name="defense" value="2"/>
-		 	<option name="hitPoints" value="2"/>
-			<option name="isConstruction" value="true"/>
-			<option name="canOnlyBePlacedInTerritoryValuedAtX" value="1"/>
-		 	<option name="consumesUnits" value="1:infantry"/>
-			<option name="constructionType" value="holdoutBuilding"/>
-			<option name="maxConstructionsPerTypePerTerr" value="100"/>
-			<option name="constructionsPerTerrPerTypePerTurn" value="1"/>
-		 	<option name="tuv" value="4"/>
+		<attachment name="unitAttachment" attachTo="stormtrooper" javaClass="games.strategy.triplea.attachments.UnitAttachment" type="unitType">
+		 	<option name="movement" value="1"/>
+		 	<option name="attack" value="2"/>
+		 	<option name="defense" value="1"/>
+		 	<option name="transportCost" value="2"/>
+		 	<option name="isInfantry" value="true"/>
+		 	<option name="isAirTransportable" value="true"/> 
+		 	<option name="createsResourcesList" value="-1:PUs"/>
 		</attachment>
 		<attachment name="unitAttachment" attachTo="heavyTank" javaClass="games.strategy.triplea.attachments.UnitAttachment" type="unitType">
 		 	<option name="movement" value="2"/>
@@ -4654,6 +4671,7 @@
 		<attachment name="unitAttachment" attachTo="motorPool" javaClass="games.strategy.triplea.attachments.UnitAttachment" type="unitType">
 			<option name="givesMovement" value="1:infantry"/>
 			<option name="givesMovement" value="1:marine"/>
+			<option name="givesMovement" value="1:stormtrooper"/>
 		 	<option name="isInfrastructure" value="true"/>
 			<option name="isConstruction" value="true"/>
 			<option name="canOnlyBePlacedInTerritoryValuedAtX" value="1"/>
@@ -4673,11 +4691,11 @@
 		</attachment>
 		<attachment name="unitAttachment" attachTo="marine" javaClass="games.strategy.triplea.attachments.UnitAttachment" type="unitType">
 		 	<option name="movement" value="1"/>
-		 	<option name="attack" value="2"/>
+		 	<option name="attack" value="1"/>
 		 	<option name="defense" value="2"/>
 		 	<option name="transportCost" value="2"/>
 		 	<option name="isInfantry" value="true"/>
-		 	<option name="isMarine" value="true"/>
+		 	<option name="isMarine" value="2"/>
 		 	<option name="createsResourcesList" value="-1:PUs"/>
 		</attachment>
 		<attachment name="unitAttachment" attachTo="tankHunter" javaClass="games.strategy.triplea.attachments.UnitAttachment" type="unitType">
@@ -4729,7 +4747,7 @@
 			<option name="maxAAattacks" value="4"/>
 			<option name="isAAforCombatOnly" value="true"/>
 			<option name="typeAA" value="nuclearBlast"/>
-			<option name="targetsAA" value="infantry:artillery:tank:fighter:bomber:destroyer:submarine:carrier:battleship:zealot:holdout:heavyTank:katyusha:conscript:garrison:marine:tankHunter:mercenary:nuke:rocket:r.Interceptor:r.Artillery:flakHalftrack"/>
+			<option name="targetsAA" value="infantry:artillery:tank:fighter:bomber:destroyer:submarine:carrier:battleship:zealot:stormtrooper:heavyTank:katyusha:conscript:garrison:marine:tankHunter:mercenary:nuke:rocket:r.Interceptor:r.Artillery:flakHalftrack"/>
 			<option name="isStrategicBomber" value="true"/>
 			<option name="bombingBonus" value="10"/>
 		 	<option name="carrierCost" value="1"/>
@@ -4812,13 +4830,16 @@
 			
 	 	</attachment>
 		<attachment name="territoryAttachment" attachTo="Outer Rebels" javaClass="games.strategy.triplea.attachments.TerritoryAttachment" type="territory">
-			<option name="production" value="5"/>
+			<option name="production" value="0"/>
+			<option name="isImpassable" value="true"/>
 	 	</attachment>
 		<attachment name="territoryAttachment" attachTo="Inner Rebels" javaClass="games.strategy.triplea.attachments.TerritoryAttachment" type="territory">
-			<option name="production" value="5"/>
+			<option name="production" value="0"/>
+			<option name="isImpassable" value="true"/>
 	 	</attachment>
 		<attachment name="territoryAttachment" attachTo="Chinese Underground" javaClass="games.strategy.triplea.attachments.TerritoryAttachment" type="territory">
-			<option name="production" value="5"/>
+			<option name="production" value="0"/>
+			<option name="isImpassable" value="true"/>
 	 	</attachment>
 		<attachment name="territoryAttachment" attachTo="Canton" javaClass="games.strategy.triplea.attachments.TerritoryAttachment" type="territory">
 			<option name="production" value="5"/>
@@ -5039,6 +5060,7 @@
 			<option name="production" value="5"/>
 			
 			<option name="territoryEffect" value="Jungle"/>
+			<option name="territoryEffect" value="Island"/>
 	 	</attachment>
 		<attachment name="territoryAttachment" attachTo="Aramaya" javaClass="games.strategy.triplea.attachments.TerritoryAttachment" type="territory">
 			<option name="production" value="5"/>
@@ -5048,6 +5070,7 @@
 	 	</attachment>
 		<attachment name="territoryAttachment" attachTo="Sri Lanka" javaClass="games.strategy.triplea.attachments.TerritoryAttachment" type="territory">
 			<option name="production" value="5"/>
+			<option name="territoryEffect" value="Island"/>
 			
 
 	 	</attachment>
@@ -5138,6 +5161,7 @@
 	 	</attachment>
 		<attachment name="territoryAttachment" attachTo="Hawaii" javaClass="games.strategy.triplea.attachments.TerritoryAttachment" type="territory">
 			<option name="production" value="5"/>
+			<option name="territoryEffect" value="Island"/>
 			
 
 	 	</attachment>
@@ -5159,16 +5183,19 @@
 	 	</attachment>
 		<attachment name="territoryAttachment" attachTo="Guam" javaClass="games.strategy.triplea.attachments.TerritoryAttachment" type="territory">
 			<option name="production" value="5"/>
+			<option name="territoryEffect" value="Island"/>
 			
 
 	 	</attachment>
 		<attachment name="territoryAttachment" attachTo="Midway" javaClass="games.strategy.triplea.attachments.TerritoryAttachment" type="territory">
 			<option name="production" value="5"/>
+			<option name="territoryEffect" value="Island"/>
 			
 
 	 	</attachment>
 		<attachment name="territoryAttachment" attachTo="Japan" javaClass="games.strategy.triplea.attachments.TerritoryAttachment" type="territory">
 			<option name="production" value="5"/>
+			<option name="territoryEffect" value="Island"/>
 			
 
 			<option name="territoryEffect" value="Mountains"/>
@@ -5179,6 +5206,7 @@
 	 	</attachment>
 		<attachment name="territoryAttachment" attachTo="Chagos" javaClass="games.strategy.triplea.attachments.TerritoryAttachment" type="territory">
 			<option name="production" value="5"/>
+			<option name="territoryEffect" value="Island"/>
 			
 
 	 	</attachment>
@@ -5196,11 +5224,13 @@
 	 	</attachment>
 		<attachment name="territoryAttachment" attachTo="Carolines" javaClass="games.strategy.triplea.attachments.TerritoryAttachment" type="territory">
 			<option name="production" value="5"/>
+			<option name="territoryEffect" value="Island"/>
 			
 
 	 	</attachment>
 		<attachment name="territoryAttachment" attachTo="Wake" javaClass="games.strategy.triplea.attachments.TerritoryAttachment" type="territory">
 			<option name="production" value="5"/>
+			<option name="territoryEffect" value="Island"/>
 			
 
 	 	</attachment>
@@ -5219,6 +5249,7 @@
 	 	</attachment>
 		<attachment name="territoryAttachment" attachTo="Solomons" javaClass="games.strategy.triplea.attachments.TerritoryAttachment" type="territory">
 			<option name="production" value="5"/>
+			<option name="territoryEffect" value="Island"/>
 			
 
 	 	</attachment>
@@ -5229,6 +5260,7 @@
 	 	</attachment>
 		<attachment name="territoryAttachment" attachTo="Rapa Nui" javaClass="games.strategy.triplea.attachments.TerritoryAttachment" type="territory">
 			<option name="production" value="5"/>
+			<option name="territoryEffect" value="Island"/>
 			
 
 	 	</attachment>
@@ -5238,6 +5270,7 @@
 			
 
 			<option name="territoryEffect" value="Jungle"/>
+			<option name="territoryEffect" value="Island"/>
 	 	</attachment>
 		<attachment name="territoryAttachment" attachTo="Sumatra" javaClass="games.strategy.triplea.attachments.TerritoryAttachment" type="territory">
 			<option name="production" value="5"/>
@@ -5247,6 +5280,7 @@
 	 	</attachment>
 		<attachment name="territoryAttachment" attachTo="Nyujirando" javaClass="games.strategy.triplea.attachments.TerritoryAttachment" type="territory">
 			<option name="production" value="5"/>
+			<option name="territoryEffect" value="Island"/>
 			
 
 	 	</attachment>
@@ -5256,6 +5290,7 @@
 
 			<option name="victoryCity" value="1"/>
 			<option name="territoryEffect" value="Jungle"/>
+			<option name="territoryEffect" value="Island"/>
 	 	</attachment>
 		<attachment name="territoryAttachment" attachTo="Papua" javaClass="games.strategy.triplea.attachments.TerritoryAttachment" type="territory">
 			<option name="production" value="5"/>
@@ -5263,6 +5298,7 @@
 			
 
 			<option name="territoryEffect" value="Jungle"/>
+			<option name="territoryEffect" value="Island"/>
 	 	</attachment>
 		<attachment name="territoryAttachment" attachTo="Osu" javaClass="games.strategy.triplea.attachments.TerritoryAttachment" type="territory">
 			<option name="production" value="5"/>
@@ -5293,6 +5329,7 @@
 	 	</attachment>
 		<attachment name="territoryAttachment" attachTo="Cuba" javaClass="games.strategy.triplea.attachments.TerritoryAttachment" type="territory">
 			<option name="production" value="5"/>
+			<option name="territoryEffect" value="Island"/>
 			
 
 	 	</attachment>
@@ -5328,6 +5365,7 @@
 		<attachment name="territoryAttachment" attachTo="Albion" javaClass="games.strategy.triplea.attachments.TerritoryAttachment" type="territory">
 			<option name="production" value="5"/>
 			<option name="resources" value="1:oil"/>
+			<option name="territoryEffect" value="Island"/>
 			
 
 	 	</attachment>
@@ -5367,6 +5405,7 @@
 			
 
 			<option name="territoryEffect" value="Tundra"/>
+			<option name="territoryEffect" value="Island"/>
 	 	</attachment>
 		<attachment name="territoryAttachment" attachTo="Nordland" javaClass="games.strategy.triplea.attachments.TerritoryAttachment" type="territory">
 			<option name="production" value="5"/>
@@ -5411,6 +5450,7 @@
 			
 
 			<option name="territoryEffect" value="Tundra"/>
+			<option name="territoryEffect" value="Island"/>
 	 	</attachment>
 		<attachment name="territoryAttachment" attachTo="Kunlun Shan" javaClass="games.strategy.triplea.attachments.TerritoryAttachment" type="territory">
 			<option name="production" value="0"/>
@@ -5584,6 +5624,9 @@
 			<option name="combatOffenseEffect" value="zealot" count="1"/>
 			<option name="combatDefenseEffect" value="zealot" count="1"/>
 		</attachment>
+		<attachment name="territoryEffectAttachment" attachTo="Island" javaClass="games.strategy.triplea.attachments.TerritoryEffectAttachment" type="territoryEffect">
+			<option name="combatDefenseEffect" value="marine" count="1"/>
+		</attachment>
 <!-- /TERRITORY EFFECTS -->
 
 <!-- DESTROYS PRODUCTION WHEN CAPITAL CAPTURED -->
@@ -5657,17 +5700,83 @@
 	</attachmentList>
 	<initialize>
 		<unitInitialize>
-			<heldUnits unitType="infantry" quantity="10" player="Mazdak"/>
-			<heldUnits unitType="infantry" quantity="10" player="China"/>
-			<heldUnits unitType="infantry" quantity="10" player="EuroForce"/>
-			<heldUnits unitType="infantry" quantity="10" player="Russia"/>
-			<heldUnits unitType="infantry" quantity="10" player="India"/>
-			<heldUnits unitType="infantry" quantity="10" player="Arcadia"/>
-			<heldUnits unitType="infantry" quantity="10" player="Korea"/>
-			<heldUnits unitType="infantry" quantity="10" player="Hoshida"/>
-			<heldUnits unitType="infantry" quantity="10" player="Meijou"/>
-			<heldUnits unitType="infantry" quantity="10" player="Grands"/>
-			<heldUnits unitType="infantry" quantity="10" player="NonAligned"/>
+			<unitPlacement unitType="infantry" territory="Madagascar" quantity="1"/>
+
+			<unitPlacement unitType="infantry" territory="Sri Lanka" quantity="1"/>
+
+			<unitPlacement unitType="infantry" territory="Australia" quantity="1"/>
+
+			<unitPlacement unitType="infantry" territory="California" quantity="1"/>
+
+			<unitPlacement unitType="infantry" territory="Hawaii" quantity="1"/>
+
+			<unitPlacement unitType="infantry" territory="Guam" quantity="1"/>
+
+			<unitPlacement unitType="infantry" territory="Midway" quantity="1"/>
+
+			<unitPlacement unitType="infantry" territory="Japan" quantity="1"/>
+
+			<unitPlacement unitType="infantry" territory="Chagos" quantity="1"/>
+
+			<unitPlacement unitType="infantry" territory="Alaska" quantity="1"/>
+
+			<unitPlacement unitType="infantry" territory="Carolines" quantity="1"/>
+
+			<unitPlacement unitType="infantry" territory="Wake" quantity="1"/>
+
+			<unitPlacement unitType="infantry" territory="Solomons" quantity="1"/>
+
+			<unitPlacement unitType="infantry" territory="Panama" quantity="1"/>
+
+			<unitPlacement unitType="infantry" territory="Rapa Nui" quantity="1"/>
+
+			<unitPlacement unitType="infantry" territory="Borneo" quantity="1"/>
+
+			<unitPlacement unitType="infantry" territory="Nyujirando" quantity="1"/>
+
+			<unitPlacement unitType="infantry" territory="Hoshida" quantity="1"/>
+
+			<unitPlacement unitType="infantry" territory="Papua" quantity="1"/>
+
+			<unitPlacement unitType="infantry" territory="Osu" quantity="1"/>
+
+			<unitPlacement unitType="infantry" territory="Chile" quantity="1"/>
+
+			<unitPlacement unitType="infantry" territory="Dixie" quantity="1"/>
+
+			<unitPlacement unitType="infantry" territory="Peru" quantity="1"/>
+
+			<unitPlacement unitType="infantry" territory="Meijou" quantity="1"/>
+
+			<unitPlacement unitType="infantry" territory="Cuba" quantity="1"/>
+
+			<unitPlacement unitType="infantry" territory="Yucatan" quantity="1"/>
+
+			<unitPlacement unitType="infantry" territory="Barbarossia" quantity="1"/>
+
+			<unitPlacement unitType="infantry" territory="Mawshigu" quantity="1"/>
+
+			<unitPlacement unitType="infantry" territory="Midwest" quantity="1"/>
+
+			<unitPlacement unitType="infantry" territory="Albion" quantity="1"/>
+
+			<unitPlacement unitType="infantry" territory="Aergedina" quantity="1"/>
+
+			<unitPlacement unitType="infantry" territory="Iceland" quantity="1"/>
+
+			<unitPlacement unitType="infantry" territory="Brasarike" quantity="1"/>
+
+			<unitPlacement unitType="infantry" territory="E. Vinland" quantity="1"/>
+
+			<unitPlacement unitType="infantry" territory="W. Vinland" quantity="1"/>
+
+			<unitPlacement unitType="infantry" territory="Greenland" quantity="1"/>
+
+			<unitPlacement unitType="infantry" territory="Avalon" quantity="1"/>
+
+			<unitPlacement unitType="infantry" territory="Bolivia" quantity="1"/>
+
+
 			<heldUnits unitType="factory" quantity="2" player="Mazdak"/>
 			<heldUnits unitType="factory" quantity="2" player="China"/>
 			<heldUnits unitType="factory" quantity="2" player="EuroForce"/>
@@ -6195,9 +6304,9 @@
 <div style="text-align: center;">
 <br>
 	
-<br><span style="font-size:280%;color:000000;"></span><b><span style="font-size:280%;color:660000;">ORDER AND UNION</span></b><span style="font-size:280%;color:000000;"></span>
+<br><span style="font-size:280%;color:000000;"></span><b><span style="font-size:280%;color:660000;">The Grand War</span></b><span style="font-size:280%;color:000000;"></span>
 <br>
-<span style="font-size:200%"><b>The Grand War</b></span>
+<span style="font-size:200%"><b>11 Player Random Free-for-All</b></span>
 <br>
 <br>
 <br><span style="font-size:120%"><b>Scenario by Elreigh</b></span>
@@ -6210,776 +6319,8 @@
 Naval units are identical without flags to distinguish them, and many land units may need further distinction as well. To turn on unit flags: View > Flag Display Mode > Show Unit Flags
 <br>
 <br>
-<div style="text-align: center;">
+In this scenario, you will be randomly assigned provinces in Africa, Europe, and Asia, with two randomly placed factories. All islands and the Americas are occupied by neutral units, and can be conquered to supplement your income. You will receive 20 infantry in the bid phase, in addition to whatever else you purchase. Each province is worth 5PUs, with no consideration for geography or size, and all players will receive two tech tokens per turn regardless of what territory they control. Oil resources are distributed as they are in the vanilla "The Grand War" scenario. 
 
-<table border="1"bgcolor="ABABAB">
-	<tr>
-	<th style="font-size:110%;000000"bgcolor="FEECE2"colspan="2">Alliances</th>
-	</tr>
-	<tr>
-	<th bgcolor="ABABAB">Union</th>
-	<th bgcolor="BDBDBD">Order</th>
-	</tr>
-	<tr>
-	<td bgcolor="ABABAB">Mazdak</td>
-	<td bgcolor="BDBDBD">China</td>
-	</tr>
-	<tr>
-	<td bgcolor="ABABAB">EuroForce</td>
-	<td bgcolor="BDBDBD">Russia</td>
-	</tr>
-	<tr>
-	<td bgcolor="ABABAB">India</td>
-	<td bgcolor="BDBDBD">Arcadia</td>
-	</tr>
-	<tr>
-	<td bgcolor="ABABAB">Korea</td>
-	<td bgcolor="BDBDBD">Hoshida</td>
-	</tr>
-	<tr>
-	<td bgcolor="ABABAB">Meijou</td>
-	<td bgcolor="BDBDBD">Grands</td>
-	</tr>
-</table>
-
-<br>
-<br>
-
-<table border="1"bgcolor="ABABAB">
-	<tr>
-	<th style="font-size:120%;000000"bgcolor="FEECE2"colspan="6">Standard Units</th>
-	</tr>
-
-	<th>Unit</th>
-	<th>atk</th>
-	<th>def</th>
-	<th>move</th>
-	<th>cost</th>
-	<th>special abilities</th>
-	</tr>
-
-	<tr bgcolor="BDBDBD">
-	<td>Infantry</td>
-	<td>1</td>
-	<td>2</td>
-	<td>1</td>
-	<td>3</td>
-	<td>Receives artillery atk bonus, occupies 2 transport capacity</td>
-	</tr>
-	
-	<td>Artillery</td>
-	<td>2</td>
-	<td>2</td>
-	<td>1</td>
-	<td>4</td>
-	<td>Provides +1atk to one allied infantry when attacking, occupies 3 transport capacity</td>
-	</tr>
-	
-	<tr bgcolor="BDBDBD">
-	<td>Tank</td>
-	<td>3</td>
-	<td>3</td>
-	<td>2</td>
-	<td>6</td>
-	<td>Can blitz unoccupied territory, receives fighter atk bonus, occupies 3 transport capacity</td>
-	</tr>
-	
-	<td>Fighter</td>
-	<td>3</td>
-	<td>4</td>
-	<td>4</td>
-	<td>8</td>
-	<td>Provides +1atk to one allied tank when attacking, occupies 2 carrier capacity</td>
-	</tr>
-	
-	<tr bgcolor="BDBDBD">
-	<td>Bomber</td>
-	<td>4</td>
-	<td>1</td>
-	<td>6</td>
-	<td>10</td>
-	<td>Can perform strategic bombing against factories, occupies 3 carrier capacity</td>
-	</tr>
-	
-	<td>Submarine</td>
-	<td>2</td>
-	<td>1</td>
-	<td>2</td>
-	<td>6</td>
-	<td>Has stealth abilities; fires before other units, cannot be targetted by air units, can move through enemy fleets without engaging</td>
-	</tr>
-	
-	<tr bgcolor="BDBDBD">
-	<td>Destroyer</td>
-	<td>2</td>
-	<td>2</td>
-	<td>2</td>
-	<td>8</td>
-	<td>Negates one enemy submarine's stealth abilities, has 5 transport capacity</td>
-	</tr>
-	
-	<td>Carrier</td>
-	<td>0</td>
-	<td>3</td>
-	<td>2</td>
-	<td>14</td>
-	<td>Has 5 aircraft carrier capacity</td>
-	</tr>
-	
-	<tr bgcolor="BDBDBD">
-	<td>Battleship</td>
-	<td>3x3</td>
-	<td>4</td>
-	<td>2</td>
-	<td>20</td>
-	<td>Rolls thrice each combat round while attacking, can bombard land units once during an amphibious assault (rolls 3d6, hits on a 1)</td>
-	</tr>
-	
-	<td>Factory</td>
-	<td></td>
-	<td></td>
-	<td></td>
-	<td>15</td>
-	<td>Produces up to 8 units per turn, performs AA fire against strategic bombing, takes 4 damage when captured, unit production lowered by 1 per point of damage, can receive up to 16 damage</td>
-	</tr>
-
-	<tr bgcolor="BDBDBD">
-	<td>Refinery</td>
-	<td></td>
-	<td></td>
-	<td></td>
-	<td>5</td>
-	<td>Can be destroyed by 6 strategic bombing damage, produces 2 oil per turn, may only be constructed in territories that produce oil, performs AA fire against strategic bombing, takes 2 damage when captured</td>
-	</tr>
-	
-</table>
-<br>
-
-
-<table border="1"bgcolor="ABABAB">
-	<tr>
-	<th style="font-size:120%;000000"bgcolor="FEECE2"colspan="7">Unique Units</th>
-	</tr>
-
-	<th>Unit</th>
-	<th>Nation</th>
-	<th>atk</th>
-	<th>def</th>
-	<th>move</th>
-	<th>cost</th>
-	<th>special abilities</th>
-	</tr>
-
-	<tr bgcolor="BDBDBD">
-	<td>Zealot</td>
-	<td>Mazdak</th>
-	<td>2</td>
-	<td>1</td>
-	<td>2</td>
-	<td>4</td>
-	<td>Can blitz through unoccupied territory, has a 50% chance to destroy one random enemy land unit before the battle begins</td>
-	</tr>
-
-	<td>Holdout</td>
-	<td>China</th>
-	<td>0</td>
-	<td>2</td>
-	<td>0</td>
-	<td>1</td>
-	<td>Has two hit points, has no upkeep cost, upgrades from infantry (consumes 1 infantry on placement & must be placed where infantry is present), max of 1 placed per territory per turn</td>
-	</tr>
-	
-	<tr bgcolor="BDBDBD">
-	<td>Heavy Tank</td>
-	<td>EuroForce</th>
-	<td>4</td>
-	<td>4</td>
-	<td>2</td>
-	<td>10</td>
-	<td>Has two hit points, can blitz through unoccupied territory, consumes 2 oil per movement</td>
-	</tr>
-
-	<td>Katyusha</td>
-	<td>Russia</th>
-	<td>1</td>
-	<td>0</td>
-	<td>2</td>
-	<td>4</td>
-	<td>Provides +1atk to three allied infantry when attacking (this effect stacks with artillery)</td>
-	</tr>
-	
-	<tr bgcolor="BDBDBD">
-	<td>Conscript</td>
-	<td>India</th>
-	<td>0</td>
-	<td>0</td>
-	<td>1</td>
-	<td>1.6</td>
-	<td>Must be purchased in sets of three, has no upkeep cost, receives +1atk/+1def from Indian infantry</td>
-	</tr>
-
-	<td>Motor Pool</td>
-	<td>Arcadia</th>
-	<td></td>
-	<td></td>
-	<td></td>
-	<td>8</td>
-	<td>Provides +1 movement to allied infantry, is destroyed when captured</td>
-	</tr>
-	
-	<td>Garrison</td>
-	<td>Korea</th>
-	<td>1</td>
-	<td>3</td>
-	<td>1</td>
-	<td>4</td>
-	<td>Receives artillery atk bonus</td>
-	</tr>
-
-	<tr bgcolor="BDBDBD">
-	<td>Marine</td>
-	<td>Hoshida</th>
-	<td>2</td>
-	<td>2</td>
-	<td>1</td>
-	<td>4</td>
-	<td>Receives +1atk when performing an amphibious assault, receives artillery atk bonus</td>
-	</tr>
-	
-	<td>Tank Hunter</td>
-	<td>Meijou</th>
-	<td>1</td>
-	<td>3</td>
-	<td>2</td>
-	<td>4</td>
-	<td>Reduces one enemy tank by -1atk/-1def in battle</td>
-	</tr>
-
-	<tr bgcolor="BDBDBD">
-	<td>Coalition Factory</td>
-	<td>Grands</th>
-	<td></td>
-	<td></td>
-	<td></td>
-	<td>5</td>
-	<td>A factory which also provides +1 PU/turn, is destroyed when captured, can receive a maximum of 8 strategic bombing damage</td>
-	</tr>
-
-	<td>Mercenary</td>
-	<td>NonAligned</th>
-	<td>1</td>
-	<td>2</td>
-	<td>1</td>
-	<td>3.5</td>
-	<td>Can be placed without a factory, must be purchased in sets of two</td>
-	</tr>
-	
-</table>
-<br>
-
-<table border="1"bgcolor="ABABAB">
-	<tr>
-	<th style="font-size:120%;000000"bgcolor="FEECE2"colspan="7">Tech Units</th>
-	</tr>
-
-	<th>Unit</th>
-	<th>Tech</th>
-	<th>atk</th>
-	<th>def</th>
-	<th>move</th>
-	<th>cost</th>
-	<th>special abilities</th>
-	</tr>
-
-	<tr bgcolor="BDBDBD">
-	<td>Nuclear Facility</td>
-	<td>The Bomb</th>
-	<td></td>
-	<td></td>
-	<td></td>
-	<td>10</td>
-	<td>Produces uranium, can be destroyed by 12pts of strategic bombing, cannot be placed in territories containing normal factories, provides "The Bomb" tech to whoever captures it</td>
-	</tr>
-
-	<td>Nuke</td>
-	<td>The Bomb</th>
-	<td></td>
-	<td></td>
-	<td>1</td>
-	<td>10</td>
-	<td>Additionally costs 3 uranium, destroys 4 random units, cannot be intercepted or shot down by AA, can strategic bomb for 10+d6 damage, single use unit</td>
-	</tr>
-	
-	<tr bgcolor="BDBDBD">
-	<td>Rocket</td>
-	<td>SRBM</th>
-	<td></td>
-	<td></td>
-	<td>3</td>
-	<td>4</td>
-	<td>Can strategic bomb, cannot be shot down by AA, single use unit</td>
-	</tr>
-
-	<td>Rocket Interceptor</td>
-	<td>Rocket Interceptor</th>
-	<td>2</td>
-	<td>4</td>
-	<td>3</td>
-	<td>6</td>
-	<td>Can intercept strategic bombers</td>
-	</tr>
-	
-	<tr bgcolor="BDBDBD">
-	<td>Rocket Artillery</td>
-	<td>Rocket Artillery</th>
-	<td>1</td>
-	<td>0</td>
-	<td>1</td>
-	<td>4</td>
-	<td>Provides +1 atk to three allied infantry when attacking (this effect stacks with artillery)</td>
-	</tr>
-
-	<td>Flak Halftrack</td>
-	<td>Proximity Fuse</th>
-	<td>2</td>
-	<td>2</td>
-	<td>2</td>
-	<td>5</td>
-	<td>Performs AA fire on offense and defense, can blitz through unoccupied territory</td>
-	</tr>
-		
-</table>
-<br>
-
-
-<table border="1"bgcolor="ABABAB">
-	<tr>
-	<th style="font-size:120%;000000"bgcolor="FEECE2"colspan="3">Technology</th>
-	</tr>
-
-	<th>Tech</th>
-	<th>Category</th>
-	<th>Description</th>
-	</tr>
-
-	<tr bgcolor="BDBDBD">
-	<td>The Bomb</td>
-	<td>Nuclear</td>
-	<td>Allows you to build nuclear facilities, which produce uranium, and nukes, which require uranium</td>
-	</tr>
-
-	<tr bgcolor="BDBDBD">
-	<td>Depleted Uranium</td>
-	<td>Nuclear</td>
-	<td>Tanks reduce enemy tanks by -1atk/-1def in battle. Also applies to Tank Hunters and Heavy Tanks.</td>
-	</tr>
-
-	<tr bgcolor="BDBDBD">
-	<td>Nuclear Reactor</td>
-	<td>Nuclear</td>
-	<td>Provides a one-time bonus of 8 uranium and 3 tech tokens.</td>
-	</tr>
-
-	<td>Rocket Interceptor</td>
-	<td>Rocketry</td>
-	<td>Allows you to build rocket interceptors, cheap short range aircraft which excel in defensive air battles and can intercept enemy bombers</td>
-	</tr>
-
-	<td>Rocket Artillery</td>
-	<td>Rocketry</td>
-	<td>Allows you to build rocket artillery, which can support up to three infantry in an attack but have poor defensive value</td>
-	</tr>
-
-	<td>SRBM</td>
-	<td>Rocketry</td>
-	<td>Allows you to build rockets, which can strategically bomb enemy infrastructure without being shot down by AA</td>
-	</tr>
-
-	<tr bgcolor="BDBDBD">
-	<td>Salvage</td>
-	<td>Industrial</td>
-	<td>Repairs are half cost and you will gain 2PUs for each 5PUs worth of enemy units destroyed, to a maximum of 10PUs income or 25PUs destroyed</td>
-	</tr>
-
-	<tr bgcolor="BDBDBD">
-	<td>Digital Computer</td>
-	<td>Industrial</td>
-	<td>You may trade PUs for tech tokens and vice versa at a rate of seven to one</td>
-	</tr>
-
-	<tr bgcolor="BDBDBD">
-	<td>Synthetics</td>
-	<td>Industrial</td>
-	<td>You may trade oil for PUs and vice versa; pay 1PU for 1oil, or pay 3oil for 1PU</td>
-	</tr>
-
-	<td>Sonar</td>
-	<td>Naval</td>
-	<td>Destroyers reduce enemy submarines by -1atk/-1def</td>
-	</tr>
-
-	<td>Electric Engine</td>
-	<td>Naval</td>
-	<td>Submarines receive +1atk/+2def</td>
-	</tr>
-
-	<td>Auxiliary Convoys</td>
-	<td>Naval</td>
-	<td>All naval units receive +1 movement</td>
-	</tr>
-
-	<tr bgcolor="BDBDBD">
-	<td>Radar</td>
-	<td>Air</td>
-	<td>Provides +1atk/+1def for air battles to all air units and +1AA defense to infrastructure (factories, etc.)</td>
-	</tr>
-
-	<tr bgcolor="BDBDBD">
-	<td>Seismic Bomb</td>
-	<td>Air</td>
-	<td>Gives bombers +1atk and +3strategic bombing bonus</td>
-	</tr>
-
-	<tr bgcolor="BDBDBD">
-	<td>Proximity Fuse</td>
-	<td>Air</td>
-	<td>Allows you to build the flak halftrack, a special anti-air land unit. Also, carriers/battleships reduce enemy air units by -1atk when defending.</td>
-	</tr>
-		
-</table>
-
-<br>
-<table border="1"bgcolor="ABABAB">
-	<tr>
-	<th style="font-size:120%;000000"bgcolor="FEECE2"colspan="11">Tech Frequency</th>
-	</tr>
-
-	<th></th>
-	<th>Ma</th>
-	<th>Ch</th>
-	<th>Eu</th>
-	<th>Ru</th>
-	<th>In</th>
-	<th>Ar</th>
-	<th>Ko</th>
-	<th>Ho</th>
-	<th>Me</th>
-	<th>Gr</th>
-	</tr>
-
-	<tr bgcolor="BDBDBD">
-	<td>The Bomb</td>
-	<td>1</td>
-	<td>1</td>
-	<td>1</td>
-	<td>1</td>
-	<td>1</td>
-	<td>1</td>
-	<td>1</td>
-	<td>1</td>
-	<td>1</td>
-	<td>1</td>
-	</tr>
-
-	<tr bgcolor="BDBDBD">
-	<td>Depleted Uranium</td>
-	<td>1</td>
-	<td>1</td>
-	<td>1</td>
-	<td>1</td>
-	<td>1</td>
-	<td>1</td>
-	<td>1</td>
-	<td>1</td>
-	<td>1</td>
-	<td>1</td>
-	</tr>
-
-	<tr bgcolor="BDBDBD">
-	<td>Nuclear Reactor</td>
-	<td>4</td>
-	<td>4</td>
-	<td>4</td>
-	<td>4</td>
-	<td>4</td>
-	<td>4</td>
-	<td>4</td>
-	<td>4</td>
-	<td>4</td>
-	<td>4</td>
-	</tr>
-
-	<td>Rocket Interceptor</td>
-	<td>1</td>
-	<td>1</td>
-	<td>2</td>
-	<td>3</td>
-	<td>2</td>
-	<td>1</td>
-	<td>3</td>
-	<td>4</td>
-	<td>3</td>
-	<td>2</td>
-	</tr>
-
-	<td>Rocket Artillery</td>
-	<td>4</td>
-	<td>4</td>
-	<td>2</td>
-	<td>0</td>
-	<td>3</td>
-	<td>1</td>
-	<td>2</td>
-	<td>1</td>
-	<td>2</td>
-	<td>2</td>
-	</tr>
-
-	<td>SRBM</td>
-	<td>1</td>
-	<td>1</td>
-	<td>2</td>
-	<td>3</td>
-	<td>1</td>
-	<td>4</td>
-	<td>1</td>
-	<td>1</td>
-	<td>1</td>
-	<td>2</td>
-	</tr>
-
-	<tr bgcolor="BDBDBD">
-	<td>Salvage</td>
-	<td>4</td>
-	<td>1</td>
-	<td>2</td>
-	<td>2</td>
-	<td>4</td>
-	<td>1</td>
-	<td>1</td>
-	<td>1</td>
-	<td>1</td>
-	<td>2</td>
-	</tr>
-
-	<tr bgcolor="BDBDBD">
-	<td>Digital Computer</td>
-	<td>1</td>
-	<td>2</td>
-	<td>1</td>
-	<td>1</td>
-	<td>1</td>
-	<td>4</td>
-	<td>1</td>
-	<td>1</td>
-	<td>3</td>
-	<td>2</td>
-	</tr>
-
-	<tr bgcolor="BDBDBD">
-	<td>Synthetics</td>
-	<td>1</td>
-	<td>3</td>
-	<td>3</td>
-	<td>3</td>
-	<td>1</td>
-	<td>1</td>
-	<td>4</td>
-	<td>4</td>
-	<td>2</td>
-	<td>2</td>
-	</tr>
-
-	<td>Sonar</td>
-	<td>1</td>
-	<td>2</td>
-	<td>2</td>
-	<td>2</td>
-	<td>1</td>
-	<td>2</td>
-	<td>2</td>
-	<td>1</td>
-	<td>3</td>
-	<td>1</td>
-	</tr>
-
-	<td>Electric Engine</td>
-	<td>4</td>
-	<td>2</td>
-	<td>2</td>
-	<td>2</td>
-	<td>4</td>
-	<td>3</td>
-	<td>1</td>
-	<td>2</td>
-	<td>1</td>
-	<td>4</td>
-	</tr>
-
-	<td>Auxiliary Convoys</td>
-	<td>1</td>
-	<td>2</td>
-	<td>2</td>
-	<td>2</td>
-	<td>1</td>
-	<td>1</td>
-	<td>3</td>
-	<td>3</td>
-	<td>2</td>
-	<td>1</td>
-	</tr>
-
-	<tr bgcolor="BDBDBD">
-	<td>Radar</td>
-	<td>1</td>
-	<td>1</td>
-	<td>2</td>
-	<td>2</td>
-	<td>3</td>
-	<td>2</td>
-	<td>2</td>
-	<td>2</td>
-	<td>1</td>
-	<td>1</td>
-	</tr>
-
-	<tr bgcolor="BDBDBD">
-	<td>Seismic Bomb</td>
-	<td>1</td>
-	<td>1</td>
-	<td>2</td>
-	<td>2</td>
-	<td>1</td>
-	<td>3</td>
-	<td>2</td>
-	<td>2</td>
-	<td>2</td>
-	<td>4</td>
-	</tr>
-
-	<tr bgcolor="BDBDBD">
-	<td>Proximity Fuse</td>
-	<td>4</td>
-	<td>4</td>
-	<td>2</td>
-	<td>2</td>
-	<td>2</td>
-	<td>1</td>
-	<td>2</td>
-	<td>2</td>
-	<td>3</td>
-	<td>1</td>
-	</tr>
-		
-</table>
-<br>
-
-<table border="1"bgcolor="ABABAB">
-	<tr>
-	<th style="font-size:120%;000000"bgcolor="FEECE2"colspan="2">Terrain</th>
-	</tr>
-
-	<th>Type</th>
-	<th>Description</th>
-	</tr>
-
-	<tr bgcolor="BDBDBD">
-	<td>Tundra</td>
-	<td>Reduces all land units by -1atk, units cannot blitz through this terrain</td>
-	</tr>
-
-	<td>Desert</td>
-	<td>Provides +1atk/+1def to tanks, heavy tanks, tank hunters, halftracks, and zealots</td>
-	</tr>
-
-	<tr bgcolor="BDBDBD">
-	<td>Mountains</td>
-	<td>Provides -1atk/+1def to artillery, rocket artillery, and katyusha; units cannot blitz through this terrain</td>
-	</tr>
-
-	<td>Jungle</td>
-	<td>Provides +1atk/+1def to infantry, garrisons, mercenaries, and marines; units cannot blitz through this terrain</td>
-	</tr>
-		
-</table>
-<br>
-
-<br>
-<div style="text-align: center;">
-<br>==========================================================
-<br>
-<h1 style="text-align: center;font-size:120%;000000"><em>Special Rules</em></h1>
-
-<div style="text-align: left;">
-	<ul>
-	<li>Tech tokens are provided by territories with victory cities. You may also purchase tokens for 10PUs each, or 7PUs if you have the Digital Computer technology. Tech tokens roll on low luck, so six tokens guarantees a tech discovery. Any more than six are a waste, so do not buy more if you already have six.
-	<li>Most units require oil to move. Battleships, Carriers, Halftracks, and Tanks require one oil for each territory they move through. Destroyers, Submarines, Fighters, Bombers, and Interceptors only require one oil per turn for any amount of movement in that turn.
-	<li>All units (not including buildings) require 1PU per turn in upkeep. The following units are an exception, and require no upkeep: Holdout, Conscript, Nuke, and Rocket.
-	<li>Grands has a special "Grande Armee" on an off-board territory which can be moved to any territory they controlled at the start of the game.
-	<li>Grands does not have a capital territory, and so their ability to produce units cannot be stopped without removing them from the board entirely. This is done to represent the fact that Grands is a widespread alliance of states and underground movements, which can change over time with the territory they control.
-	<li>China also does not have a capital territory, and furthermore they have an off-board production center and income, meaning that they can continue producing units even if they lose all of their territories on the board. This is done to represent the fact that China is a state in rebellion against Korean occupation.
-	<li>India has a flow of "volunteers" from an off-board territory which lasts for five turns.
-	<li>If the Mazdak capital is captured by enemies, a Mazdak army will spawn there in rebellion. This will only occur once.
-	<li>If the Mazdaks capture the holy city of Arcadia they will spawn armies in all of the Mazdakist regions of the world (Mazdak S.R., Hedjaz, Makan, Dravidia S.R., Bengal, Burma, and Sumatra), gain a one-time bonus of 50PUs, and automatically declare war on all of their former allies to fulfil a prophecy regarding Mazdak global conquest.
-	<li>Many territories will revert to a different ally if captured from their original owner. For instance, Niverhotsk will revert to Russian ownership if captured by China. You can easily identify these territories by the font used for them on the map, except in the case of the Chinese provinces; Tulra, Yuyuan, Manchuria, Canton, Gungzi, and Shandong can only be controlled by either China or Korea.
-	<li>The Comintern does not liberate provinces to allies; if Mazdak or India capture a Union member's original territory, they will keep it permanently unless an enemy captures it back from them. This includes friendly capitals. By the same stroke, other Union members do not return territory to comintern members.
-	<li>If you are reduced to three or fewer territories, or if you lose your capital, you will be granted the "Total War" tech, which provides 1 PU per turn per territory you control. If you lost your capital, you must reclaim it before making any income from this technology. The "Rebels and Reinforcements" zone does not count toward the three territory condition, except in the case of China. For the NonAligned faction, you must be reduced to just one territory for Total War to trigger.
-	</ul>
-
-
-<br>
-<div style="text-align: center;">
-<br>==========================================================
-<br>
-<h1 style="text-align: center;font-size:120%;000000"><em>History</em></h1>
-
-<div style="text-align: left;">
-
-<span style="font-size:120%"><b><em>Mazdak</em></b></span>
-<br>The Mazdak Socialist Republic, once a colony of Arcadia, is descended from Arab colonists of the Mazdakist cult of Zoroastrian Christianity. They call themselves the "first communists," since their extremist religion has tenets which align perfectly with communism, and the Mazdaks have readily embraced the new socialist ideology as the "final renovation of the world" foretold by prophecy.
-<br>
-
-<span style="font-size:120%"><b><em>China</em></b></span>
-<br>A nationalist movement bankrolled by Arcadia, the Chinese resistance has been fighting against Korea for nearly a century. Now, with a global conflict kicking off, China may finally have the opportunity to shake off the Korean yoke for good.
-<br>
-
-<br><span style="font-size:120%"><b><em>EuroForce</em></b></span>
-<br>A coalition of nations, EuroForce was originally assembled to give power to the Estrean revolutionary empire. Over time, however, the alliance has been strengthened and politically centralized into a confederation, and leadership has shifted from Estres to Ulug Aal. EuroForce has been the eternal rival of Grands and Russia, who have taken advantage of Europe's recent war with Arcadia to destroy their old enemy once and for all.
-<br>
-
-<br><span style="font-size:120%"><b><em>Russia</em></b></span>
-<br>Russia has traditionally been ruled as a theocratic monarchy, but a revolution nearly a century ago replaced their monarchy with a representative republic. An ensuing civil war tore the nation apart, and Russia is still struggling to reclaim its former glory and find its place in the world. Russia's historic antagonism with the European powers has pushed them into the welcoming arms of Arcadia during this world war.
-<br>
-
-<br><span style="font-size:120%"><b><em>India</em></b></span>
-<br>The world's first communist state, the One World Social Union is more commonly known as India. Arcadia has made several attempts to conquer India, under many different regimes centuries past, and is now reviving old imperialist tendencies to try once more. With all other great powers a fair distance away, India is essentially the only thing standing between Arcadia and global hegomonic domination.
-<br>
-
-<br><span style="font-size:120%"><b><em>Arcadia</em></b></span>
-<br>A Zoroastrian nation with a storied past, Arcadia has traditionally stood at the forefront of all social movements, no matter how fringe or experimental. Now they lead the charge with socialism, having recently replaced their republic with a fascist government through democratic referendum. The new regime quickly set its sights on expanding Arcadia's territory, especially the conquest of India, which has been the legendary goal of Arcadia's first great emperors.
-<br>
-
-<br><span style="font-size:120%"><b><em>Korea</em></b></span>
-<br>The Korean Empire is a mixed state, half libertarian confederation, half military autocracy, the whole of which is lead by Emperor Kim Jim Mi. California and the provinces on the Korean peninsula are free republics, but the rest of the empire is commanded singularly by Kim, providing him with an impetus to continue conquering to overcome the democratic half of his empire.
-<br>
-
-<br><span style="font-size:120%"><b><em>Hoshida</em></b></span>
-<br>A nation of Japanese colonists who were left for dead by the Japanese Empire centuries ago. They have since grown into a mighty empire themselves, eventually overshadowing the Nanikyo Shogunate in Japan. Although a traditional ally of Korea, Hoshida has recently had a falling out with their old friend due to the Korean occupation of Japan during the Nanikyo partition, which Hoshida was hoping to unite into their ethnically Japanese empire.
-<br>
-
-<br><span style="font-size:120%"><b><em>Meijou</em></b></span>
-<br>A revolutionary Islamic republic, Meijou is descended from Majid settlers from Anatolia. Although the Meijou people are fiercely republican and typically isolationist, they do have pity for the old caliphate, and maintain the Arcadian rivalry of their forefathers. The occupation of Majidiing was the final straw which thrust Meijou into the war against Arcadia.
-<br>
-
-<br><span style="font-size:120%"><b><em>G.R.A.N.D.S.</em></b></span>
-<br>An alliance of states, the acronym "G.R.A.N.D.S." initially stood for "Germany, Russia, Albion, North Empire, Denmark, and Spain." Now, however, it is coloquially referred to as "The Grand Old Alliance" and is a coalition of several Atlantic states which primarily seek to defend their own sovereignty from more powerful neighbors. Grands has been infested with Arcadian influence since its founding a century ago, and the alliance continues to side with Arcadia even through its recent tumultuous regime change.
-<br>
-
-	
-	
-<br>
-<br>
-<br>
 </body>
 </html>
 
