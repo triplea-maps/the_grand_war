@@ -6529,37 +6529,37 @@
 		</relationshipInitialize>
 	</initialize>
 	<propertyList>
-		<property name="Mazdak bid" value="0" editable="true">
+		<property name="Mazdak bid" value="0" editable="false">
 			<number min="0" max="1000"/>
 		</property>
-		<property name="China bid" value="0" editable="true">
+		<property name="China bid" value="0" editable="false">
 			<number min="0" max="1000"/>
 		</property>
-		<property name="EuroForce bid" value="0" editable="true">
+		<property name="EuroForce bid" value="0" editable="false">
 			<number min="0" max="1000"/>
 		</property>
-		<property name="Russia bid" value="0" editable="true">
+		<property name="Russia bid" value="0" editable="false">
 			<number min="0" max="1000"/>
 		</property>
-		<property name="India bid" value="0" editable="true">
+		<property name="India bid" value="0" editable="false">
 			<number min="0" max="1000"/>
 		</property>
-		<property name="Arcadia bid" value="0" editable="true">
+		<property name="Arcadia bid" value="0" editable="false">
 			<number min="0" max="1000"/>
 		</property>
-		<property name="Korea bid" value="0" editable="true">
+		<property name="Korea bid" value="0" editable="false">
 			<number min="0" max="1000"/>
 		</property>
-		<property name="Hoshida bid" value="0" editable="true">
+		<property name="Hoshida bid" value="0" editable="false">
 			<number min="0" max="1000"/>
 		</property>
-		<property name="Meijou bid" value="0" editable="true">
+		<property name="Meijou bid" value="0" editable="false">
 			<number min="0" max="1000"/>
 		</property>
-		<property name="Grands bid" value="0" editable="true">
+		<property name="Grands bid" value="0" editable="false">
 			<number min="0" max="1000"/>
 		</property>
-		<property name="NonAligned bid" value="0" editable="true">
+		<property name="NonAligned bid" value="0" editable="false">
 			<number min="0" max="1000"/>
 		</property>
 		<property name="Projection of Power" value="false" editable="true">
