@@ -586,6 +586,7 @@
 		<connection t1="SZ Sea of Japan" t2="Niverhotsk"/>
 		<connection t1="SZ Sea of Japan" t2="Karafuto"/>
 		<connection t1="SZ Mazdak Coast" t2="Madagascar"/>
+		<connection t1="SZ W. Antarctic" t2="Madagascar"/>
 		<connection t1="SZ Mazdak Coast" t2="Mazdak S.R."/>
 		<connection t1="SZ Mazdak Coast" t2="Aksum"/>
 		<connection t1="SZ Mazdak Coast" t2="SZ Arab Coast"/>
