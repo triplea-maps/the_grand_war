@@ -895,7 +895,7 @@
 			<result resourceOrUnit="artillery" quantity="1"/>
 		</productionRule>
 		<productionRule name="buytank">
-			<cost resource="PUs" quantity="6"/>
+			<cost resource="PUs" quantity="5"/>
 			<cost resource="oil" quantity="1"/>
 			<result resourceOrUnit="tank" quantity="1"/>
 		</productionRule>
@@ -4528,7 +4528,7 @@
 		</attachment>
 		<attachment name="unitAttachment" attachTo="fighter" javaClass="games.strategy.triplea.attachments.UnitAttachment" type="unitType">
 		 	<option name="movement" value="4"/>
-		 	<option name="attack" value="3"/>
+		 	<option name="attack" value="2"/>
 		 	<option name="defense" value="4"/>
 		 	<option name="carrierCost" value="2"/>
 		 	<option name="isAir" value="true"/>
@@ -4542,7 +4542,7 @@
 		</attachment>
 		<attachment name="unitAttachment" attachTo="bomber" javaClass="games.strategy.triplea.attachments.UnitAttachment" type="unitType">
 		 	<option name="movement" value="6"/>
-		 	<option name="attack" value="4"/>
+		 	<option name="attack" value="3"/>
 		 	<option name="defense" value="1"/>
 		 	<option name="carrierCost" value="3"/>
 		 	<option name="isStrategicBomber" value="true"/>
@@ -4793,7 +4793,7 @@
 		</attachment>
 		<attachment name="unitAttachment" attachTo="r.Interceptor" javaClass="games.strategy.triplea.attachments.UnitAttachment" type="unitType">
 		 	<option name="movement" value="3"/>
-		 	<option name="attack" value="2"/>
+		 	<option name="attack" value="1"/>
 		 	<option name="defense" value="4"/>
 		 	<option name="carrierCost" value="2"/>
 		 	<option name="isAir" value="true"/>
