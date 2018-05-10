@@ -5864,13 +5864,15 @@
 		</attachment>
 		<attachment name="territoryEffectAttachment" attachTo="Jungle" javaClass="games.strategy.triplea.attachments.TerritoryEffectAttachment" type="territoryEffect">
 			<option name="combatDefenseEffect" value="infantry" count="1"/>
-			<option name="combatDefenseEffect" value="marine" count="1"/>
-			<option name="combatDefenseEffect" value="mercenary" count="1"/>
-			<option name="combatDefenseEffect" value="garrison" count="1"/>
-			<option name="combatDefenseEffect" value="stormtrooper" count="1"/>
 			<option name="combatOffenseEffect" value="infantry" count="1"/>
+			<option name="combatDefenseEffect" value="marine" count="1"/>
 			<option name="combatOffenseEffect" value="marine" count="1"/>
+			<option name="combatDefenseEffect" value="mercenary" count="1"/>
 			<option name="combatOffenseEffect" value="mercenary" count="1"/>
+			<option name="combatDefenseEffect" value="garrison" count="1"/>
+			<option name="combatOffenseEffect" value="garrison" count="1"/>
+			<option name="combatDefenseEffect" value="stormtrooper" count="1"/>
+			<option name="combatOffenseEffect" value="stormtrooper" count="1"/>
 			<option name="noBlitz" value="tank"/>
 			<option name="noBlitz" value="zealot"/>
 			<option name="noBlitz" value="tankHunter"/>
