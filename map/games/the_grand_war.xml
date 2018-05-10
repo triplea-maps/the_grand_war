@@ -3338,7 +3338,7 @@
 		</attachment>
 <!-- /WAR ECONOMY -->
 
-<!-- MAZDAK UPRISING -->
+<!-- MAZDAK UPRISING 
 	<attachment name="triggerAttachmentUprisingMazdak" attachTo="Mazdak" javaClass="games.strategy.triplea.attachments.TriggerAttachment" type="player">
 			<option name="conditions" value="conditionAttachmentWarEconomyCapitalMazdak"/>
 			<option name="when" value="after:endRoundStep"/>
@@ -3351,7 +3351,7 @@
 			<option name="changeOwnership" value="Mazdak S.R.:any:Mazdak:true"/>
 			<option name="notification" value="mazdakUprisingNotification"/>
 		</attachment>
-<!-- /MAZDAK UPRISING -->
+ /MAZDAK UPRISING -->
 
 <!-- DIGITAL COMPUTER UNLOCK AND PAYOUT -->
 		<attachment name="conditionAttachmentHasDigitalComputerMazdak" attachTo="Mazdak" javaClass="games.strategy.triplea.attachments.RulesAttachment" type="player">
@@ -6134,9 +6134,8 @@
 			<unitPlacement quantity="2" owner="NonAligned" territory="Bolivia" unitType="infantry"/>
 			<unitPlacement quantity="1" owner="NonAligned" territory="Bolivia" unitType="tank"/>
 			<unitPlacement quantity="4" owner="Mazdak" territory="Mazdak S.R." unitType="infantry"/>
-			<unitPlacement quantity="2" owner="Mazdak" territory="Mazdak S.R." unitType="zealot"/>
+			<unitPlacement quantity="3" owner="Mazdak" territory="Mazdak S.R." unitType="zealot"/>
 			<unitPlacement quantity="1" owner="Mazdak" territory="Mazdak S.R." unitType="artillery"/>
-			<unitPlacement quantity="1" owner="Mazdak" territory="Mazdak S.R." unitType="tank"/>
 			<unitPlacement quantity="1" owner="Mazdak" territory="Mazdak S.R." unitType="factory"/>
 			<unitPlacement quantity="1" owner="China" territory="Yuyuan" unitType="infantry"/>
 			<unitPlacement quantity="1" owner="China" territory="Yuyuan" unitType="stormtrooper"/>
@@ -7706,7 +7705,6 @@ Naval units are identical without flags to distinguish them, and many land units
 	<li>Grands does not have a capital territory, and so their ability to produce units cannot be stopped without removing them from the board entirely. This is done to represent the fact that Grands is a widespread alliance of states and underground movements, which can change over time with the territory they control.
 	<li>China also does not have a capital territory, and furthermore they have an off-board production center and income, meaning that they can continue producing units even if they lose all of their territories on the board. This is done to represent the fact that China is a state in rebellion against Korean occupation.
 	<li>India has a flow of "volunteers" from an off-board territory which lasts for five turns.
-	<li>If the Mazdak capital is captured by enemies, a Mazdak army of six units will spawn there in rebellion. This will only occur once.
 	<li>If the Mazdaks capture the holy city of Arcadia they will spawn armies in all of the Mazdakist regions of the world (Mazdak S.R., Hedjaz, Makan, Dravidia S.R., Bengal, Burma, and Sumatra), gain a one-time bonus of 50PUs, and automatically declare war on all of their former allies to fulfill a prophecy regarding Mazdak global conquest.
 	<li>Many territories will revert to a different ally if captured from their original owner. For instance, Niverhotsk will revert to Russian ownership if captured by China. You can easily identify these territories by the font used for them on the map, except in the case of the Chinese provinces; Tulra, Yuyuan, Manchuria, Canton, Gungzi, and Shandong can only be controlled by either China or Korea.
 	<li>The Comintern does not liberate provinces to allies; if Mazdak or India capture a Union member's original territory, they will keep it permanently unless an enemy captures it back from them. This includes friendly capitals. By the same stroke, other Union members do not return territory to comintern members.
