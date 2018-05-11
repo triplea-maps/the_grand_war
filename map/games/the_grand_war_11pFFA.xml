@@ -4629,6 +4629,7 @@
 			<option name="maxAAattacks" value="1"/>
 			<option name="isAAforCombatOnly" value="true"/>
 			<option name="typeAA" value="zealotCharge"/>
+			<option name="damageableAA" value="true"/>
 			<option name="targetsAA" value="infantry:artillery:tank:zealot:stormtrooper:heavyTank:katyusha:conscript:garrison:marine:tankHunter:nuke:rocket:r.Artillery:flakHalftrack"/>
 		 	<option name="transportCost" value="3"/>
 		 	<option name="canBlitz" value="true"/>
