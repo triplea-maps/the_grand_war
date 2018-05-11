@@ -1708,24 +1708,6 @@
 			<option name="number" value="1"/>
 			<option name="bonusType" value="artySonar"/>
 		</attachment>
-		<attachment name="supportAttachmentProximityFuse1" attachTo="carrier" javaClass="games.strategy.triplea.attachments.UnitSupportAttachment" type="unitType">
-			<option name="unitType" value="fighter:bomber:r.Interceptor"/>
-			<option name="faction" value="enemy"/>
-			<option name="side" value="offence"/>
-			<option name="dice" value="strength"/>
-			<option name="bonus" value="-1"/>
-			<option name="number" value="1"/>
-			<option name="bonusType" value="artyProxFuse"/>
-		</attachment>
-		<attachment name="supportAttachmentProximityFuse2" attachTo="battleship" javaClass="games.strategy.triplea.attachments.UnitSupportAttachment" type="unitType">
-			<option name="unitType" value="fighter:bomber:r.Interceptor"/>
-			<option name="faction" value="enemy"/>
-			<option name="side" value="offence"/>
-			<option name="dice" value="strength"/>
-			<option name="bonus" value="-1"/>
-			<option name="number" value="1"/>
-			<option name="bonusType" value="artyProxFuse"/>
-		</attachment>
 <!-- /TECH SUPPORT ATTACHMENTS -->
 
 <!-- ALWAYS TRUE CONDITION -->
@@ -4099,8 +4081,6 @@
 			<option name="conditions" value="conditionAttachmentHasFlakHalftrackMazdak"/>
 			<option name="when" value="before:mazdakPurchase"/>
 			<option name="uses" value="1"/>
-			<option name="support" value="supportAttachmentProximityFuse1"/>
-			<option name="support" value="supportAttachmentProximityFuse2"/>
 			<option name="productionRule" value="MazdakFrontier:buyflakhalftrack"/>
 			<option name="notification" value="flakHalftrackNotification"/>
 		</attachment>
@@ -4111,8 +4091,6 @@
 			<option name="conditions" value="conditionAttachmentHasFlakHalftrackChina"/>
 			<option name="when" value="before:chinaPurchase"/>
 			<option name="uses" value="1"/>
-			<option name="support" value="supportAttachmentProximityFuse1"/>
-			<option name="support" value="supportAttachmentProximityFuse2"/>
 			<option name="productionRule" value="ChinaFrontier:buyflakhalftrack"/>
 			<option name="notification" value="flakHalftrackNotification"/>
 		</attachment>
@@ -4123,8 +4101,6 @@
 			<option name="conditions" value="conditionAttachmentHasFlakHalftrackEuroForce"/>
 			<option name="when" value="before:euroforcePurchase"/>
 			<option name="uses" value="1"/>
-			<option name="support" value="supportAttachmentProximityFuse1"/>
-			<option name="support" value="supportAttachmentProximityFuse2"/>
 			<option name="productionRule" value="EuroForceFrontier:buyflakhalftrack"/>
 			<option name="notification" value="flakHalftrackNotification"/>
 		</attachment>
@@ -4135,8 +4111,6 @@
 			<option name="conditions" value="conditionAttachmentHasFlakHalftrackRussia"/>
 			<option name="when" value="before:russiaPurchase"/>
 			<option name="uses" value="1"/>
-			<option name="support" value="supportAttachmentProximityFuse1"/>
-			<option name="support" value="supportAttachmentProximityFuse2"/>
 			<option name="productionRule" value="RussiaFrontier:buyflakhalftrack"/>
 			<option name="notification" value="flakHalftrackNotification"/>
 		</attachment>
@@ -4147,8 +4121,6 @@
 			<option name="conditions" value="conditionAttachmentHasFlakHalftrackIndia"/>
 			<option name="when" value="before:indiaPurchase"/>
 			<option name="uses" value="1"/>
-			<option name="support" value="supportAttachmentProximityFuse1"/>
-			<option name="support" value="supportAttachmentProximityFuse2"/>
 			<option name="productionRule" value="IndiaFrontier:buyflakhalftrack"/>
 			<option name="notification" value="flakHalftrackNotification"/>
 		</attachment>
@@ -4159,8 +4131,6 @@
 			<option name="conditions" value="conditionAttachmentHasFlakHalftrackArcadia"/>
 			<option name="when" value="before:arcadiaPurchase"/>
 			<option name="uses" value="1"/>
-			<option name="support" value="supportAttachmentProximityFuse1"/>
-			<option name="support" value="supportAttachmentProximityFuse2"/>
 			<option name="productionRule" value="ArcadiaFrontier:buyflakhalftrack"/>
 			<option name="notification" value="flakHalftrackNotification"/>
 		</attachment>
@@ -4171,8 +4141,6 @@
 			<option name="conditions" value="conditionAttachmentHasFlakHalftrackKorea"/>
 			<option name="when" value="before:koreaPurchase"/>
 			<option name="uses" value="1"/>
-			<option name="support" value="supportAttachmentProximityFuse1"/>
-			<option name="support" value="supportAttachmentProximityFuse2"/>
 			<option name="productionRule" value="KoreaFrontier:buyflakhalftrack"/>
 			<option name="notification" value="flakHalftrackNotification"/>
 		</attachment>
@@ -4183,8 +4151,6 @@
 			<option name="conditions" value="conditionAttachmentHasFlakHalftrackHoshida"/>
 			<option name="when" value="before:hoshidaPurchase"/>
 			<option name="uses" value="1"/>
-			<option name="support" value="supportAttachmentProximityFuse1"/>
-			<option name="support" value="supportAttachmentProximityFuse2"/>
 			<option name="productionRule" value="HoshidaFrontier:buyflakhalftrack"/>
 			<option name="notification" value="flakHalftrackNotification"/>
 		</attachment>
@@ -4195,8 +4161,6 @@
 			<option name="conditions" value="conditionAttachmentHasFlakHalftrackMeijou"/>
 			<option name="when" value="before:meijouPurchase"/>
 			<option name="uses" value="1"/>
-			<option name="support" value="supportAttachmentProximityFuse1"/>
-			<option name="support" value="supportAttachmentProximityFuse2"/>
 			<option name="productionRule" value="MeijouFrontier:buyflakhalftrack"/>
 			<option name="notification" value="flakHalftrackNotification"/>
 		</attachment>
@@ -4207,8 +4171,6 @@
 			<option name="conditions" value="conditionAttachmentHasFlakHalftrackGrands"/>
 			<option name="when" value="before:grandsPurchase"/>
 			<option name="uses" value="1"/>
-			<option name="support" value="supportAttachmentProximityFuse1"/>
-			<option name="support" value="supportAttachmentProximityFuse2"/>
 			<option name="productionRule" value="GrandsFrontier:buyflakhalftrack"/>
 			<option name="notification" value="flakHalftrackNotification"/>
 		</attachment>
@@ -4219,8 +4181,6 @@
 			<option name="conditions" value="conditionAttachmentHasFlakHalftrackNonAligned"/>
 			<option name="when" value="before:nonAlignedPurchase"/>
 			<option name="uses" value="1"/>
-			<option name="support" value="supportAttachmentProximityFuse1"/>
-			<option name="support" value="supportAttachmentProximityFuse2"/>
 			<option name="productionRule" value="NonAlignedFrontier:buyflakhalftrack"/>
 			<option name="notification" value="flakHalftrackNotification"/>
 		</attachment>
@@ -4923,6 +4883,12 @@
 		 	<option name="movement" value="2"/>
 		 	<option name="attack" value="0"/>
 		 	<option name="defense" value="3"/>
+			<option name="isAAforCombatOnly" value="true"/>
+			<option name="attackAA" value="0"/>
+			<option name="offensiveAttackAA" value="0"/>
+			<option name="maxAAattacks" value="1"/>
+			<option name="typeAA" value="capitalShipAA"/>
+			<option name="targetsAA" value="fighter:bomber:r.Interceptor"/>
 		 	<option name="isSea" value="true"/>
 		 	<option name="carrierCapacity" value="5"/>
 			<option name="givesMovement" value="1:nuke"/>
@@ -4932,7 +4898,13 @@
 		 	<option name="movement" value="2"/>
 		 	<option name="attack" value="3"/>
 		 	<option name="defense" value="4"/>
-		 	<option name="canBombard" value="true"/>
+			<option name="isAAforCombatOnly" value="true"/>
+			<option name="attackAA" value="0"/>
+			<option name="offensiveAttackAA" value="0"/>
+			<option name="maxAAattacks" value="1"/>
+			<option name="typeAA" value="capitalShipAA"/>
+			<option name="targetsAA" value="fighter:bomber:r.Interceptor"/>
+			<option name="canBombard" value="true"/>
 		 	<option name="bombard" value="1"/>
 		 	<option name="attackRolls" value="3"/>
 		 	<option name="isSea" value="true"/>
@@ -5983,6 +5955,10 @@
 <!-- CUSTOM TECHS -->
 		<attachment name="techAbilityAttachment" attachTo="Salvage" javaClass="games.strategy.triplea.attachments.TechAbilityAttachment" type="technology">
 			<option name="repairDiscount" value="50"/>
+		</attachment>
+		<attachment name="techAbilityAttachment" attachTo="ProximityFuse" javaClass="games.strategy.triplea.attachments.TechAbilityAttachment" type="technology">
+			<option name="radarBonus" value="2:carrier"/>
+			<option name="radarBonus" value="2:battleship"/>
 		</attachment>
 		<attachment name="techAbilityAttachment" attachTo="Radar" javaClass="games.strategy.triplea.attachments.TechAbilityAttachment" type="technology">
 			<option name="airAttackBonus" value="1:fighter"/>
@@ -7428,7 +7404,7 @@ Naval units are identical without flags to distinguish them, and many land units
 	<tr bgcolor="BDBDBD">
 	<td>Proximity Fuse</td>
 	<td>Air</td>
-	<td>Allows you to build the flak halftrack, a special anti-air land unit. Also, carriers/battleships reduce enemy air units by -1atk when defending.</td>
+	<td>Allows you to build the flak halftrack, a special anti-air land unit. Also, carriers/battleships gain +2AA defense.</td>
 	</tr>
 		
 </table>
