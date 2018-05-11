@@ -4348,7 +4348,17 @@
 			<option name="bonus" value="1"/>
 			<option name="number" value="1"/>
 			<option name="bonusType" value="fighterArty"/>
-			<option name="players" value="Mazdak:China:Russia:India:Arcadia:Korea:Hoshida:Meijou:Grands:NonAligned"/>
+			<option name="players" value="China:Russia:India:Arcadia:Korea:Hoshida:Grands:NonAligned"/>
+		</attachment>
+		<attachment name="supportAttachmentCASZealot" attachTo="fighter" javaClass="games.strategy.triplea.attachments.UnitSupportAttachment" type="unitType">
+			<option name="unitType" value="tank:zealot"/>
+			<option name="faction" value="allied"/>
+			<option name="side" value="offence"/>
+			<option name="dice" value="strength"/>
+			<option name="bonus" value="1"/>
+			<option name="number" value="1"/>
+			<option name="bonusType" value="fighterArty"/>
+			<option name="players" value="Mazdak"/>
 		</attachment>
 		<attachment name="supportAttachmentCASHeavyTank" attachTo="fighter" javaClass="games.strategy.triplea.attachments.UnitSupportAttachment" type="unitType">
 			<option name="unitType" value="tank:heavyTank"/>
@@ -4359,6 +4369,16 @@
 			<option name="number" value="1"/>
 			<option name="bonusType" value="fighterArty"/>
 			<option name="players" value="EuroForce"/>
+		</attachment>
+		<attachment name="supportAttachmentCASTankHunter" attachTo="fighter" javaClass="games.strategy.triplea.attachments.UnitSupportAttachment" type="unitType">
+			<option name="unitType" value="tank:tankHunter"/>
+			<option name="faction" value="allied"/>
+			<option name="side" value="offence"/>
+			<option name="dice" value="strength"/>
+			<option name="bonus" value="1"/>
+			<option name="number" value="1"/>
+			<option name="bonusType" value="fighterArty"/>
+			<option name="players" value="Meijou"/>
 		</attachment>
 		<attachment name="supportAttachmentKatyusha" attachTo="katyusha" javaClass="games.strategy.triplea.attachments.UnitSupportAttachment" type="unitType">
 			<option name="unitType" value="infantry"/>
