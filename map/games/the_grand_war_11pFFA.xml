@@ -895,7 +895,7 @@
 			<result resourceOrUnit="artillery" quantity="1"/>
 		</productionRule>
 		<productionRule name="buytank">
-			<cost resource="PUs" quantity="5"/>
+			<cost resource="PUs" quantity="6"/>
 			<cost resource="oil" quantity="1"/>
 			<result resourceOrUnit="tank" quantity="1"/>
 		</productionRule>
