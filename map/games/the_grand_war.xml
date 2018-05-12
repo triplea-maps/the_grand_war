@@ -742,6 +742,7 @@
 		<unit name="motorPool"/>
 		<unit name="garrison"/>
 		<unit name="giantEnemyCrab"/>
+		<unit name="crabling"/>
 		<unit name="marine"/>
 		<unit name="tankHunter"/>
 		<unit name="coalitionFactory"/>
@@ -5052,7 +5053,13 @@
 		 	<option name="hitPoints" value="6"/>
 		 	<option name="canBlitz" value="true"/>
 		 	<option name="tuv" value="50"/>
-		 	<option name="createsResourcesList" value="-1:PUs"/>
+		 	<option name="createsUnitsList" value="3:crabling"/>
+		</attachment>
+		<attachment name="unitAttachment" attachTo="crabling" javaClass="games.strategy.triplea.attachments.UnitAttachment" type="unitType">
+		 	<option name="movement" value="1"/>
+		 	<option name="attack" value="1"/>
+		 	<option name="defense" value="1"/>
+		 	<option name="tuv" value="1"/>
 		</attachment>
 		<attachment name="unitAttachment" attachTo="marine" javaClass="games.strategy.triplea.attachments.UnitAttachment" type="unitType">
 		 	<option name="movement" value="1"/>
