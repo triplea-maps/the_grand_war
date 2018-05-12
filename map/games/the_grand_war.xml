@@ -4610,7 +4610,7 @@
 		</attachment>
 <!-- /AUXILIARY CONVOYS UNLOCK -->
 
-<!-- GIANT ENEMY CRAB -->
+<!-- GIANT ENEMY CRAB
 		<attachment name="triggerAttachmentGiantEnemyCrab" attachTo="Korea" javaClass="games.strategy.triplea.attachments.TriggerAttachment" type="player">
 			<option name="conditions" value="conditionAttachmentHasDepletedUraniumKorea"/>
 			<option name="conditions" value="conditionAttachmentHasBombKorea"/>
@@ -4632,7 +4632,7 @@
 			<option name="placement" value="Korea:giantEnemyCrab" count="1"/>
 			<option name="notification" value="giantEnemyCrabNotification"/>
 		</attachment>
-<!-- /GIANT ENEMY CRAB -->
+/GIANT ENEMY CRAB -->
 
 <!-- SUPPORT ATTACHMENTS -->
 		<attachment name="supportAttachmentTankHunter" attachTo="tankHunter" javaClass="games.strategy.triplea.attachments.UnitSupportAttachment" type="unitType">
