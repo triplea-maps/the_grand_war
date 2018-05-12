@@ -741,6 +741,7 @@
 		<unit name="conscript"/>
 		<unit name="motorPool"/>
 		<unit name="garrison"/>
+		<unit name="giantEnemyCrab"/>
 		<unit name="marine"/>
 		<unit name="tankHunter"/>
 		<unit name="coalitionFactory"/>
@@ -3335,10 +3336,9 @@
 		</attachment>
  /MAZDAK UPRISING -->
 
-<!-- DIGITAL COMPUTER UNLOCK AND PAYOUT -->
+<!-- DIGITAL COMPUTER UNLOCK -->
 		<attachment name="conditionAttachmentHasDigitalComputerMazdak" attachTo="Mazdak" javaClass="games.strategy.triplea.attachments.RulesAttachment" type="player">
 			<option name="techs" value="DigitalComputer" count="1"/>
-			<option name="directOwnershipTerritories" value="Mazdak S.R."/>
 		</attachment>
 		<attachment name="triggerAttachmentDigitalComputerUnlockMazdak" attachTo="Mazdak" javaClass="games.strategy.triplea.attachments.TriggerAttachment" type="player">
 			<option name="conditions" value="conditionAttachmentHasDigitalComputerMazdak"/>
@@ -3361,7 +3361,6 @@
 		</attachment>
 		<attachment name="conditionAttachmentHasDigitalComputerEuroForce" attachTo="EuroForce" javaClass="games.strategy.triplea.attachments.RulesAttachment" type="player">
 			<option name="techs" value="DigitalComputer" count="1"/>
-			<option name="directOwnershipTerritories" value="Ulug Aal"/>
 		</attachment>
 		<attachment name="triggerAttachmentDigitalComputerUnlockEuroForce" attachTo="EuroForce" javaClass="games.strategy.triplea.attachments.TriggerAttachment" type="player">
 			<option name="conditions" value="conditionAttachmentHasDigitalComputerEuroForce"/>
@@ -3373,7 +3372,6 @@
 		</attachment>
 		<attachment name="conditionAttachmentHasDigitalComputerRussia" attachTo="Russia" javaClass="games.strategy.triplea.attachments.RulesAttachment" type="player">
 			<option name="techs" value="DigitalComputer" count="1"/>
-			<option name="directOwnershipTerritories" value="Russia"/>
 		</attachment>
 		<attachment name="triggerAttachmentDigitalComputerUnlockRussia" attachTo="Russia" javaClass="games.strategy.triplea.attachments.TriggerAttachment" type="player">
 			<option name="conditions" value="conditionAttachmentHasDigitalComputerRussia"/>
@@ -3385,7 +3383,6 @@
 		</attachment>
 		<attachment name="conditionAttachmentHasDigitalComputerIndia" attachTo="India" javaClass="games.strategy.triplea.attachments.RulesAttachment" type="player">
 			<option name="techs" value="DigitalComputer" count="1"/>
-			<option name="directOwnershipTerritories" value="Hindustan"/>
 		</attachment>
 		<attachment name="triggerAttachmentDigitalComputerUnlockIndia" attachTo="India" javaClass="games.strategy.triplea.attachments.TriggerAttachment" type="player">
 			<option name="conditions" value="conditionAttachmentHasDigitalComputerIndia"/>
@@ -3397,7 +3394,6 @@
 		</attachment>
 		<attachment name="conditionAttachmentHasDigitalComputerArcadia" attachTo="Arcadia" javaClass="games.strategy.triplea.attachments.RulesAttachment" type="player">
 			<option name="techs" value="DigitalComputer" count="1"/>
-			<option name="directOwnershipTerritories" value="Arcadia"/>
 		</attachment>
 		<attachment name="triggerAttachmentDigitalComputerUnlockArcadia" attachTo="Arcadia" javaClass="games.strategy.triplea.attachments.TriggerAttachment" type="player">
 			<option name="conditions" value="conditionAttachmentHasDigitalComputerArcadia"/>
@@ -3409,7 +3405,6 @@
 		</attachment>
 		<attachment name="conditionAttachmentHasDigitalComputerKorea" attachTo="Korea" javaClass="games.strategy.triplea.attachments.RulesAttachment" type="player">
 			<option name="techs" value="DigitalComputer" count="1"/>
-			<option name="directOwnershipTerritories" value="Korea"/>
 		</attachment>
 		<attachment name="triggerAttachmentDigitalComputerUnlockKorea" attachTo="Korea" javaClass="games.strategy.triplea.attachments.TriggerAttachment" type="player">
 			<option name="conditions" value="conditionAttachmentHasDigitalComputerKorea"/>
@@ -3421,7 +3416,6 @@
 		</attachment>
 		<attachment name="conditionAttachmentHasDigitalComputerHoshida" attachTo="Hoshida" javaClass="games.strategy.triplea.attachments.RulesAttachment" type="player">
 			<option name="techs" value="DigitalComputer" count="1"/>
-			<option name="directOwnershipTerritories" value="Hoshida"/>
 		</attachment>
 		<attachment name="triggerAttachmentDigitalComputerUnlockHoshida" attachTo="Hoshida" javaClass="games.strategy.triplea.attachments.TriggerAttachment" type="player">
 			<option name="conditions" value="conditionAttachmentHasDigitalComputerHoshida"/>
@@ -3433,7 +3427,6 @@
 		</attachment>
 		<attachment name="conditionAttachmentHasDigitalComputerMeijou" attachTo="Meijou" javaClass="games.strategy.triplea.attachments.RulesAttachment" type="player">
 			<option name="techs" value="DigitalComputer" count="1"/>
-			<option name="directOwnershipTerritories" value="Meijou"/>
 		</attachment>
 		<attachment name="triggerAttachmentDigitalComputerUnlockMeijou" attachTo="Meijou" javaClass="games.strategy.triplea.attachments.TriggerAttachment" type="player">
 			<option name="conditions" value="conditionAttachmentHasDigitalComputerMeijou"/>
@@ -3465,7 +3458,7 @@
 			<option name="productionRule" value="NonAlignedFrontier:buyPUsfortech"/>
 			<option name="notification" value="digitalComputerNotification"/>
 		</attachment>
-<!-- /DIGITAL COMPUTER UNLOCK AND PAYOUT -->
+<!-- /DIGITAL COMPUTER UNLOCK -->
 
 <!-- THE BOMB -->
 		<attachment name="conditionAttachmentNuclearFacilityControlMazdak" attachTo="Mazdak" javaClass="games.strategy.triplea.attachments.RulesAttachment" type="player">
@@ -4616,6 +4609,30 @@
 		</attachment>
 <!-- /AUXILIARY CONVOYS UNLOCK -->
 
+<!-- GIANT ENEMY CRAB -->
+		<attachment name="triggerAttachmentGiantEnemyCrab" attachTo="Korea" javaClass="games.strategy.triplea.attachments.TriggerAttachment" type="player">
+			<option name="conditions" value="conditionAttachmentHasDepletedUraniumKorea"/>
+			<option name="conditions" value="conditionAttachmentHasBombKorea"/>
+			<option name="conditions" value="conditionAttachmentNuclearReactorKorea"/>
+			<option name="conditions" value="conditionAttachmentHasSRBMKorea"/>
+			<option name="conditions" value="conditionAttachmentHasRocketArtilleryKorea"/>
+			<option name="conditions" value="conditionAttachmentHasRocketInterceptorKorea"/>
+			<option name="conditions" value="conditionAttachmentHasDigitalComputerKorea"/>
+			<option name="conditions" value="conditionAttachmentHasSyntheticsKorea"/>
+			<option name="conditions" value="conditionAttachmentSalvageKorea"/>
+			<option name="conditions" value="conditionAttachmentHasElectricEngineKorea"/>
+			<option name="conditions" value="conditionAttachmentHasSonarKorea"/>
+			<option name="conditions" value="conditionAttachmentHasAuxiliaryConvoysKorea"/>
+			<option name="conditions" value="conditionAttachmentHasRadarKorea"/>
+			<option name="conditions" value="conditionAttachmentHasFlakHalftrackKorea"/>
+			<option name="conditions" value="conditionAttachmentHasSeismicBombKorea"/>
+			<option name="when" value="before:koreaTech"/>
+			<option name="uses" value="1"/>
+			<option name="placement" value="Korea:giantEnemyCrab" count="1"/>
+			<option name="notification" value="giantEnemyCrabNotification"/>
+		</attachment>
+<!-- /GIANT ENEMY CRAB -->
+
 <!-- SUPPORT ATTACHMENTS -->
 		<attachment name="supportAttachmentTankHunter" attachTo="tankHunter" javaClass="games.strategy.triplea.attachments.UnitSupportAttachment" type="unitType">
 			<option name="unitType" value="tank"/>
@@ -5026,6 +5043,17 @@
 		 	<option name="transportCost" value="2"/>
 		 	<option name="createsResourcesList" value="-1:PUs"/>
 		</attachment>
+		<attachment name="unitAttachment" attachTo="giantEnemyCrab" javaClass="games.strategy.triplea.attachments.UnitAttachment" type="unitType">
+		 	<option name="movement" value="6"/>
+		 	<option name="attack" value="6"/>
+		 	<option name="defense" value="6"/>
+		 	<option name="attackRolls" value="6"/>
+		 	<option name="defenseRolls" value="6"/>
+		 	<option name="hitPoints" value="6"/>
+		 	<option name="canBlitz" value="true"/>
+		 	<option name="tuv" value="50"/>
+		 	<option name="createsResourcesList" value="-1:PUs"/>
+		</attachment>
 		<attachment name="unitAttachment" attachTo="marine" javaClass="games.strategy.triplea.attachments.UnitAttachment" type="unitType">
 		 	<option name="movement" value="1"/>
 		 	<option name="attack" value="1"/>
@@ -5084,6 +5112,7 @@
 			<option name="maxAAattacks" value="4"/>
 			<option name="isAAforCombatOnly" value="true"/>
 			<option name="typeAA" value="nuclearBlast"/>
+			<option name="damageableAA" value="true"/>
 			<option name="targetsAA" value="infantry:artillery:tank:fighter:bomber:destroyer:submarine:carrier:battleship:zealot:stormtrooper:heavyTank:katyusha:conscript:garrison:marine:tankHunter:mercenary:nuke:rocket:r.Interceptor:r.Artillery:flakHalftrack"/>
 			<option name="isStrategicBomber" value="true"/>
 			<option name="bombingBonus" value="10"/>

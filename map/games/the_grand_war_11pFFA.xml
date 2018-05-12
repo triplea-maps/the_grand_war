@@ -2988,10 +2988,9 @@
 		</attachment>
 <!-- /SALVAGE -->
 
-<!-- DIGITAL COMPUTER UNLOCK AND PAYOUT -->
+<!-- DIGITAL COMPUTER UNLOCK -->
 		<attachment name="conditionAttachmentHasDigitalComputerMazdak" attachTo="Mazdak" javaClass="games.strategy.triplea.attachments.RulesAttachment" type="player">
 			<option name="techs" value="DigitalComputer" count="1"/>
-			<option name="directOwnershipTerritories" value="Mazdak S.R."/>
 		</attachment>
 		<attachment name="triggerAttachmentDigitalComputerUnlockMazdak" attachTo="Mazdak" javaClass="games.strategy.triplea.attachments.TriggerAttachment" type="player">
 			<option name="conditions" value="conditionAttachmentHasDigitalComputerMazdak"/>
@@ -3014,7 +3013,6 @@
 		</attachment>
 		<attachment name="conditionAttachmentHasDigitalComputerEuroForce" attachTo="EuroForce" javaClass="games.strategy.triplea.attachments.RulesAttachment" type="player">
 			<option name="techs" value="DigitalComputer" count="1"/>
-			<option name="directOwnershipTerritories" value="Ulug Aal"/>
 		</attachment>
 		<attachment name="triggerAttachmentDigitalComputerUnlockEuroForce" attachTo="EuroForce" javaClass="games.strategy.triplea.attachments.TriggerAttachment" type="player">
 			<option name="conditions" value="conditionAttachmentHasDigitalComputerEuroForce"/>
@@ -3026,7 +3024,6 @@
 		</attachment>
 		<attachment name="conditionAttachmentHasDigitalComputerRussia" attachTo="Russia" javaClass="games.strategy.triplea.attachments.RulesAttachment" type="player">
 			<option name="techs" value="DigitalComputer" count="1"/>
-			<option name="directOwnershipTerritories" value="Russia"/>
 		</attachment>
 		<attachment name="triggerAttachmentDigitalComputerUnlockRussia" attachTo="Russia" javaClass="games.strategy.triplea.attachments.TriggerAttachment" type="player">
 			<option name="conditions" value="conditionAttachmentHasDigitalComputerRussia"/>
@@ -3038,7 +3035,6 @@
 		</attachment>
 		<attachment name="conditionAttachmentHasDigitalComputerIndia" attachTo="India" javaClass="games.strategy.triplea.attachments.RulesAttachment" type="player">
 			<option name="techs" value="DigitalComputer" count="1"/>
-			<option name="directOwnershipTerritories" value="Hindustan"/>
 		</attachment>
 		<attachment name="triggerAttachmentDigitalComputerUnlockIndia" attachTo="India" javaClass="games.strategy.triplea.attachments.TriggerAttachment" type="player">
 			<option name="conditions" value="conditionAttachmentHasDigitalComputerIndia"/>
@@ -3050,7 +3046,6 @@
 		</attachment>
 		<attachment name="conditionAttachmentHasDigitalComputerArcadia" attachTo="Arcadia" javaClass="games.strategy.triplea.attachments.RulesAttachment" type="player">
 			<option name="techs" value="DigitalComputer" count="1"/>
-			<option name="directOwnershipTerritories" value="Arcadia"/>
 		</attachment>
 		<attachment name="triggerAttachmentDigitalComputerUnlockArcadia" attachTo="Arcadia" javaClass="games.strategy.triplea.attachments.TriggerAttachment" type="player">
 			<option name="conditions" value="conditionAttachmentHasDigitalComputerArcadia"/>
@@ -3062,7 +3057,6 @@
 		</attachment>
 		<attachment name="conditionAttachmentHasDigitalComputerKorea" attachTo="Korea" javaClass="games.strategy.triplea.attachments.RulesAttachment" type="player">
 			<option name="techs" value="DigitalComputer" count="1"/>
-			<option name="directOwnershipTerritories" value="Korea"/>
 		</attachment>
 		<attachment name="triggerAttachmentDigitalComputerUnlockKorea" attachTo="Korea" javaClass="games.strategy.triplea.attachments.TriggerAttachment" type="player">
 			<option name="conditions" value="conditionAttachmentHasDigitalComputerKorea"/>
@@ -3074,7 +3068,6 @@
 		</attachment>
 		<attachment name="conditionAttachmentHasDigitalComputerHoshida" attachTo="Hoshida" javaClass="games.strategy.triplea.attachments.RulesAttachment" type="player">
 			<option name="techs" value="DigitalComputer" count="1"/>
-			<option name="directOwnershipTerritories" value="Hoshida"/>
 		</attachment>
 		<attachment name="triggerAttachmentDigitalComputerUnlockHoshida" attachTo="Hoshida" javaClass="games.strategy.triplea.attachments.TriggerAttachment" type="player">
 			<option name="conditions" value="conditionAttachmentHasDigitalComputerHoshida"/>
@@ -3086,7 +3079,6 @@
 		</attachment>
 		<attachment name="conditionAttachmentHasDigitalComputerMeijou" attachTo="Meijou" javaClass="games.strategy.triplea.attachments.RulesAttachment" type="player">
 			<option name="techs" value="DigitalComputer" count="1"/>
-			<option name="directOwnershipTerritories" value="Meijou"/>
 		</attachment>
 		<attachment name="triggerAttachmentDigitalComputerUnlockMeijou" attachTo="Meijou" javaClass="games.strategy.triplea.attachments.TriggerAttachment" type="player">
 			<option name="conditions" value="conditionAttachmentHasDigitalComputerMeijou"/>
@@ -3118,7 +3110,7 @@
 			<option name="productionRule" value="NonAlignedFrontier:buyPUsfortech"/>
 			<option name="notification" value="digitalComputerNotification"/>
 		</attachment>
-<!-- /DIGITAL COMPUTER UNLOCK AND PAYOUT -->
+<!-- /DIGITAL COMPUTER UNLOCK -->
 
 <!-- THE BOMB -->
 		<attachment name="conditionAttachmentNuclearFacilityControlMazdak" attachTo="Mazdak" javaClass="games.strategy.triplea.attachments.RulesAttachment" type="player">
