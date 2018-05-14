@@ -4968,9 +4968,9 @@
 		 	<option name="movement" value="1"/>
 		 	<option name="attack" value="2"/>
 		 	<option name="defense" value="1"/>
+		 	<option name="transportCost" value="2"/>
 		 	<option name="isInfantry" value="true"/>
 		 	<option name="isAirTransportable" value="true"/>
-		 	<option name="transportCost" value="2"/>
 		 	<option name="createsResourcesList" value="-1:PUs"/>
 		</attachment>
 		<attachment name="unitAttachment" attachTo="heavyTank" javaClass="games.strategy.triplea.attachments.UnitAttachment" type="unitType">

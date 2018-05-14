@@ -4670,9 +4670,9 @@
 		 	<option name="movement" value="1"/>
 		 	<option name="attack" value="1"/>
 		 	<option name="defense" value="3"/>
-		 	<option name="transportCost" value="2"/>
 		 	<option name="isInfantry" value="true"/>
 		 	<option name="isAirTransportable" value="true"/> 
+		 	<option name="transportCost" value="2"/>
 		 	<option name="createsResourcesList" value="-1:PUs"/>
 		</attachment>
 		<attachment name="unitAttachment" attachTo="marine" javaClass="games.strategy.triplea.attachments.UnitAttachment" type="unitType">
@@ -4717,11 +4717,11 @@
 		 	<option name="isInfantry" value="true"/>
 		 	<option name="isAirTransportable" value="true"/>
 		 	<option name="isConstruction" value="true"/>
+			<option name="canOnlyBePlacedInTerritoryValuedAtX" value="1"/>
 			<option name="constructionType" value="placementMercenary"/>
 			<option name="maxConstructionsPerTypePerTerr" value="100"/>
 			<option name="constructionsPerTerrPerTypePerTurn" value="2"/>
 		 	<option name="createsResourcesList" value="-1:PUs"/>
-			<option name="canOnlyBePlacedInTerritoryValuedAtX" value="1"/>
 		</attachment>
 		<attachment name="unitAttachment" attachTo="nuke" javaClass="games.strategy.triplea.attachments.UnitAttachment" type="unitType">
 			<option name="movement" value="1"/> <!-- Receives extra movement from bombers(2) and carriers(1) -->
@@ -4733,6 +4733,7 @@
 			<option name="maxAAattacks" value="4"/>
 			<option name="isAAforCombatOnly" value="true"/>
 			<option name="typeAA" value="nuclearBlast"/>
+			<option name="damageableAA" value="true"/>
 			<option name="targetsAA" value="infantry:artillery:tank:fighter:bomber:destroyer:submarine:carrier:battleship:zealot:stormtrooper:heavyTank:katyusha:conscript:garrison:marine:tankHunter:mercenary:nuke:rocket:r.Interceptor:r.Artillery:flakHalftrack"/>
 			<option name="isStrategicBomber" value="true"/>
 			<option name="bombingBonus" value="10"/>
@@ -5556,6 +5557,7 @@
 			<option name="combatOffenseEffect" value="artillery" count="-1"/>
 			<option name="combatOffenseEffect" value="tank" count="-1"/>
 			<option name="combatOffenseEffect" value="zealot" count="-1"/>
+			<option name="combatOffenseEffect" value="stormtrooper" count="-1"/>
 			<option name="combatOffenseEffect" value="heavyTank" count="-1"/>
 			<option name="combatOffenseEffect" value="katyusha" count="-1"/>
 			<option name="combatOffenseEffect" value="conscript" count="-1"/>
@@ -5586,12 +5588,15 @@
 		</attachment>
 		<attachment name="territoryEffectAttachment" attachTo="Jungle" javaClass="games.strategy.triplea.attachments.TerritoryEffectAttachment" type="territoryEffect">
 			<option name="combatDefenseEffect" value="infantry" count="1"/>
-			<option name="combatDefenseEffect" value="marine" count="1"/>
-			<option name="combatDefenseEffect" value="mercenary" count="1"/>
-			<option name="combatDefenseEffect" value="garrison" count="1"/>
 			<option name="combatOffenseEffect" value="infantry" count="1"/>
+			<option name="combatDefenseEffect" value="marine" count="1"/>
 			<option name="combatOffenseEffect" value="marine" count="1"/>
+			<option name="combatDefenseEffect" value="mercenary" count="1"/>
 			<option name="combatOffenseEffect" value="mercenary" count="1"/>
+			<option name="combatDefenseEffect" value="garrison" count="1"/>
+			<option name="combatOffenseEffect" value="garrison" count="1"/>
+			<option name="combatDefenseEffect" value="stormtrooper" count="1"/>
+			<option name="combatOffenseEffect" value="stormtrooper" count="1"/>
 			<option name="noBlitz" value="tank"/>
 			<option name="noBlitz" value="zealot"/>
 			<option name="noBlitz" value="tankHunter"/>
