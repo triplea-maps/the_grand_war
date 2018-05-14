@@ -4610,30 +4610,6 @@
 		</attachment>
 <!-- /AUXILIARY CONVOYS UNLOCK -->
 
-<!-- GIANT ENEMY CRAB
-		<attachment name="triggerAttachmentGiantEnemyCrab" attachTo="Korea" javaClass="games.strategy.triplea.attachments.TriggerAttachment" type="player">
-			<option name="conditions" value="conditionAttachmentHasDepletedUraniumKorea"/>
-			<option name="conditions" value="conditionAttachmentHasBombKorea"/>
-			<option name="conditions" value="conditionAttachmentNuclearReactorKorea"/>
-			<option name="conditions" value="conditionAttachmentHasSRBMKorea"/>
-			<option name="conditions" value="conditionAttachmentHasRocketArtilleryKorea"/>
-			<option name="conditions" value="conditionAttachmentHasRocketInterceptorKorea"/>
-			<option name="conditions" value="conditionAttachmentHasDigitalComputerKorea"/>
-			<option name="conditions" value="conditionAttachmentHasSyntheticsKorea"/>
-			<option name="conditions" value="conditionAttachmentSalvageKorea"/>
-			<option name="conditions" value="conditionAttachmentHasElectricEngineKorea"/>
-			<option name="conditions" value="conditionAttachmentHasSonarKorea"/>
-			<option name="conditions" value="conditionAttachmentHasAuxiliaryConvoysKorea"/>
-			<option name="conditions" value="conditionAttachmentHasRadarKorea"/>
-			<option name="conditions" value="conditionAttachmentHasFlakHalftrackKorea"/>
-			<option name="conditions" value="conditionAttachmentHasSeismicBombKorea"/>
-			<option name="when" value="before:koreaTech"/>
-			<option name="uses" value="1"/>
-			<option name="placement" value="Korea:giantEnemyCrab" count="1"/>
-			<option name="notification" value="giantEnemyCrabNotification"/>
-		</attachment>
-/GIANT ENEMY CRAB -->
-
 <!-- SUPPORT ATTACHMENTS -->
 		<attachment name="supportAttachmentTankHunter" attachTo="tankHunter" javaClass="games.strategy.triplea.attachments.UnitSupportAttachment" type="unitType">
 			<option name="unitType" value="tank"/>
