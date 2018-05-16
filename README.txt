@@ -2,18 +2,6 @@
 
 
 
-Download TripleA from http://triplea-game.org/
-
-
-
-Place the_grand_war-master.zip in the following folder: TripleA\downloadedMaps
-
-
-
-You should now be able to access the scenario and a free-for-all variant from the "Select Map" menu.
-
-
-
 Be sure to read the guide while on the map selection screen. Relevant faction history and unit stats are explained there.
 
 
@@ -23,7 +11,7 @@ Be sure to read the guide while on the map selection screen. Relevant faction hi
 
 This TripleA map was developed with pride by Elreigh between April 9 and May 7, 2018. 
 
-The scenario is based on a nations role-play game that I ran with a few friends of mine in early 2018. 
+The scenario is based on a history-building nations role-play game that I ran with a few friends of mine in early 2018. 
 
 Thanks to CrowTheMagician, Dean, Olors, Pon3, Roarshack, SgtDornan, Stoffe, Taryn, Triangle, and Xia for helping to create the game world. 
 
