@@ -1,4 +1,4 @@
-<?xml version="1.0" ?>
+<?xml version="3.0" ?>
 <!DOCTYPE game SYSTEM "game.dtd">
 <game>
 	<info name="The Grand War" version="1"/>
@@ -4850,7 +4850,7 @@
 		<attachment name="unitAttachment" attachTo="fighter" javaClass="games.strategy.triplea.attachments.UnitAttachment" type="unitType">
 		 	<option name="movement" value="4"/>
 		 	<option name="attack" value="2"/>
-		 	<option name="defense" value="4"/>
+		 	<option name="defense" value="3"/>
 		 	<option name="carrierCost" value="2"/>
 		 	<option name="isAir" value="true"/>
 			<option name="canIntercept" value="false"/>
