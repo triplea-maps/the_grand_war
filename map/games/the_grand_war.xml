@@ -1,7 +1,7 @@
 <?xml version="1.0" ?>
 <!DOCTYPE game SYSTEM "game.dtd">
 <game>
-	<info name="The Grand War" version="1"/>
+	<info name="The Grand War" version="3"/>
 	<loader javaClass="games.strategy.triplea.TripleA"/>
 	<map>
 		<!-- Territory Definitions -->
