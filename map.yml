@@ -1,0 +1,4 @@
+map_name: the_grand_war
+games:
+- {game_name: The Grand War, file_name: the_grand_war.xml}
+- {game_name: The Grand War Free for All, file_name: the_grand_war_11pFFA.xml}
