@@ -1,0 +1,834 @@
+<html>
+<body bgcolor="DADADA" align="center">
+
+<div style="text-align: center;">
+<br>
+	
+<br><span style="font-size:280%;color:000000;"></span><b><span style="font-size:280%;color:660000;">ORDER AND UNION</span></b><span style="font-size:280%;color:000000;"></span>
+<br>
+<span style="font-size:200%"><b>The Grand War</b></span>
+<br>
+<br>
+<br><span style="font-size:120%"><b>Scenario by Elreigh</b></span>
+<br>Unit Sprites by Fairline (from the civfanatics forum)
+<br>
+<br>
+
+<br><span style="font-size:120%"><b>Important! Turn on Unit Flags!</b></span>
+<div style="text-align: left;">
+Naval units are identical without flags to distinguish them, and many land units may need further distinction as well. To turn on unit flags: View > Flag Display Mode > Show Unit Flags
+<br>
+<br>
+<div style="text-align: center;">
+
+<table border="1"bgcolor="ABABAB">
+	<tr>
+	<th style="font-size:110%;000000"bgcolor="FEECE2"colspan="2">Alliances</th>
+	</tr>
+	<tr>
+	<th bgcolor="ABABAB">Union</th>
+	<th bgcolor="BDBDBD">Order</th>
+	</tr>
+	<tr>
+	<td bgcolor="992778"><div style="text-align: center;"><img src="Mazdak_small - Copy.png"/><b>Mazdak</b><img src="Mazdak_small.png"/></td>
+	<td bgcolor="FF8836"><div style="text-align: center;"><img src="China_small - Copy.png"/><b>China</b><img src="China_small.png"/></td>
+	</tr>
+	<tr>
+	<td bgcolor="EF775C"><div style="text-align: center;"><img src="EuroForce_small - Copy.png"/><b>EuroForce</b><img src="EuroForce_small.png"/></td>
+	<td bgcolor="598460"><div style="text-align: center;"><img src="Russia_small - Copy.png"/><b>Russia</b><img src="Russia_small.png"/></td>
+	</tr>
+	<tr>
+	<td bgcolor="A22F2B"><div style="text-align: center;"><img src="India_small - Copy.png"/><b>India</b><img src="India_small.png"/></td>
+	<td bgcolor="827734"><div style="text-align: center;"><img src="Arcadia_small - Copy.png"/><b>Arcadia</b><img src="Arcadia_small.png"/></td>
+	</tr>
+	<tr>
+	<td bgcolor="3F769E"><div style="text-align: center;"><img src="Korea_small - Copy.png"/><b>Korea</b><img src="Korea_small.png"/></td>
+	<td bgcolor="D50000"><div style="text-align: center;"><img src="Hoshida_small - Copy.png"/><b>Hoshida</b><img src="Hoshida_small.png"/></td>
+	</tr>
+	<tr>
+	<td bgcolor="5CB7FF"><div style="text-align: center;"><img src="Meijou_small - Copy.png"/><b>Meijou</b><img src="Meijou_small.png"/></td>
+	<td bgcolor="FFD800"><div style="text-align: center;"><img src="Grands_small - Copy.png"/><b>Grands</b><img src="Grands_small.png"/></td>
+	</tr>
+</table>
+
+<br>
+<br>
+
+<table border="1"bgcolor="ABABAB">
+	<tr>
+	<th style="font-size:120%;000000"bgcolor="FEECE2"colspan="6">Standard Units</th>
+	</tr>
+
+	<th>Unit</th>
+	<th>atk</th>
+	<th>def</th>
+	<th>move</th>
+	<th>cost</th>
+	<th>special abilities</th>
+	</tr>
+
+	<tr bgcolor="BDBDBD">
+	<td>Infantry <br><img src="infantry.png"/></td>
+	<td>1</td>
+	<td>2</td>
+	<td>1</td>
+	<td>3</td>
+	<td>Receives artillery atk bonus, occupies 2 transport capacity</td>
+	</tr>
+	
+	<td>Artillery <br><img src="artillery.png"/></td>
+	<td>2</td>
+	<td>2</td>
+	<td>1</td>
+	<td>4</td>
+	<td>Provides +1atk to one allied infantry when attacking, occupies 3 transport capacity</td>
+	</tr>
+	
+	<tr bgcolor="BDBDBD">
+	<td>Tank <br><img src="tank.png"/></td>
+	<td>3</td>
+	<td>3</td>
+	<td>2</td>
+	<td>6</td>
+	<td>Can blitz unoccupied territory, receives fighter atk bonus, occupies 3 transport capacity</td>
+	</tr>
+	
+	<td>Fighter <br><img src="fighter.png"/></td>
+	<td>2</td>
+	<td>3</td>
+	<td>4</td>
+	<td>8</td>
+	<td>Provides +1atk to one allied tank when attacking, occupies 2 carrier capacity</td>
+	</tr>
+	
+	<tr bgcolor="BDBDBD">
+	<td>Bomber <br><img src="bomber.png"/></td>
+	<td>3</td>
+	<td>1</td>
+	<td>6</td>
+	<td>10</td>
+	<td>Can perform strategic bombing against factories, occupies 3 carrier capacity</td>
+	</tr>
+	
+	<td>Submarine <br><img src="sub.png"/></td>
+	<td>2</td>
+	<td>1</td>
+	<td>2</td>
+	<td>6</td>
+	<td>Has stealth abilities; fires before other units, cannot be targetted by air units, can move through enemy fleets without engaging</td>
+	</tr>
+	
+	<tr bgcolor="BDBDBD">
+	<td>Destroyer <br><img src="destroyer.png"/></td>
+	<td>2</td>
+	<td>2</td>
+	<td>2</td>
+	<td>8</td>
+	<td>Negates one enemy submarine's stealth abilities, has 5 transport capacity</td>
+	</tr>
+	
+	<td>Carrier <br><img src="carrier.png"/></td>
+	<td>0</td>
+	<td>3</td>
+	<td>2</td>
+	<td>14</td>
+	<td>Has 5 aircraft carrier capacity</td>
+	</tr>
+	
+	<tr bgcolor="BDBDBD">
+	<td>Battleship <br><img src="battleship.png"/></td>
+	<td>3x3</td>
+	<td>4</td>
+	<td>2</td>
+	<td>20</td>
+	<td>Rolls thrice each combat round while attacking, can bombard land units once during an amphibious assault (rolls 3d6, hits on a 1)</td>
+	</tr>
+	
+	<td>Factory <br><img src="factory.png"/></td>
+	<td></td>
+	<td></td>
+	<td></td>
+	<td>15</td>
+	<td>Produces up to 8 units per turn, performs AA fire against strategic bombing, takes 4 damage when captured, unit production lowered by 1 per point of damage, can receive up to 16 damage</td>
+	</tr>
+
+	<tr bgcolor="BDBDBD">
+	<td>Refinery <br><img src="refinery.png"/></td>
+	<td></td>
+	<td></td>
+	<td></td>
+	<td>5</td>
+	<td>Can be destroyed by 6 strategic bombing damage, produces 2 oil per turn, may only be constructed in territories that produce oil, performs AA fire against strategic bombing, takes 1 damage when captured</td>
+	</tr>
+	
+</table>
+<br>
+
+
+<table border="1"bgcolor="ABABAB">
+	<tr>
+	<th style="font-size:120%;000000"bgcolor="FEECE2"colspan="7">Unique Units</th>
+	</tr>
+
+	<th>Unit</th>
+	<th>Nation</th>
+	<th>atk</th>
+	<th>def</th>
+	<th>move</th>
+	<th>cost</th>
+	<th>special abilities</th>
+	</tr>
+
+	<tr bgcolor="BDBDBD">
+	<td>Zealot <br><img src="zealot.png"/></td>
+	<td>Mazdak</th>
+	<td>2</td>
+	<td>1</td>
+	<td>2</td>
+	<td>4</td>
+	<td>Can blitz through unoccupied territory, has a 50% chance to destroy one random enemy land unit once per battle when attacking</td>
+	</tr>
+
+	<td>Stormtrooper <br><img src="stormtrooper.png"/></td>
+	<td>China</th>
+	<td>2</td>
+	<td>1</td>
+	<td>1</td>
+	<td>3</td>
+	<td>Receives artillery atk bonus</td>
+	</tr>
+	
+	<tr bgcolor="BDBDBD">
+	<td>Heavy Tank <br><img src="heavyTank.png"/></td>
+	<td>EuroForce</th>
+	<td>4</td>
+	<td>4</td>
+	<td>2</td>
+	<td>10</td>
+	<td>Has two hit points, can blitz through unoccupied territory, consumes 2 oil per movement</td>
+	</tr>
+
+	<td>Katyusha <br><img src="katyusha.png"/></td>
+	<td>Russia</th>
+	<td>1</td>
+	<td>0</td>
+	<td>2</td>
+	<td>4</td>
+	<td>Provides +1atk to three allied infantry when attacking (this effect stacks with artillery)</td>
+	</tr>
+	
+	<tr bgcolor="BDBDBD">
+	<td>Conscript <br><img src="conscript.png"/></td>
+	<td>India</th>
+	<td>0</td>
+	<td>0</td>
+	<td>1</td>
+	<td>1.6</td>
+	<td>Must be purchased in sets of three, has no upkeep cost, receives +1atk/+1def from Indian infantry</td>
+	</tr>
+
+	<td>Motor Pool <br><img src="motorPool.png"/></td>
+	<td>Arcadia</th>
+	<td></td>
+	<td></td>
+	<td></td>
+	<td>5</td>
+	<td>Provides +1 movement to allied infantry, is destroyed when captured</td>
+	</tr>
+	
+	<tr bgcolor="BDBDBD">
+	<td>Garrison <br><img src="garrison.png"/></td>
+	<td>Korea</th>
+	<td>1</td>
+	<td>3</td>
+	<td>1</td>
+	<td>4</td>
+	<td>Receives artillery atk bonus</td>
+	</tr>
+
+	<td>Marine <br><img src="marine.png"/></td>
+	<td>Hoshida</th>
+	<td>1</td>
+	<td>2</td>
+	<td>1</td>
+	<td>4</td>
+	<td>Receives +2atk when performing an amphibious assault, receives +1def on an island, receives artillery atk bonus</td>
+	</tr>
+	
+	<tr bgcolor="BDBDBD">
+	<td>Tank Hunter <br><img src="tankHunter.png"/></td>
+	<td>Meijou</th>
+	<td>1</td>
+	<td>3</td>
+	<td>2</td>
+	<td>4</td>
+	<td>Reduces one enemy tank by -1atk/-1def in battle</td>
+	</tr>
+
+	<td>Coalition Factory <br><img src="coalitionFactory.png"/></td>
+	<td>Grands</th>
+	<td></td>
+	<td></td>
+	<td></td>
+	<td>5</td>
+	<td>A factory which also provides +1 PU/turn, is destroyed when captured, can receive a maximum of 8 strategic bombing damage</td>
+	</tr>
+
+	<tr bgcolor="BDBDBD">
+	<td>Mercenary <br><img src="mercenary.png"/></td>
+	<td>NonAligned</th>
+	<td>1</td>
+	<td>2</td>
+	<td>1</td>
+	<td>3.5</td>
+	<td>Can be placed without a factory, must be purchased in sets of two</td>
+	</tr>
+	
+</table>
+<br>
+
+<table border="1"bgcolor="ABABAB">
+	<tr>
+	<th style="font-size:120%;000000"bgcolor="FEECE2"colspan="7">Tech Units</th>
+	</tr>
+
+	<th>Unit</th>
+	<th>Tech</th>
+	<th>atk</th>
+	<th>def</th>
+	<th>move</th>
+	<th>cost</th>
+	<th>special abilities</th>
+	</tr>
+
+	<tr bgcolor="BDBDBD">
+	<td>Nuclear Facility <br><img src="nuclearFacility.png"/></td>
+	<td>The Bomb</th>
+	<td></td>
+	<td></td>
+	<td></td>
+	<td>10</td>
+	<td>Produces uranium, can be destroyed by 12pts of strategic bombing, cannot be placed in territories containing normal factories, provides "The Bomb" tech to whoever captures it</td>
+	</tr>
+
+	<td>Nuke <br><img src="nuke.png"/></td>
+	<td>The Bomb</th>
+	<td></td>
+	<td></td>
+	<td>1</td>
+	<td>10</td>
+	<td>Additionally costs 3 uranium, destroys 4 random units, cannot be intercepted or shot down by AA, can strategic bomb for 10+d6 damage, single use unit, receives additional movement from carriers (+1) and bombers (+2)</td>
+	</tr>
+	
+	<tr bgcolor="BDBDBD">
+	<td>Rocket <br><img src="rocket.png"/></td>
+	<td>SRBM</th>
+	<td></td>
+	<td></td>
+	<td>3</td>
+	<td>4</td>
+	<td>Can strategic bomb, cannot be shot down by AA, single use unit</td>
+	</tr>
+
+	<td>Rocket Interceptor <br><img src="r.Interceptor.png"/></td>
+	<td>Rocket Interceptor</th>
+	<td>1</td>
+	<td>4</td>
+	<td>3</td>
+	<td>6</td>
+	<td>Can intercept strategic bombers and rockets</td>
+	</tr>
+	
+	<tr bgcolor="BDBDBD">
+	<td>Rocket Artillery <br><img src="r.Artillery.png"/></td>
+	<td>Rocket Artillery</th>
+	<td>1</td>
+	<td>0</td>
+	<td>1</td>
+	<td>4</td>
+	<td>Provides +1 atk to three allied infantry when attacking (this effect stacks with artillery)</td>
+	</tr>
+
+	<td>Flak Halftrack <br><img src="flakHalftrack.png"/></td>
+	<td>Proximity Fuse</th>
+	<td>2</td>
+	<td>2</td>
+	<td>2</td>
+	<td>5</td>
+	<td>Performs AA fire on offense and defense, can blitz through unoccupied territory</td>
+	</tr>
+		
+</table>
+<br>
+
+
+<table border="1"bgcolor="ABABAB">
+	<tr>
+	<th style="font-size:120%;000000"bgcolor="FEECE2"colspan="3">Technology</th>
+	</tr>
+
+	<th>Tech</th>
+	<th>Category</th>
+	<th>Description</th>
+	</tr>
+
+	<tr bgcolor="BDBDBD">
+	<td>The Bomb</td>
+	<td>Nuclear</td>
+	<td>Allows you to build nuclear facilities, which produce uranium, and nukes, which require uranium</td>
+	</tr>
+
+	<tr bgcolor="BDBDBD">
+	<td>Depleted Uranium</td>
+	<td>Nuclear</td>
+	<td>Tanks reduce enemy tanks by -1atk/-1def in battle. Also applies to Tank Hunters and Heavy Tanks.</td>
+	</tr>
+
+	<tr bgcolor="BDBDBD">
+	<td>Nuclear Reactor</td>
+	<td>Nuclear</td>
+	<td>Provides a one-time bonus of 8 uranium and 3 tech tokens.</td>
+	</tr>
+
+	<td>Rocket Interceptor</td>
+	<td>Rocketry</td>
+	<td>Allows you to build rocket interceptors, cheap short range aircraft which excel in defensive air battles and can intercept enemy bombers</td>
+	</tr>
+
+	<td>Rocket Artillery</td>
+	<td>Rocketry</td>
+	<td>Allows you to build rocket artillery, which can support up to three infantry in an attack but have poor defensive value</td>
+	</tr>
+
+	<td>SRBM</td>
+	<td>Rocketry</td>
+	<td>Allows you to build rockets, which can strategically bomb enemy infrastructure without being shot down by AA</td>
+	</tr>
+
+	<tr bgcolor="BDBDBD">
+	<td>Salvage</td>
+	<td>Industrial</td>
+	<td>Repairs are half cost and you will gain 2PUs for each 5PUs worth of enemy units destroyed, to a maximum of 10PUs income
+	</tr>
+
+	<tr bgcolor="BDBDBD">
+	<td>Digital Computer</td>
+	<td>Industrial</td>
+	<td>You may trade PUs for tech tokens and vice versa; pay 5PUs for one techToken, or pay 1techTocken for 7PUs</td>
+	</tr>
+
+	<tr bgcolor="BDBDBD">
+	<td>Synthetics</td>
+	<td>Industrial</td>
+	<td>You may trade oil for PUs and vice versa; pay 1PU for 1oil, or pay 3oil for 1PU</td>
+	</tr>
+
+	<td>Sonar</td>
+	<td>Naval</td>
+	<td>Destroyers reduce enemy submarines by -1atk/-1def</td>
+	</tr>
+
+	<td>Electric Engine</td>
+	<td>Naval</td>
+	<td>Submarines receive +1atk/+2def</td>
+	</tr>
+
+	<td>Auxiliary Convoys</td>
+	<td>Naval</td>
+	<td>All naval units receive +1 movement</td>
+	</tr>
+
+	<tr bgcolor="BDBDBD">
+	<td>Radar</td>
+	<td>Air</td>
+	<td>Provides +1atk/+1def for air battles to all air units and +1AA defense to infrastructure (factories, etc.)</td>
+	</tr>
+
+	<tr bgcolor="BDBDBD">
+	<td>Seismic Bomb</td>
+	<td>Air</td>
+	<td>Gives bombers +1atk and +3strategic bombing bonus</td>
+	</tr>
+
+	<tr bgcolor="BDBDBD">
+	<td>Proximity Fuse</td>
+	<td>Air</td>
+	<td>Allows you to build the flak halftrack, a special anti-air land unit. Also, carriers/battleships gain +2AA defense.</td>
+	</tr>
+		
+</table>
+
+<br>
+<table border="1"bgcolor="ABABAB">
+	<tr>
+	<th style="font-size:120%;000000"bgcolor="FEECE2"colspan="11">Tech Frequency</th>
+	</tr>
+
+	<th></th>
+	<th>Ma</th>
+	<th>Ch</th>
+	<th>Eu</th>
+	<th>Ru</th>
+	<th>In</th>
+	<th>Ar</th>
+	<th>Ko</th>
+	<th>Ho</th>
+	<th>Me</th>
+	<th>Gr</th>
+	</tr>
+
+	<tr bgcolor="BDBDBD">
+	<td>The Bomb</td>
+	<td>1</td>
+	<td>1</td>
+	<td>1</td>
+	<td>1</td>
+	<td>1</td>
+	<td>1</td>
+	<td>1</td>
+	<td>1</td>
+	<td>1</td>
+	<td>1</td>
+	</tr>
+
+	<tr bgcolor="BDBDBD">
+	<td>Depleted Uranium</td>
+	<td>1</td>
+	<td>1</td>
+	<td>1</td>
+	<td>1</td>
+	<td>1</td>
+	<td>1</td>
+	<td>1</td>
+	<td>1</td>
+	<td>1</td>
+	<td>1</td>
+	</tr>
+
+	<tr bgcolor="BDBDBD">
+	<td>Nuclear Reactor</td>
+	<td>4</td>
+	<td>4</td>
+	<td>4</td>
+	<td>4</td>
+	<td>4</td>
+	<td>4</td>
+	<td>4</td>
+	<td>4</td>
+	<td>4</td>
+	<td>4</td>
+	</tr>
+
+	<td>Rocket Interceptor</td>
+	<td>1</td>
+	<td>1</td>
+	<td>2</td>
+	<td>3</td>
+	<td>2</td>
+	<td>1</td>
+	<td>3</td>
+	<td>4</td>
+	<td>3</td>
+	<td>2</td>
+	</tr>
+
+	<td>Rocket Artillery</td>
+	<td>4</td>
+	<td>4</td>
+	<td>2</td>
+	<td>0</td>
+	<td>3</td>
+	<td>1</td>
+	<td>2</td>
+	<td>1</td>
+	<td>2</td>
+	<td>2</td>
+	</tr>
+
+	<td>SRBM</td>
+	<td>1</td>
+	<td>1</td>
+	<td>2</td>
+	<td>3</td>
+	<td>1</td>
+	<td>4</td>
+	<td>1</td>
+	<td>1</td>
+	<td>1</td>
+	<td>2</td>
+	</tr>
+
+	<tr bgcolor="BDBDBD">
+	<td>Salvage</td>
+	<td>4</td>
+	<td>1</td>
+	<td>2</td>
+	<td>2</td>
+	<td>4</td>
+	<td>1</td>
+	<td>1</td>
+	<td>1</td>
+	<td>1</td>
+	<td>2</td>
+	</tr>
+
+	<tr bgcolor="BDBDBD">
+	<td>Digital Computer</td>
+	<td>1</td>
+	<td>2</td>
+	<td>1</td>
+	<td>1</td>
+	<td>1</td>
+	<td>4</td>
+	<td>1</td>
+	<td>1</td>
+	<td>3</td>
+	<td>2</td>
+	</tr>
+
+	<tr bgcolor="BDBDBD">
+	<td>Synthetics</td>
+	<td>1</td>
+	<td>3</td>
+	<td>3</td>
+	<td>3</td>
+	<td>1</td>
+	<td>1</td>
+	<td>4</td>
+	<td>4</td>
+	<td>2</td>
+	<td>2</td>
+	</tr>
+
+	<td>Sonar</td>
+	<td>1</td>
+	<td>2</td>
+	<td>2</td>
+	<td>2</td>
+	<td>1</td>
+	<td>2</td>
+	<td>2</td>
+	<td>1</td>
+	<td>3</td>
+	<td>1</td>
+	</tr>
+
+	<td>Electric Engine</td>
+	<td>4</td>
+	<td>2</td>
+	<td>2</td>
+	<td>2</td>
+	<td>4</td>
+	<td>3</td>
+	<td>1</td>
+	<td>2</td>
+	<td>1</td>
+	<td>4</td>
+	</tr>
+
+	<td>Auxiliary Convoys</td>
+	<td>1</td>
+	<td>2</td>
+	<td>2</td>
+	<td>2</td>
+	<td>1</td>
+	<td>1</td>
+	<td>3</td>
+	<td>3</td>
+	<td>2</td>
+	<td>1</td>
+	</tr>
+
+	<tr bgcolor="BDBDBD">
+	<td>Radar</td>
+	<td>1</td>
+	<td>1</td>
+	<td>2</td>
+	<td>2</td>
+	<td>3</td>
+	<td>2</td>
+	<td>2</td>
+	<td>2</td>
+	<td>1</td>
+	<td>1</td>
+	</tr>
+
+	<tr bgcolor="BDBDBD">
+	<td>Seismic Bomb</td>
+	<td>1</td>
+	<td>1</td>
+	<td>2</td>
+	<td>2</td>
+	<td>1</td>
+	<td>3</td>
+	<td>2</td>
+	<td>2</td>
+	<td>2</td>
+	<td>4</td>
+	</tr>
+
+	<tr bgcolor="BDBDBD">
+	<td>Proximity Fuse</td>
+	<td>4</td>
+	<td>4</td>
+	<td>2</td>
+	<td>2</td>
+	<td>2</td>
+	<td>1</td>
+	<td>2</td>
+	<td>2</td>
+	<td>3</td>
+	<td>1</td>
+	</tr>
+		
+</table>
+<br>
+
+<table border="1"bgcolor="ABABAB">
+	<tr>
+	<th style="font-size:120%;000000"bgcolor="FEECE2"colspan="2">Terrain</th>
+	</tr>
+
+	<th>Type</th>
+	<th>Description</th>
+	</tr>
+
+	<tr bgcolor="BDBDBD">
+	<td>Tundra <br><img src="Tundra.png"/></td>
+	<td>Reduces all land units by -1atk, units cannot blitz through this terrain</td>
+	</tr>
+
+	<td>Desert <br><img src="Desert.png"/></td>
+	<td>Provides +1atk/+1def to tanks, heavy tanks, tank hunters, halftracks, and zealots</td>
+	</tr>
+
+	<tr bgcolor="BDBDBD">
+	<td>Mountains <br><img src="Mountains.png"/></td>
+	<td>Provides -1atk/+1def to artillery, rocket artillery, and katyusha; units cannot blitz through this terrain</td>
+	</tr>
+
+	<td>Jungle <br><img src="Jungle.png"/></td>
+	<td>Provides +1atk/+1def to infantry, stormtroopers, garrisons, mercenaries, and marines; units cannot blitz through this terrain</td>
+	</tr>
+		
+	<tr bgcolor="BDBDBD">
+	<td>Island <br><img src="Island.png"/></td>
+	<td>Provides +1def to marines</td>
+	</tr>
+</table>
+<br>
+
+<br>
+<div style="text-align: center;">
+<br>==========================================================
+<br>
+<h1 style="text-align: center;font-size:120%;000000"><em>Special Rules</em></h1>
+
+<div style="text-align: left;">
+	<ul>
+	<li>Tech tokens are provided by territories with victory cities. You may also purchase tokens for 10PUs each, or 7PUs if you have the Digital Computer technology. Tech tokens roll on low luck, so six tokens guarantees a tech discovery. Any more than six are a waste, so do not buy more if you already have six.
+	<li>Most units require oil to move. Battleships, Carriers, Halftracks, and Tanks require one oil for each territory they move through. Destroyers, Submarines, Fighters, Bombers, and Interceptors only require one oil per turn for any amount of movement in that turn.
+	<li>All land units (not including buildings) require 1PU per turn in upkeep. The following units are an exception, and require no upkeep: Conscript, Nuke, and Rocket.
+	<li>Grands has a special "Grande Armee" on an off-board territory which can be moved to any territory they controlled at the start of the game.
+	<li>Grands does not have a capital territory, and so their ability to produce units cannot be stopped without removing them from the board entirely. This is done to represent the fact that Grands is a widespread alliance of states and underground movements, which can change over time with the territory they control.
+	<li>China also does not have a capital territory, and furthermore they have an off-board production center and income, meaning that they can continue producing units even if they lose all of their territories on the board. This is done to represent the fact that China is a state in rebellion against Korean occupation.
+	<li>India has a flow of "volunteers" from an off-board territory which lasts for five turns.
+	<li>If the Mazdaks capture the holy city of Arcadia they will spawn armies in all of the Mazdakist regions of the world (Mazdak S.R., Hedjaz, Makan, Dravidia S.R., Bengal, Burma, and Sumatra), gain a one-time bonus of 50PUs, and automatically declare war on all of their former allies to fulfill a prophecy regarding Mazdak global conquest.
+	<li>Many territories will revert to a different ally if captured from their original owner. For instance, Niverhotsk will revert to Russian ownership if captured by China. You can easily identify these territories by the font used for them on the map, except in the case of the Chinese provinces; Tulra, Yuyuan, Manchuria, Canton, Gungzi, and Shandong can only be controlled by either China or Korea.
+	<li>The Comintern does not liberate provinces to allies; if Mazdak or India capture a Union member's original territory, they will keep it permanently unless an enemy captures it back from them. This includes friendly capitals. By the same stroke, other Union members do not return territory to comintern members.
+	<li>If you are reduced to three or fewer territories, or if you lose your capital, you will be granted the "Total War" tech, which provides 1 PU per turn per territory you control. If you lost your capital, you must reclaim it before making any income from this technology. The "Rebels and Reinforcements" zone does not count toward the three territory condition, except in the case of China. For the NonAligned faction, you must be reduced to just one territory for Total War to trigger.
+	</ul>
+
+
+<br>
+<div style="text-align: center;">
+<br>==========================================================
+<br>
+<h1 style="text-align: center;font-size:120%;000000"><em>History</em></h1>
+
+<div style="text-align: left;">
+
+<br><img src="Mazdak.png"/>
+<br><span style="font-size:120%"><b><em>Mazdak</em></b></span>
+<br>The Mazdak Socialist Republic, once a colony of Arcadia, is descended from Arab colonists of the Mazdakist cult of Zoroastrian Christianity. They call themselves "the first communists," since their extremist religion has tenets which align perfectly with communism, and the Mazdaks have readily embraced the new socialist ideology as the "final renovation of the world" foretold by prophecy.
+<br>
+<br>The Mazdak emblem is a pair of angelic wings, representing their Zoroastrian origins, crowned by a pair of swords splitting apart four stars, which represents the holy city of Arcadia, which lays in the center of four connecting landmasses, each of which also represent a classical element in Mazdakist tradition: the Balkans/Water, Caucasia/Earth, Persia/Air, and Arabia/Fire.
+<br>
+
+<br><img src="China.png"/>
+<br><span style="font-size:120%"><b><em>China</em></b></span>
+<br>A nationalist movement bankrolled by Arcadia, the Chinese resistance has been fighting against Korea for nearly a century. Now, with a global conflict kicking off, China may finally have the opportunity to shake off the Korean yoke for good.
+<br>
+<br>The symbol of the Chinese republic is the White Sun, which represents democracy and equality, upon a blue field, representing liberty. Each of the twelve rays on the sun represents a month of the year and a sichen, a traditional Chinese measurement of time equaling two hours.
+<br>
+
+<br><img src="EuroForce.png"/>
+<br><span style="font-size:120%"><b><em>EuroForce</em></b></span>
+<br>A coalition of nations, EuroForce was originally assembled to give power to the Estrean revolutionary empire. Over time, however, the alliance has been strengthened and politically centralized into a confederation, and leadership has shifted from Estres to Ulug Aal. EuroForce has been the eternal rival of Grands and Russia, who have taken advantage of Europe's recent war with Arcadia to destroy their old enemy once and for all.
+<br>
+<br>The EuroForce symbol is an ark - representing Arkism, the majority religion of Europe - constructed of eleven stars, each representing one of EuroForce's current members: Ulug-Aal, Estres, Majidiing, Khertekia, Hungary, Germany, Batavia, Poland, Khemet, Aksum, and Gallia.
+<br>
+
+<br><img src="Russia.png"/>
+<br><span style="font-size:120%"><b><em>Russia</em></b></span>
+<br>Russia has traditionally been ruled as a theocratic monarchy, but a revolution nearly a century ago replaced their monarchy with a representative republic. An ensuing civil war tore the nation apart, and Russia is still struggling to reclaim its former glory and find its place in the world. Russia's historic antagonism with the European powers has pushed them into the welcoming arms of Arcadia during this world war.
+<br>
+<br>Russia's symbol is that of its ancient theocracy: a two-headed eagle bearing the Orthodox cross upon its chest.
+<br>
+
+<br><img src="India.png"/>
+<br><span style="font-size:120%"><b><em>India</em></b></span>
+<br>The world's first communist government, the Socialist Union of Free Factions and Equal Republics (SUFFER) is a union of three socialist republics - India, Dravidia, and Tibet - and fifty-two autonomous territories called "factions." In theory the three republics are of equal power and the factions govern themselves, but in reality the nation is an autocracy lead by the bureaucrats of Gwalhi, who are almost exclusively Hindi. As such, the nation is most commonly known as India, to the point that few outside of SUFFER even know the nation's proper name.
+<br>
+<br>The symbol of India is the hammer and sickle, a standard communist emblem representing unity between agricultural and industrial laborers.
+<br>
+
+<br><img src="Arcadia.png"/>
+<br><span style="font-size:120%"><b><em>Arcadia</em></b></span>
+<br>A Zoroastrian nation with a storied past, Arcadia has traditionally stood at the forefront of all social movements, no matter how fringe or experimental. Now they lead the charge with socialism, having recently replaced their republic with a fascist government through democratic referendum. The new regime quickly set its sights on expanding Arcadia's territory, especially the conquest of India, which has been the legendary goal of Arcadia's first great emperors. With all other great powers a fair distance away and Arcadia's nearest threats recently subdued, India is the final barricade standing between Arcadia and global hegomonic domination.
+<br> 
+<br>The Arcadian symbol is the Faravahar, a traditional Zoroastrian emblem symbolizing good thoughts, good words, and good deeds, the three tenets of Zoroastrianism.
+<br>
+
+<br><img src="Korea.png"/>
+<br><span style="font-size:120%"><b><em>Korea</em></b></span>
+<br>The Korean Empire is a mixed state, half libertarian confederation, half military autocracy, the whole of which is lead by Emperor Kim Jim Mi. California and the provinces on the Korean peninsula are free republics, but the rest of the empire is commanded singularly by Kim, providing him with an impetus to continue conquering to overcome the democratic half of his empire.
+<br>
+<br>Korea's symbol is the Taegeuk, a traditional symbol representing harmony between heaven and earth, displayed upon a plum flower, the symbol of the imperial family, all encircled by a ribbon bearing the inscription "Republic of Korea."
+<br>
+
+<br><img src="Hoshida.png"/>
+<br><span style="font-size:120%"><b><em>Hoshida</em></b></span>
+<br>Hoshida is the ruling dynasty in a nation of Japanese colonists who were left for dead by the Japanese Empire centuries ago. They have since grown into a mighty empire themselves, eventually overshadowing the Nanikyo Shogunate in Japan. Although a traditional ally of Korea, Hoshida has recently had a falling out with their old friend due to the Korean occupation of Japan during the Nanikyo partition, which Hoshida was hoping to unite into their ethnically Japanese empire.
+<br>
+<br>The symbol of Hoshida is the Chrysanthemum Flower Seal, the imperial seal of royalist Japan, held before a rising golden sun.
+<br>
+
+<br><img src="Meijou.png"/>
+<br><span style="font-size:120%"><b><em>Meijou</em></b></span>
+<br>A revolutionary Islamic republic, Meijou is descended from Majid settlers from Anatolia. Although the Meijou people are fiercely republican and typically isolationist, they do have pity for the old caliphate, and maintain the Arcadian rivalry of their forefathers. The occupation of Majidiing was the final straw which thrust Meijou into the war against Arcadia.
+<br>
+<br>The symbol of Meijou is the moon and star, a modern Islamic symbol, with eleven stripes of red and white representing the eleven original colonies that founded the republic.
+<br>
+
+<br><img src="Grands.png"/>
+<br><span style="font-size:120%"><b><em>G.R.A.N.D.S.</em></b></span>
+<br>An alliance of states, the acronym "G.R.A.N.D.S." initially stood for "Germany, Russia, Albion, North Empire, Denmark, and Spain." Now, however, it is coloquially referred to as "The Grand Old Alliance" and is a coalition of several Atlantic states which primarily seek to defend their own sovereignty from more powerful neighbors, particularly the Estrean revolutionary empire. Grands has been infested with Arcadian influence since its founding nearly a century ago, and the alliance continues to side with Arcadia even through its recent tumultuous regime change.
+<br>
+<br>The Grands symbol is the iron cross, a national symbol of the Nords who spearheaded the alliance's foundation, encircled by the laurels of victory and crowned by five stars, each representing one of the five original sovereign members of Grands, not including Albion, which at the time was a somewhat glorified satellite of the North Empire.
+<br>
+
+<br><img src="NonAligned.png"/>
+<br><span style="font-size:120%"><b><em>The NonAligned Movement</em></b></span>
+<br>Bolivia formed The NonAligned Movement only recently as an attempt to slow the world's progression toward war. Several nations joined in initially, including Avalon, Peru, Chile, and Aergedina. However, with the European invasion and integration of Gallia, Aergedina dropped out of Bolivia's alliance to assist Grands in defending their Gallic mother country. Soon after this, a coup in Chile replaced its isolationist government with a Meijou aligned leadership, which promptly declared war on Aergedina, and Peru was pressured by Meijou into joining as well. Now Bolivia and Avalon stand alone, too weak to defend themselves from their neighbors who all demand that they pick a side.
+<br>
+<br>The NonAligned symbol is a dove in flight, representing peace, flying over three red poppies, which represent the sacrifices of soldiers, sailors, and civilians who make peace possible.
+<br>
+
+	
+	
+<br>
+<br>
+<br>
+</body>
+</html>
